@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>454790891606-cdk9p0f7t1flo5da43uqvosvbuviud49.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.454790891606-cdk9p0f7t1flo5da43uqvosvbuviud49</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD2J7H-Cs3Qm_clGV03kQORxh-WzL-UOYk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>454790891606</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.panteraNegra.TuDoka</string>
+	<key>PROJECT_ID</key>
+	<string>tudoka-1deed</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tudoka-1deed.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:454790891606:ios:bb1e5af58e2135eb</string>
+	<key>DATABASE_URL</key>
+	<string>https://tudoka-1deed.firebaseio.com</string>
+</dict>
+</plist>

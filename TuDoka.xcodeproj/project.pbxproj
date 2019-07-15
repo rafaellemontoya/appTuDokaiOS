@@ -7,21 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
+		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
+		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
+		05688AFD22D014EE00AA483B /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05688AFC22D014EE00AA483B /* DBManager.swift */; };
 		05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CDE22C3FD83008AF884 /* AppDelegate.swift */; };
-		05897CE122C3FD83008AF884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CE022C3FD83008AF884 /* ViewController.swift */; };
+		05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CE022C3FD83008AF884 /* InicioVC.swift */; };
 		05897CE422C3FD83008AF884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05897CE222C3FD83008AF884 /* Main.storyboard */; };
 		05897CE622C3FD85008AF884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05897CE522C3FD85008AF884 /* Assets.xcassets */; };
 		05897CE922C3FD85008AF884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05897CE722C3FD85008AF884 /* LaunchScreen.storyboard */; };
+		05897CF122C40242008AF884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05897CF022C40242008AF884 /* GoogleService-Info.plist */; };
+		059C963722CDD969006CBF9A /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C963622CDD969006CBF9A /* Cliente.swift */; };
+		05A113D122C4117100D0A16E /* HelveticaNeueLTW1G-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05A113CF22C4117000D0A16E /* HelveticaNeueLTW1G-Light.otf */; };
+		05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05A113D022C4117000D0A16E /* HelveticaNeueLTW1G-BOLD.otf */; };
+		05A113D422C412D600D0A16E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A113D322C412D600D0A16E /* Constants.swift */; };
+		05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A113D622C41BD200D0A16E /* MainMenu.swift */; };
+		05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */; };
+		05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */; };
+		D37B9BD2EA26D39CD9C6C54E /* Pods_TuDoka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
+		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
+		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
+		05688AFC22D014EE00AA483B /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		05897CDB22C3FD83008AF884 /* TuDoka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuDoka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05897CDE22C3FD83008AF884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05897CE022C3FD83008AF884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05897CE022C3FD83008AF884 /* InicioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioVC.swift; sourceTree = "<group>"; };
 		05897CE322C3FD83008AF884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05897CE522C3FD85008AF884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05897CE822C3FD85008AF884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05897CEA22C3FD85008AF884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05897CF022C40242008AF884 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		059C963622CDD969006CBF9A /* Cliente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cliente.swift; sourceTree = "<group>"; };
+		05A113CF22C4117000D0A16E /* HelveticaNeueLTW1G-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTW1G-Light.otf"; sourceTree = "<group>"; };
+		05A113D022C4117000D0A16E /* HelveticaNeueLTW1G-BOLD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTW1G-BOLD.otf"; sourceTree = "<group>"; };
+		05A113D322C412D600D0A16E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		05A113D622C41BD200D0A16E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvioVC.swift; sourceTree = "<group>"; };
+		05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDoka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.release.xcconfig"; sourceTree = "<group>"; };
+		B7F112B4EAB0F69CD94BFD79 /* Pods-TuDoka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37B9BD2EA26D39CD9C6C54E /* Pods_TuDoka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +69,8 @@
 			children = (
 				05897CDD22C3FD83008AF884 /* TuDoka */,
 				05897CDC22C3FD83008AF884 /* Products */,
+				523493E27359ACB352C07011 /* Pods */,
+				A046AE37E19ABC2DF0E580D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +85,75 @@
 		05897CDD22C3FD83008AF884 /* TuDoka */ = {
 			isa = PBXGroup;
 			children = (
+				059C963522CDD92A006CBF9A /* Model */,
+				05E93BBA22C440010018FF2A /* AuxiliarViews */,
+				05A113D522C416E800D0A16E /* View */,
+				05A113CE22C4115100D0A16E /* Fonts */,
 				05897CDE22C3FD83008AF884 /* AppDelegate.swift */,
-				05897CE022C3FD83008AF884 /* ViewController.swift */,
+				05897CF022C40242008AF884 /* GoogleService-Info.plist */,
 				05897CE222C3FD83008AF884 /* Main.storyboard */,
 				05897CE522C3FD85008AF884 /* Assets.xcassets */,
 				05897CE722C3FD85008AF884 /* LaunchScreen.storyboard */,
 				05897CEA22C3FD85008AF884 /* Info.plist */,
+				05A113D322C412D600D0A16E /* Constants.swift */,
 			);
 			path = TuDoka;
+			sourceTree = "<group>";
+		};
+		059C963522CDD92A006CBF9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				059C963622CDD969006CBF9A /* Cliente.swift */,
+				05688AFC22D014EE00AA483B /* DBManager.swift */,
+				0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */,
+				0517AEF622DD2CC700422D70 /* Proyecto.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05A113CE22C4115100D0A16E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				05A113D022C4117000D0A16E /* HelveticaNeueLTW1G-BOLD.otf */,
+				05A113CF22C4117000D0A16E /* HelveticaNeueLTW1G-Light.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		05A113D522C416E800D0A16E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05897CE022C3FD83008AF884 /* InicioVC.swift */,
+				05A113D622C41BD200D0A16E /* MainMenu.swift */,
+				05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */,
+				0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05E93BBA22C440010018FF2A /* AuxiliarViews */ = {
+			isa = PBXGroup;
+			children = (
+				05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */,
+			);
+			path = AuxiliarViews;
+			sourceTree = "<group>";
+		};
+		523493E27359ACB352C07011 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7F112B4EAB0F69CD94BFD79 /* Pods-TuDoka.debug.xcconfig */,
+				B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A046AE37E19ABC2DF0E580D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05897CED22C3FD85008AF884 /* Build configuration list for PBXNativeTarget "TuDoka" */;
 			buildPhases = (
+				8BFE9F7F9CCBCAA5B2DFCBDA /* [CP] Check Pods Manifest.lock */,
 				05897CD722C3FD83008AF884 /* Sources */,
 				05897CD822C3FD83008AF884 /* Frameworks */,
 				05897CD922C3FD83008AF884 /* Resources */,
+				BF744B3761428ADE1703F176 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,7 +216,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A113D122C4117100D0A16E /* HelveticaNeueLTW1G-Light.otf in Resources */,
+				05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */,
 				05897CE922C3FD85008AF884 /* LaunchScreen.storyboard in Resources */,
+				05897CF122C40242008AF884 /* GoogleService-Info.plist in Resources */,
 				05897CE622C3FD85008AF884 /* Assets.xcassets in Resources */,
 				05897CE422C3FD83008AF884 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +227,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8BFE9F7F9CCBCAA5B2DFCBDA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TuDoka-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF744B3761428ADE1703F176 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05897CD722C3FD83008AF884 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05897CE122C3FD83008AF884 /* ViewController.swift in Sources */,
+				05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */,
+				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
+				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
+				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
+				0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */,
+				0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */,
+				0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
+				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
+				05688AFD22D014EE00AA483B /* DBManager.swift in Sources */,
+				05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +443,7 @@
 		};
 		05897CEE22C3FD85008AF884 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7F112B4EAB0F69CD94BFD79 /* Pods-TuDoka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +462,7 @@
 		};
 		05897CEF22C3FD85008AF884 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
