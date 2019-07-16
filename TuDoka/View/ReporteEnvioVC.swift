@@ -148,6 +148,8 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
             numeroProyectoTF.text = self.proyectosArray[indexPath.row].numero
             reporteEnvio!.setProyecto(proyecto: proyectosArray[indexPath.row])
         }
+        
+        
 
         
         
