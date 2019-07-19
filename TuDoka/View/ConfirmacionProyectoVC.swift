@@ -38,5 +38,16 @@ class ConfirmacionProyectoVC: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //cCreo una variable para inicializar
+        if(segue.identifier == "itemsSegue"){
+            let receiverVC = segue.destination as! ItemsVC
+            receiverVC.reporteEnvio = self.reporteEnvio!
+        }
+        
+        
+        
+    }
+    
 
 }
