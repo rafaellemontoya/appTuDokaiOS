@@ -16,6 +16,28 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableViewFotos: UITableView!
     
     
+    @IBAction func continuarBtn(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "¿Estás seguro de querer continuar?", message: "No podrás agregar items ni fotos en este reporte", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continuar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+
+            self.performSegue(withIdentifier: "fotosTransporteSegue", sender: self)
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     
     
@@ -63,6 +85,13 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
        
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "fotosTransporteSegue"){
+            let receiver = segue.destination as! FotosTransporteVC
+            receiver.reporteEnvio = self.reporteEnvio!
+        }
     }
     
     var startingFrame: CGRect?
@@ -131,7 +160,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporteEnvio!.getItems().last?.eliminarFoto(foto: indexPath.row)
+            self.reporteEnvio!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
             self.tableViewFotos.reloadData()
             
             

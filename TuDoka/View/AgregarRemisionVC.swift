@@ -28,7 +28,7 @@ class AgregarRemisionVC: UIViewController {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
                 //regreso a la pantalla anterior
-                self.performSegue(withIdentifier: "resumenFinalEnvioRemisionSegue", sender: self)
+                self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
                 
             }))
             self.present(alert, animated: true, completion: nil)
@@ -46,9 +46,8 @@ class AgregarRemisionVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "resumenFinalEnvioRemisionSegue"){
-            let receiver = segue.destination as! ResumenFinalEnvioVC
-            receiver.reporteEnvio = self.reporteEnvio!
+        if (segue.identifier == "menuPrincipalSegue"){
+            
         }
     }
     

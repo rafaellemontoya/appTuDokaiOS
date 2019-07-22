@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class ReporteEnvio{
     private var cliente: Cliente?
     private var proyecto: Proyecto?
     private var numeroRemision: String
     private var items: [Item] = []
+    private var fotoLicencia: UIImage?
+    private var fotoPlaca: UIImage?
+    private var fotoTracto: UIImage?
+    
     init() {
         numeroRemision = ""
     }
@@ -42,4 +47,26 @@ class ReporteEnvio{
     func getNumeroRemision()-> String{
         return numeroRemision
     }
+    func setFotoLicencia(fotoLicencia: UIImage){
+        self.fotoLicencia = fotoLicencia
+    }
+    func getFotoLicencia() -> UIImage{
+        return fotoLicencia!
+    }
+    func setFotoPlaca(fotoPlaca: UIImage){
+        self.fotoPlaca = fotoPlaca
+    }
+    func getFotoPlaca() -> UIImage{
+        return fotoPlaca!
+    }
+    func setFotoTracto(fotoTracto: UIImage){
+        self.fotoTracto = fotoTracto
+    }
+    func getFotoTracto() -> UIImage{
+        return fotoTracto!
+    }
+    
+    
+    
+    
 }

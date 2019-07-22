@@ -29,6 +29,7 @@
 		05E508D322DE6DF300A1C911 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E508D222DE6DF300A1C911 /* Item.swift */; };
 		05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */; };
 		05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */; };
+		05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */; };
 		05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */; };
 		05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */; };
 		05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */; };
@@ -61,6 +62,7 @@
 		05E508D222DE6DF300A1C911 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvioVC.swift; sourceTree = "<group>"; };
 		05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTransporteVC.swift; sourceTree = "<group>"; };
 		05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFotosVC.swift; sourceTree = "<group>"; };
 		05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTableViewCell.swift; sourceTree = "<group>"; };
 		05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFinalEnvioVC.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */,
 				05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */,
 				05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */,
+				05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
+				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
 				05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */,
 				05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */,
