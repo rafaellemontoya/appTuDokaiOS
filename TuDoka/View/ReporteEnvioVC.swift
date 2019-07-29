@@ -42,6 +42,10 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     @IBAction func nombreProyectoChanged(_ sender: Any) {
         print(nombreProyectoTF.text)
+        tableNombreCliente.isHidden = true
+        tableNumeroCliente.isHidden = true
+        tableNumeroProyecto.isHidden = true
+        tableNombreProyecto.isHidden = false
     }
     //Numero proyecto
     
@@ -54,6 +58,10 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     @IBAction func numeroProyectoChanged(_ sender: Any) {
         print(numeroProyectoTF.text)
+        tableNombreCliente.isHidden = true
+        tableNumeroCliente.isHidden = true
+        tableNumeroProyecto.isHidden = false
+        tableNombreProyecto.isHidden = true
     }
     
     
@@ -67,6 +75,10 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     @IBAction func numeroClienteChanged(_ sender: Any) {
         print(numeroClienteTF.text)
+        tableNombreCliente.isHidden = true
+        tableNumeroCliente.isHidden = false
+        tableNumeroProyecto.isHidden = true
+        self.tableNombreProyecto.isHidden = true;
     }
     
     //nombre cliente
@@ -80,6 +92,10 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     @IBAction func nombreClienteChanged(_ sender: Any) {
         print(textField.text)
+        self.tableNombreCliente.isHidden = false
+        self.tableNumeroCliente.isHidden = true
+        self.tableNumeroProyecto.isHidden = true
+        self.tableNombreProyecto.isHidden = true;
     }
     
     

@@ -10,6 +10,10 @@
 		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
 		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
 		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
+		053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */; };
+		053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */; };
+		053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */; };
+		053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */; };
 		05688AFD22D014EE00AA483B /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05688AFC22D014EE00AA483B /* DBManager.swift */; };
 		05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CDE22C3FD83008AF884 /* AppDelegate.swift */; };
 		05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CE022C3FD83008AF884 /* InicioVC.swift */; };
@@ -41,6 +45,10 @@
 		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
 		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
+		053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucionVC.swift; sourceTree = "<group>"; };
+		053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucion.swift; sourceTree = "<group>"; };
+		053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDevolucionVC.swift; sourceTree = "<group>"; };
+		053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTransporteDevolucionVC.swift; sourceTree = "<group>"; };
 		05688AFC22D014EE00AA483B /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		05897CDB22C3FD83008AF884 /* TuDoka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuDoka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05897CDE22C3FD83008AF884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */,
 				0517AEF622DD2CC700422D70 /* Proyecto.swift */,
 				05E508D222DE6DF300A1C911 /* Item.swift */,
+				053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +163,9 @@
 				05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */,
 				05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */,
 				05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */,
+				053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */,
+				053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */,
+				053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,7 +333,9 @@
 			files = (
 				05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */,
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
+				053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
+				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
 				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
@@ -332,11 +346,13 @@
 				0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */,
 				05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */,
 				0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */,
+				053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */,
 				05E508D322DE6DF300A1C911 /* Item.swift in Sources */,
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
 				05688AFD22D014EE00AA483B /* DBManager.swift in Sources */,
+				053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */,
 				05D055E322E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift in Sources */,
 				05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */,
 				05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */,
