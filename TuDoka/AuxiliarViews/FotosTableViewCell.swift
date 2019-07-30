@@ -11,6 +11,7 @@ import UIKit
 class FotosTableViewCell: UITableViewCell {
 
     var resumenFotos: ResumenFotosVC?
+    var fotosItemDevolucion: FotosItemDevolucionVC?
     @IBOutlet weak var fotoIV: UIImageView!
     
     @IBOutlet weak var eliminarBTN: UIButton!
@@ -40,14 +41,18 @@ class FotosTableViewCell: UITableViewCell {
         let imageView = tapGesture.view as? UIImageView
         if(resumenFotos != nil){
             self.resumenFotos!.perfomZoomInForStartingImageView(startingImageView: imageView!)
-        }else if(resumenFotos != nil){
-            self.resumenFotos!.perfomZoomInForStartingImageView(startingImageView: imageView!)
+        }else if(fotosItemDevolucion != nil){
+            self.fotosItemDevolucion!.perfomZoomInForStartingImageView(startingImageView: imageView!)
         }
         
     }
     @objc func eliminar(tapGesture: UITapGestureRecognizer){
+        if(resumenFotos != nil){
+            self.resumenFotos!.eliminarFoto(cell: self)
+        }else if(fotosItemDevolucion != nil){
+            self.fotosItemDevolucion!.eliminarFoto(cell: self)
+        }
         
-        self.resumenFotos!.eliminarFoto(cell: self)
         
     }
 

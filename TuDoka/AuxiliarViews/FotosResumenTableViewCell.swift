@@ -11,6 +11,7 @@ import UIKit
 class FotosResumenTableViewCell: UITableViewCell {
 
     var resumenItems: ResumenItemsVC?
+    var resumenItemsDevolucion: ResumenItemsDevolucionVC?
     
 
     @IBOutlet weak var fotoIV: UIImageView!
@@ -39,14 +40,18 @@ class FotosResumenTableViewCell: UITableViewCell {
         let imageView = tapGesture.view as? UIImageView
         if(resumenItems != nil){
             self.resumenItems!.perfomZoomInForStartingImageView(startingImageView: imageView!)
-        }else if(resumenItems != nil){
-            self.resumenItems!.perfomZoomInForStartingImageView(startingImageView: imageView!)
+        }else if(resumenItemsDevolucion != nil){
+            self.resumenItemsDevolucion!.perfomZoomInForStartingImageView(startingImageView: imageView!)
         }
         
     }
     @objc func eliminar(tapGesture: UITapGestureRecognizer){
+        if(resumenItems != nil){
+           self.resumenItems!.eliminarFoto(cell: self)
+        }else if(resumenItemsDevolucion != nil){
+            self.resumenItemsDevolucion!.eliminarFoto(cell: self)
+        }
         
-        self.resumenItems!.eliminarFoto(cell: self)
         
     }
 

@@ -33,7 +33,16 @@ class ConfirmacionDatosDevolucionVC: UIViewController {
         nombreProyectoLB.text = reporteDevolucion?.getProyecto().nombre
         numeroProyectoLB.text = reporteDevolucion?.getProyecto().numero
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //cCreo una variable para inicializar
+        if(segue.identifier == "datosTransporteDevolucionSegue"){
+            let receiverVC = segue.destination as! DatosTransporteDevolucionVC
+            receiverVC.reporteDevolucion = self.reporteDevolucion!
+        }
+        
+        
+        
+    }
 
 
 }

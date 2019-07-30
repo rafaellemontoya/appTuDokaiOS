@@ -2074,7 +2074,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5Ny-5L-uyc" kind="show" id="prs-pQ-37m"/>
+                                    <segue destination="5Ny-5L-uyc" kind="show" identifier="datosTransporteDevolucionSegue" id="prs-pQ-37m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2174,6 +2174,9 @@
                                                 <state key="normal" title="Tomar nueva foto">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fotoLicenciaBTN:" destination="5Ny-5L-uyc" eventType="touchUpInside" id="lmA-b8-aCi"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vacio" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-8p-NuN">
                                                 <rect key="frame" x="10" y="299" width="203" height="128"/>
@@ -2202,6 +2205,9 @@
                                                 <state key="normal" title="Tomar nueva foto">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fotoPlacaBTN:" destination="5Ny-5L-uyc" eventType="touchUpInside" id="F5n-ke-Ibn"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vacio" translatesAutoresizingMaskIntoConstraints="NO" id="mr9-sF-HsN">
                                                 <rect key="frame" x="10" y="497" width="203" height="128"/>
@@ -2230,6 +2236,9 @@
                                                 <state key="normal" title="Tomar nueva foto">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fotoTractoBTN:" destination="5Ny-5L-uyc" eventType="touchUpInside" id="pwj-92-w72"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vacio" translatesAutoresizingMaskIntoConstraints="NO" id="FVT-IE-eLC">
                                                 <rect key="frame" x="10" y="695" width="203" height="128"/>
@@ -2239,7 +2248,7 @@
                                                     <constraint firstAttribute="height" constant="128" id="yom-A2-e6B"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQl-em-G0J">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documento doka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQl-em-G0J">
                                                 <rect key="frame" x="0.0" y="635" width="414" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -2259,6 +2268,9 @@
                                                 <state key="normal" title="Tomar nueva foto">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fotoDocumentoDokaBTN:" destination="5Ny-5L-uyc" eventType="touchUpInside" id="PwM-CG-Vat"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DW-uD-pvF">
                                                 <rect key="frame" x="34" y="843" width="346" height="44"/>
@@ -2270,6 +2282,9 @@
                                                 <state key="normal" title="Continuar">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="continuarBTN:" destination="5Ny-5L-uyc" eventType="touchUpInside" id="uCc-1L-k2O"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2337,15 +2352,22 @@
                         <viewLayoutGuide key="safeArea" id="rOa-WV-ma9"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="fotoDocumentoDokaIV" destination="FVT-IE-eLC" id="h3H-Pj-8xh"/>
+                        <outlet property="fotoLicenciaIV" destination="rck-Vk-cDn" id="guW-nm-zcg"/>
+                        <outlet property="fotoPlacaIV" destination="SHy-8p-NuN" id="gor-We-ZTQ"/>
+                        <outlet property="fotoTractoIV" destination="mr9-sF-HsN" id="5nH-bd-zz6"/>
+                        <segue destination="bnq-Cz-5Lv" kind="show" identifier="agregarItemDevolucionSegue" id="byf-1L-eBX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEe-3d-HTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4724.6376811594209" y="472.76785714285711"/>
         </scene>
-        <!--ItemsVC-->
+        <!--Items DevolucionVC-->
         <scene sceneID="T2U-oS-Hn1">
             <objects>
-                <viewController id="bnq-Cz-5Lv" customClass="ItemsVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bnq-Cz-5Lv" customClass="ItemsDevolucionVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F44-k4-0dZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2374,7 +2396,8 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeueLTW1G-LtCn" family="Helvetica Neue LT W1G" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="nombreItemEdit:" destination="bnq-Cz-5Lv" eventType="touchDown" id="e2E-db-ic4"/>
+                                                    <action selector="nombrePiezaTFEdit:" destination="bnq-Cz-5Lv" eventType="editingChanged" id="KPG-yl-1qK"/>
+                                                    <action selector="nombrePiezaTFTouch:" destination="bnq-Cz-5Lv" eventType="touchDown" id="EOQ-8w-7Zc"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de pieza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuh-Da-y1G">
@@ -2395,7 +2418,8 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeueLTW1G-LtCn" family="Helvetica Neue LT W1G" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="CodigoItemEdit:" destination="bnq-Cz-5Lv" eventType="touchDown" id="6bH-ZH-lHu"/>
+                                                    <action selector="codigoPiezaTFEdit:" destination="bnq-Cz-5Lv" eventType="editingChanged" id="z6q-C7-dXg"/>
+                                                    <action selector="codigoPiezaTFTouch:" destination="bnq-Cz-5Lv" eventType="touchDown" id="ADb-n8-m2Q"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código de pieza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kix-kD-1nu">
@@ -2415,9 +2439,6 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeueLTW1G-LtCn" family="Helvetica Neue LT W1G" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
-                                                <connections>
-                                                    <action selector="unidadesItemEdit:" destination="bnq-Cz-5Lv" eventType="touchDown" id="pyN-wK-3D6"/>
-                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unidades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBz-k1-fgg">
                                                 <rect key="frame" x="20" y="266" width="374" height="21"/>
@@ -2439,7 +2460,7 @@
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnContinuar:" destination="bnq-Cz-5Lv" eventType="touchUpInside" id="lKd-uL-9qa"/>
+                                                    <action selector="continuarBTN:" destination="bnq-Cz-5Lv" eventType="touchUpInside" id="eGa-d6-xum"/>
                                                 </connections>
                                             </button>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-C6-l05">
@@ -2451,7 +2472,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="rd9-RG-QZb"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCodigoPieza" id="7a2-K3-y4M" customClass="OptionTableViewCell" customModule="TuDoka" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCodigoPieza" id="7a2-K3-y4M" customClass="OptionDevolucionTableViewCell" customModule="TuDoka" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="372" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7a2-K3-y4M" id="Oiv-EQ-aFe">
@@ -2481,10 +2502,6 @@
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="X5o-gd-IDc" id="fjP-uP-Gm2"/>
-                                                    <outlet property="delegate" destination="X5o-gd-IDc" id="NNN-Ac-7sw"/>
-                                                </connections>
                                             </tableView>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-qM-5Wb">
                                                 <rect key="frame" x="21" y="157" width="372" height="150"/>
@@ -2496,7 +2513,7 @@
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="fNd-vj-85G"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionNombrePieza" id="Wc2-Uc-WgD" customClass="OptionTableViewCell" customModule="TuDoka" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionNombrePieza" id="Wc2-Uc-WgD" customClass="OptionDevolucionTableViewCell" customModule="TuDoka" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="372" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wc2-Uc-WgD" id="A78-ed-ZPd">
@@ -2522,7 +2539,7 @@
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
-                                                            <outlet property="nameOption" destination="kEf-ca-NgU" id="aw8-80-uz7"/>
+                                                            <outlet property="nameOption" destination="kEf-ca-NgU" id="8bU-uI-M9C"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -2584,21 +2601,22 @@
                         <viewLayoutGuide key="safeArea" id="HCX-Ib-Q4Z"/>
                     </view>
                     <connections>
-                        <outlet property="codigoItemF" destination="t42-Lw-lnK" id="XLQ-la-4ub"/>
-                        <outlet property="codigoPiezaTV" destination="xFS-C6-l05" id="u26-e1-gLa"/>
-                        <outlet property="nombreItemTF" destination="D3e-Gh-2Ot" id="rIA-CF-d24"/>
-                        <outlet property="nombrePiezaTV" destination="KuP-qM-5Wb" id="0rL-X6-Vl3"/>
-                        <outlet property="unidadesItemTF" destination="dQ0-sg-HjB" id="Epm-rx-GxK"/>
+                        <outlet property="codigoPiezaTF" destination="t42-Lw-lnK" id="IGo-eA-Y37"/>
+                        <outlet property="codigoPiezaTV" destination="xFS-C6-l05" id="wKH-Sm-St2"/>
+                        <outlet property="nombrePiezaDevolucionTV" destination="KuP-qM-5Wb" id="6G7-WF-UOF"/>
+                        <outlet property="nombrePiezaTF" destination="D3e-Gh-2Ot" id="cS1-eC-ZHx"/>
+                        <outlet property="unidadesTF" destination="dQ0-sg-HjB" id="Fez-Ac-cZD"/>
+                        <segue destination="GVf-ms-J44" kind="show" identifier="fotoItemDevolucionSegue" id="00m-4S-i1t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcz-Oc-ILb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5543" y="439"/>
         </scene>
-        <!--Resumen FotosVC-->
+        <!--Fotos Item DevolucionVC-->
         <scene sceneID="Bdu-P1-xCR">
             <objects>
-                <viewController id="GVf-ms-J44" customClass="ResumenFotosVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GVf-ms-J44" customClass="FotosItemDevolucionVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5n4-HE-7BI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2633,8 +2651,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnContinuar:" destination="EsJ-6B-aXS" eventType="touchUpInside" id="48t-dT-7Xw"/>
-                                    <action selector="nuevaFotoBTN:" destination="GVf-ms-J44" eventType="touchUpInside" id="DNe-Ch-4Gz"/>
+                                    <action selector="nuevaFotoBTN:" destination="GVf-ms-J44" eventType="touchUpInside" id="HiC-8W-h4W"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ioe-vq-ZZ2">
@@ -2693,8 +2710,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnContinuar:" destination="EsJ-6B-aXS" eventType="touchUpInside" id="fGS-Rz-R7u"/>
-                                    <action selector="continuarBTN:" destination="GVf-ms-J44" eventType="touchUpInside" id="yaR-eX-1AC"/>
+                                    <action selector="continuarBTN:" destination="GVf-ms-J44" eventType="touchUpInside" id="rvj-6U-D3L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2720,19 +2736,21 @@
                         <viewLayoutGuide key="safeArea" id="gAo-iA-vOf"/>
                     </view>
                     <connections>
-                        <outlet property="codigoItemLB" destination="eDE-hQ-jc2" id="ltd-ri-5qs"/>
-                        <outlet property="nombreItemLB" destination="MEz-HN-Iga" id="fhP-nZ-JKl"/>
+                        <outlet property="codigoItemLB" destination="eDE-hQ-jc2" id="Epm-Vc-T4H"/>
+                        <outlet property="nombreItemLB" destination="MEz-HN-Iga" id="0g1-0g-olj"/>
                         <outlet property="tableViewFotos" destination="ioe-vq-ZZ2" id="x9v-1E-b4z"/>
+                        <segue destination="MDW-fS-Vjx" kind="show" identifier="resumenFinalDevolucionSegue" id="Wk3-9O-CvS"/>
+                        <segue destination="bnq-Cz-5Lv" kind="show" identifier="agregarItemDevolucionSegue" id="AFn-Pt-7g4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEQ-R8-wjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6432" y="439"/>
         </scene>
-        <!--Resumen ItemsVC-->
+        <!--Resumen Items DevolucionVC-->
         <scene sceneID="JNF-nF-jUC">
             <objects>
-                <viewController id="MDW-fS-Vjx" customClass="ResumenItemsVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MDW-fS-Vjx" customClass="ResumenItemsDevolucionVC" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hkt-KC-4H1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2745,13 +2763,11 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="PBm-fD-eTo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeueLTW1G-BdCn" family="Helvetica Neue LT W1G" pointSize="20"/>
-                                <state key="normal" title="Continuar">
+                                <state key="normal" title="Finalizar">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnContinuar:" destination="EsJ-6B-aXS" eventType="touchUpInside" id="r7w-pj-Dl7"/>
-                                    <action selector="continuarBTN:" destination="5Aj-f3-TTo" eventType="touchUpInside" id="pH3-yf-xw5"/>
-                                    <action selector="continuarBtn:" destination="MDW-fS-Vjx" eventType="touchUpInside" id="THK-ev-atH"/>
+                                    <action selector="finalizarBTN:" destination="MDW-fS-Vjx" eventType="touchUpInside" id="64z-Kb-AdH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resumen de Items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKI-cJ-vGe">
@@ -2878,19 +2894,22 @@
                         <viewLayoutGuide key="safeArea" id="gjW-0x-jfP"/>
                     </view>
                     <connections>
-                        <outlet property="tableViewFotos" destination="Fo2-7d-MBb" id="Jbk-ML-FjO"/>
+                        <outlet property="fotosTV" destination="Fo2-7d-MBb" id="8bA-W8-Kvi"/>
+                        <segue destination="ef8-ex-wrl" kind="show" identifier="menuPrincipalDevolucionSegue" id="0eq-Vz-az2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oaj-fq-Wet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7161" y="473"/>
+            <point key="canvasLocation" x="7512" y="474"/>
         </scene>
     </scenes>
     <resources>
         <image name="vacio" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8sS-cI-0AO"/>
+        <segue reference="byf-1L-eBX"/>
         <segue reference="mxW-H7-adP"/>
-        <segue reference="aeY-FV-13I"/>
+        <segue reference="0eq-Vz-az2"/>
     </inferredMetricsTieBreakers>
 </document>
