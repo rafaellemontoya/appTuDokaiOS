@@ -1,26 +1,22 @@
 //
-//  ReporteEnvio.swift
+//  ReporteDano.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/15/19.
+//  Created by Rafael Montoya on 7/30/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ReporteEnvio{
+class ReporteDano{
     private var cliente: Cliente?
     private var proyecto: Proyecto?
-    private var numeroRemision: String
     private var items: [Item] = []
-    private var fotoLicencia: UIImage?
-    private var fotoPlaca: UIImage?
-    private var fotoTracto: UIImage?
     private var idUsuario: String?
-    
-    init() {
-        numeroRemision = ""
+
+    init(){
+        
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -28,14 +24,14 @@ class ReporteEnvio{
     func setCliente (cliente: Cliente){
         self.cliente = cliente
     }
-    
+
     func getCliente()-> Cliente{
         guard let clienteTmp = cliente else {
             return Cliente(key: "", nombre: "", numero: "", pais: "")
         }
         return clienteTmp
     }
-    
+
     func getProyecto() -> Proyecto{
         return proyecto!
     }
@@ -45,37 +41,10 @@ class ReporteEnvio{
     func getItems() -> [Item]{
         return items
     }
-    func setNumeroRemision(numeroRemision: String){
-        self.numeroRemision = numeroRemision
-    }
-    func getNumeroRemision()-> String{
-        return numeroRemision
-    }
-    func setFotoLicencia(fotoLicencia: UIImage){
-        self.fotoLicencia = fotoLicencia
-    }
-    func getFotoLicencia() -> UIImage{
-        return fotoLicencia!
-    }
-    func setFotoPlaca(fotoPlaca: UIImage){
-        self.fotoPlaca = fotoPlaca
-    }
-    func getFotoPlaca() -> UIImage{
-        return fotoPlaca!
-    }
-    func setFotoTracto(fotoTracto: UIImage){
-        self.fotoTracto = fotoTracto
-    }
-    func getFotoTracto() -> UIImage{
-        return fotoTracto!
-    }
-    
     func setIdUsuario(idUsuario: String){
         self.idUsuario = idUsuario
     }
     func getIdUsuario() -> String{
         return idUsuario!
     }
-    
-    
 }

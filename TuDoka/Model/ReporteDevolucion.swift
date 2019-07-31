@@ -17,6 +17,7 @@ class ReporteDevolucion {
     private var fotoPlaca: UIImage?
     private var fotoTracto: UIImage?
     private var fotoDocumentoDevolucion: UIImage?
+    private var idUsuario: String?
     
     init(){
     
@@ -67,6 +68,12 @@ class ReporteDevolucion {
     }
     func getFotoTracto() -> UIImage{
         return fotoTracto!
+    }
+    func setIdUsuario(idUsuario: String){
+        self.idUsuario = idUsuario
+    }
+    func getIdUsuario() -> String{
+        return idUsuario!
     }
     
     

@@ -12,6 +12,7 @@ class FotosTableViewCell: UITableViewCell {
 
     var resumenFotos: ResumenFotosVC?
     var fotosItemDevolucion: FotosItemDevolucionVC?
+    var fotosItemDano: FotosItemDanoVC?
     @IBOutlet weak var fotoIV: UIImageView!
     
     @IBOutlet weak var eliminarBTN: UIButton!
@@ -43,6 +44,8 @@ class FotosTableViewCell: UITableViewCell {
             self.resumenFotos!.perfomZoomInForStartingImageView(startingImageView: imageView!)
         }else if(fotosItemDevolucion != nil){
             self.fotosItemDevolucion!.perfomZoomInForStartingImageView(startingImageView: imageView!)
+        }else if(fotosItemDano != nil){
+            self.fotosItemDano!.perfomZoomInForStartingImageView(startingImageView: imageView!)
         }
         
     }
@@ -51,6 +54,8 @@ class FotosTableViewCell: UITableViewCell {
             self.resumenFotos!.eliminarFoto(cell: self)
         }else if(fotosItemDevolucion != nil){
             self.fotosItemDevolucion!.eliminarFoto(cell: self)
+        }else if(fotosItemDano != nil){
+            self.fotosItemDano!.eliminarFoto(cell: self)
         }
         
         

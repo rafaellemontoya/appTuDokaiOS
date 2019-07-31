@@ -11,9 +11,16 @@
 		0500A7BC22F0891B00440332 /* FotosItemDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BB22F0891B00440332 /* FotosItemDevolucionVC.swift */; };
 		0500A7BE22F0A2C500440332 /* OptionDevolucionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */; };
 		0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */; };
+		0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */; };
+		0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C422F0C64200440332 /* ReporteDano.swift */; };
+		0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */; };
+		0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */; };
 		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
 		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
 		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
+		052A369722F0E9E500B68DB5 /* FotosItemDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */; };
+		052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */; };
+		052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */; };
 		053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */; };
 		053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */; };
 		053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */; };
@@ -50,9 +57,16 @@
 		0500A7BB22F0891B00440332 /* FotosItemDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosItemDevolucionVC.swift; sourceTree = "<group>"; };
 		0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionDevolucionTableViewCell.swift; sourceTree = "<group>"; };
 		0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsDevolucionVC.swift; sourceTree = "<group>"; };
+		0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDanoVC.swift; sourceTree = "<group>"; };
+		0500A7C422F0C64200440332 /* ReporteDano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDano.swift; sourceTree = "<group>"; };
+		0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDanoVC.swift; sourceTree = "<group>"; };
+		0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDanoVC.swift; sourceTree = "<group>"; };
 		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
 		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
+		052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosItemDanoVC.swift; sourceTree = "<group>"; };
+		052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsDanoVC.swift; sourceTree = "<group>"; };
+		052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosDanoVC.swift; sourceTree = "<group>"; };
 		053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucionVC.swift; sourceTree = "<group>"; };
 		053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucion.swift; sourceTree = "<group>"; };
 		053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDevolucionVC.swift; sourceTree = "<group>"; };
@@ -128,6 +142,19 @@
 			name = Envio;
 			sourceTree = "<group>";
 		};
+		0500A7C122F0C5DA00440332 /* Dano */ = {
+			isa = PBXGroup;
+			children = (
+				0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */,
+				0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */,
+				0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */,
+				052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */,
+				052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */,
+				052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */,
+			);
+			name = Dano;
+			sourceTree = "<group>";
+		};
 		05897CD222C3FD83008AF884 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +200,7 @@
 				0517AEF622DD2CC700422D70 /* Proyecto.swift */,
 				05E508D222DE6DF300A1C911 /* Item.swift */,
 				053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */,
+				0500A7C422F0C64200440332 /* ReporteDano.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +217,7 @@
 		05A113D522C416E800D0A16E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0500A7C122F0C5DA00440332 /* Dano */,
 				0500A7B822F086EC00440332 /* Envio */,
 				0500A7B722F086CC00440332 /* Devolucion */,
 				05897CE022C3FD83008AF884 /* InicioVC.swift */,
@@ -362,14 +391,20 @@
 				05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */,
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
 				053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */,
+				0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */,
 				0500A7B622F0811900440332 /* ItemsDevolucionVC.swift in Sources */,
+				052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
+				0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */,
+				052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */,
 				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
 				0500A7BC22F0891B00440332 /* FotosItemDevolucionVC.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
+				0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */,
 				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
 				05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */,
+				0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */,
 				05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */,
 				05D055E122E11F5500B504F8 /* FotosResumenTableViewCell.swift in Sources */,
 				0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */,
@@ -380,6 +415,7 @@
 				053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */,
 				05E508D322DE6DF300A1C911 /* Item.swift in Sources */,
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
+				052A369722F0E9E500B68DB5 /* FotosItemDanoVC.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
 				05688AFD22D014EE00AA483B /* DBManager.swift in Sources */,

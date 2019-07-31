@@ -16,6 +16,7 @@ class Item{
     private var unidades: Int;
     private var pais: String;
     private var fotos: [UIImage]
+    private var descripcionDano: String?
     
     init(key: String, nombre: String,codigo: String, pais: String) {
         self.unidades = 0;
@@ -59,5 +60,11 @@ class Item{
         
         self.fotos.remove(at: foto)
         
+    }
+    func getDescripcionDano()->String{
+        return descripcionDano!
+    }
+    func setDescripcionDano(descripcion: String){
+        self.descripcionDano = descripcion
     }
 }
