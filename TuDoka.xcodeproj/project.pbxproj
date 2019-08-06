@@ -33,6 +33,7 @@
 		0562DED122F24FA80096FD61 /* FotosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */; };
 		0562DED322F251580096FD61 /* ResumenCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */; };
 		0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */; };
+		057ACE9022F9FFFD00D2D095 /* TipoDano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057ACE8F22F9FFFD00D2D095 /* TipoDano.swift */; };
 		0583B5A022F351BA00E1B5C4 /* ReporteSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */; };
 		0583B5A222F3524B00E1B5C4 /* ReporteSeguimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */; };
 		0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */; };
@@ -96,6 +97,7 @@
 		0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosCapacitacionVC.swift; sourceTree = "<group>"; };
 		0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenCapacitacionVC.swift; sourceTree = "<group>"; };
 		0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosCapacitacionVC.swift; sourceTree = "<group>"; };
+		057ACE8F22F9FFFD00D2D095 /* TipoDano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoDano.swift; sourceTree = "<group>"; };
 		0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteSeguimientoVC.swift; sourceTree = "<group>"; };
 		0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteSeguimiento.swift; sourceTree = "<group>"; };
 		0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosSeguimientoVC.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				0562DEC822F2405F0096FD61 /* ReporteCapacitacion.swift */,
 				0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */,
 				0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */,
+				057ACE8F22F9FFFD00D2D095 /* TipoDano.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
 				0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */,
+				057ACE9022F9FFFD00D2D095 /* TipoDano.swift in Sources */,
 				052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */,
 				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
 				0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */,
@@ -665,7 +669,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4SA8D3UGH;
 				INFOPLIST_FILE = TuDoka/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.panteraNegra.TuDoka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -681,7 +688,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4SA8D3UGH;
 				INFOPLIST_FILE = TuDoka/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.panteraNegra.TuDoka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

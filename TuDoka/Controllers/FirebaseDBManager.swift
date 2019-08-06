@@ -55,7 +55,7 @@ class FirebaseDBManager{
     
     func obtenerItems (completion: @escaping (Bool, [Item]?)-> Void ){
         var itemArray: [Item] = []
-        db.collection("clients").getDocuments(){(querySnapshot, err) in
+        db.collection("material").getDocuments(){(querySnapshot, err) in
             if let err = err{
                 print("Error obteniendo documentos \(err)")
                 completion(false, nil)
@@ -73,6 +73,37 @@ class FirebaseDBManager{
                         item.setPais( pais: paisItem)
                     }
                     item.setKey(key: document.documentID)
+                    
+                    itemArray.append(item)
+                    
+                }
+                completion(true, itemArray)
+                
+            }
+            
+        }
+    }
+    
+    func obtenerDescripcionDano (completion: @escaping (Bool, [TipoDano]?)-> Void ){
+        var itemArray: [TipoDano] = []
+        db.collection("damage").getDocuments(){(querySnapshot, err) in
+            if let err = err{
+                print("Error obteniendo documentos \(err)")
+                completion(false, nil)
+            }else{
+                
+                for document in querySnapshot!.documents{
+                    let item = TipoDano()
+                    if let clasificacionEquipo = document.data()["clasificacionEquipo"]as? String{
+                        item.clasificacionEquipo = clasificacionEquipo
+                    }
+                    if let tipoDano = document.data()["tipoDano"]as? String{
+                        item.tipoDano = tipoDano
+                    }
+                    if let paisItem = document.data()["pais"]as? String{
+                        item.pais = paisItem
+                    }
+                    item.key = document.documentID
                     
                     itemArray.append(item)
                     

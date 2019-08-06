@@ -39,6 +39,8 @@ class EnviarCorreosDanoVC: UIViewController {
             //Guardar info
             
             //Enviar correos
+            self.emails = []
+            self.enviarEmails()
             self.enviarEmail()
 //            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
             
@@ -77,7 +79,7 @@ class EnviarCorreosDanoVC: UIViewController {
     func enviarEmail(){
 
         let session = URLSession.shared
-        let url = URL(string: "https://www.themyt.com/prueba_swift.php")!
+        let url = URL(string: "https://www.themyt.com/reportedoka/reporte_dano.php")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

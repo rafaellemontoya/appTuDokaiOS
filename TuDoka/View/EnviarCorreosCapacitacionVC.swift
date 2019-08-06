@@ -38,8 +38,10 @@ class EnviarCorreosCapacitacionVC: UIViewController {
             //Guardar info
             
             //Enviar correos
+            self.emails = []
             self.enviarEmails()
-            self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
+            self.enviarEmails()
+//            self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
             
             
             
