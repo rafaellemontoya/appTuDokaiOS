@@ -13,6 +13,8 @@ class FotosResumenTableViewCell: UITableViewCell {
     var resumenItems: ResumenItemsVC?
     var resumenItemsDevolucion: ResumenItemsDevolucionVC?
     var resumenItemsDano: ResumenItemsDanoVC?
+    var resumenCapacitacion: ResumenCapacitacionVC?
+    var resumenSeguimiento: ResumenSeguimientoViewController?
     
 
     @IBOutlet weak var fotoIV: UIImageView!
@@ -46,6 +48,12 @@ class FotosResumenTableViewCell: UITableViewCell {
         }else if(resumenItemsDano != nil){
             self.resumenItemsDano!.perfomZoomInForStartingImageView(startingImageView: imageView!)
         }
+        else if(resumenCapacitacion != nil){
+            self.resumenCapacitacion!.perfomZoomInForStartingImageView(startingImageView: imageView!)
+        }
+        else if(resumenSeguimiento != nil){
+            self.resumenSeguimiento!.perfomZoomInForStartingImageView(startingImageView: imageView!)
+        }
         
     }
     @objc func eliminar(tapGesture: UITapGestureRecognizer){
@@ -55,6 +63,10 @@ class FotosResumenTableViewCell: UITableViewCell {
             self.resumenItemsDevolucion!.eliminarFoto(cell: self)
         }else if(resumenItemsDano != nil){
             self.resumenItemsDano!.eliminarFoto(cell: self)
+        }else if(resumenCapacitacion != nil){
+            self.resumenCapacitacion!.eliminarFoto(cell: self)
+        }else if(resumenSeguimiento != nil){
+            self.resumenSeguimiento!.eliminarFoto(cell: self)
         }
         
         

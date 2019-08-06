@@ -1,16 +1,16 @@
 //
-//  ResumenItemsDevolucionVC.swift
+//  ResumenCapacitacionVC.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/30/19.
+//  Created by Rafael Montoya on 7/31/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
-
-    var reporteDevolucion: ReporteDevolucion?
+class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+    
+    var reporte: ReporteCapacitacion?
     
     @IBOutlet weak var fotosTV: UITableView!
     
@@ -29,14 +29,17 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             //Guardar info
-            
-            FirebaseDBManager.dbInstance.guardarReporteDevolucion(reporte: self.reporteDevolucion!){
+            FirebaseDBManager.dbInstance.guardarReporteCapacitacion(reporte: self.reporte!){
                 (respuesta, referencia) in
                 if(respuesta){
-                    self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
-                    }
+                    self.guardarActividades(items: (self.reporte?.getItems())!, idReporte: referencia!.documentID)
                 }
-   
+            }
+//            self.performSegue(withIdentifier: "enviarCorreosCapacitacionSegue", sender: self)
+            
+            
+            
+            
         }))
         self.present(alert, animated: true, completion: nil)
         
@@ -44,20 +47,20 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         
     }
     
-
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reporteDevolucion!.getItems()[section].getPhotos().count
+        return reporte!.getItems()[section].getPhotos().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         let cell = fotosTV.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
-        cell.resumenItemsDevolucion = self
+        cell.resumenCapacitacion = self
         
-        cell.agregarCelda(image:  (self.reporteDevolucion!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
+        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
         
         
         
@@ -66,12 +69,12 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return reporteDevolucion!.getItems().count
+        return reporte!.getItems().count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerResumenCell") as! HeaderResumenItemsTableViewCell
-        cell.agregarHeader(item: self.reporteDevolucion!.getItems()[section])
+        cell.agregarHeader(item: self.reporte!.getItems()[section])
         
         return cell
     }
@@ -94,9 +97,9 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "fotosTransporteSegue"){
-//            let receiver = segue.destination as! FotosTransporteVC
-//            receiver.reporteDevolucion = self.reporteDevolucion!
+        if(segue.identifier == "enviarCorreosCapacitacionSegue"){
+            let receiver = segue.destination as! EnviarCorreosCapacitacionVC
+            receiver.reporte = self.reporte!
         }
     }
     
@@ -166,7 +169,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporteDevolucion!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
+            self.reporte!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
             self.fotosTV.reloadData()
             
             
@@ -180,62 +183,16 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         self.present(alert, animated: true, completion: nil)
         
     }
-    
-    func guardarInfoTransporte(idReporte: String){
-        subirFotosTransporte(item: (self.reporteDevolucion?.getFotoPlaca())!, idReporte: idReporte){
-            (respuesta, url) in
-            if(respuesta){
-                self.reporteDevolucion?.setUrlfotoPlaca(url: url!)
-                
-                self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoTracto())!, idReporte: idReporte){
-                    (respuesta, url) in
-                    if(respuesta){
-                        self.reporteDevolucion?.seturlfotoTracto(url: url!)
-                        
-                        self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoLicencia())!, idReporte: idReporte){
-                            (respuesta, url) in
-                            if(respuesta){
-                                self.reporteDevolucion?.setUrlfotoLicencia(url: url!)
-                                
-                                self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoDocumentoDevolucion())!, idReporte: idReporte){
-                                    (respuesta, url) in
-                                    if(respuesta){
-                                        self.reporteDevolucion?.setUrlfotoDocumentoDevolucion(url: url!)
-                                        FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporteDevolucion!, idReporte: idReporte){
-                                            (respuesta) in
-                                            if(respuesta!){
-                                                self.guardarItems(items: (self.reporteDevolucion?.getItems())!, idReporte: idReporte)
-                                            }
-                                        }
-                                        
-                                        
-                                    }//error subir Documento
-                                }
-                                
-                            }//error subir licencia
-                        }
-                    }//error subir tracto
-                }
-            }//Errror subir placa
-        }
-        subirFotosTransporte(item: (self.reporteDevolucion?.getFotoPlaca())!, idReporte: idReporte){
-            (respuesta, url) in
-            if(respuesta){
-                self.reporteDevolucion?.setUrlfotoPlaca(url: url!)
-                
-                
-            }
-        }
-    }
-    func guardarItems(items: [Item], idReporte: String){
+    func guardarActividades(items: [ActividadCapacitacion], idReporte: String){
         var flag = 0;
         for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteDevolucion(item: item, idReporte: idReporte){
-                (respuesta) in
+            FirebaseDBManager.dbInstance.guardarItemsReporteCapacitacion(actividad: item, idReporte: idReporte){
+                (respuesta, referencia) in
                 //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta) in
-                    if(respuesta!){
+                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idActividad: referencia!.documentID){
+                    (respuesta, arrayRespuesta) in
+                    if(respuesta){
+                        item.setUrlFotos(urls: arrayRespuesta!)
                         flag+=1;
                         if(flag == items.count){
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
@@ -243,7 +200,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
                                 NSLog("The \"OK\" alert occured.")
                                 //regreso a la pantalla anterior
-                                self.performSegue(withIdentifier: "menuPrincipalDevolucionSegue", sender: self)
+                                self.performSegue(withIdentifier: "enviarCorreosCapacitacionSegue", sender: self)
                                 
                                 
                             }))
@@ -256,48 +213,32 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
-    func subirFotos(items: [UIImage], idReporte: String, idItem: String,completion: @escaping (Bool?)-> Void ){
+    func subirFotos(items: [UIImage], idReporte: String, idActividad: String,completion: @escaping (Bool, [String]?)-> Void ){
         var flag = 0;
+        var urls: [String] = []
         for item in items{
             
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteDevolucion?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
                 (respuesta, url) in
                 if (respuesta){
                     //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteDevolucion(item: idItem, idReporte: idReporte, url: url!){
+                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteCapacitacion(item: idActividad, idReporte: idReporte, url: url!){
                         (respuestaGuardar) in
                         if (respuestaGuardar!){
+                            urls.append(url!)
                             flag+=1
                             if(flag == items.count){
-                                completion(true)
+                                completion(true, urls)
                             }
                             
                         }
                     }
                 }
             }
-
+            
         }//for
-    
-    }
-    
-    func subirFotosTransporte(item: UIImage, idReporte: String,completion: @escaping (Bool,String?)-> Void ){
-        
-        
-            
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteDevolucion?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-                (respuesta, url) in
-                if (respuesta){
-                    //actualizar fotos en bd
-                    
-                   completion(true, url)
-                }
-            }
-            
-        
         
     }
-    
     
 }
 

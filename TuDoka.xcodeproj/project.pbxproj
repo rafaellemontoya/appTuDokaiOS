@@ -25,7 +25,23 @@
 		053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */; };
 		053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */; };
 		053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */; };
-		05688AFD22D014EE00AA483B /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05688AFC22D014EE00AA483B /* DBManager.swift */; };
+		0562DEC722F23F4D0096FD61 /* ReporteObraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DEC622F23F4D0096FD61 /* ReporteObraVC.swift */; };
+		0562DEC922F2405F0096FD61 /* ReporteCapacitacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DEC822F2405F0096FD61 /* ReporteCapacitacion.swift */; };
+		0562DECB22F240B60096FD61 /* ActividadCapacitacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */; };
+		0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */; };
+		0562DECF22F244B70096FD61 /* ItemsCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */; };
+		0562DED122F24FA80096FD61 /* FotosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */; };
+		0562DED322F251580096FD61 /* ResumenCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */; };
+		0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */; };
+		0583B5A022F351BA00E1B5C4 /* ReporteSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */; };
+		0583B5A222F3524B00E1B5C4 /* ReporteSeguimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */; };
+		0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */; };
+		0583B5A622F3574B00E1B5C4 /* ItemsSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */; };
+		0583B5A822F3596500E1B5C4 /* FotosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */; };
+		0583B5AA22F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */; };
+		0583B5AC22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */; };
+		0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */; };
+		0583B5B322F3C4FF00E1B5C4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */; };
 		05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CDE22C3FD83008AF884 /* AppDelegate.swift */; };
 		05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CE022C3FD83008AF884 /* InicioVC.swift */; };
 		05897CE422C3FD83008AF884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05897CE222C3FD83008AF884 /* Main.storyboard */; };
@@ -45,6 +61,7 @@
 		05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */; };
 		05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */; };
 		05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */; };
+		05F3C81922F120AC00B89B7C /* ReporteCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */; };
 		05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */; };
 		05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */; };
 		05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */; };
@@ -71,7 +88,23 @@
 		053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucion.swift; sourceTree = "<group>"; };
 		053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDevolucionVC.swift; sourceTree = "<group>"; };
 		053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTransporteDevolucionVC.swift; sourceTree = "<group>"; };
-		05688AFC22D014EE00AA483B /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		0562DEC622F23F4D0096FD61 /* ReporteObraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteObraVC.swift; sourceTree = "<group>"; };
+		0562DEC822F2405F0096FD61 /* ReporteCapacitacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteCapacitacion.swift; sourceTree = "<group>"; };
+		0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadCapacitacion.swift; sourceTree = "<group>"; };
+		0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosCapacitacionVC.swift; sourceTree = "<group>"; };
+		0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCapacitacionVC.swift; sourceTree = "<group>"; };
+		0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosCapacitacionVC.swift; sourceTree = "<group>"; };
+		0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenCapacitacionVC.swift; sourceTree = "<group>"; };
+		0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosCapacitacionVC.swift; sourceTree = "<group>"; };
+		0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteSeguimientoVC.swift; sourceTree = "<group>"; };
+		0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteSeguimiento.swift; sourceTree = "<group>"; };
+		0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosSeguimientoVC.swift; sourceTree = "<group>"; };
+		0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSeguimientoVC.swift; sourceTree = "<group>"; };
+		0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosSeguimientoVC.swift; sourceTree = "<group>"; };
+		0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenSeguimientoViewController.swift; sourceTree = "<group>"; };
+		0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosSeguimientoVC.swift; sourceTree = "<group>"; };
+		0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDBManager.swift; sourceTree = "<group>"; };
+		0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		05897CDB22C3FD83008AF884 /* TuDoka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuDoka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05897CDE22C3FD83008AF884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05897CE022C3FD83008AF884 /* InicioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioVC.swift; sourceTree = "<group>"; };
@@ -93,6 +126,7 @@
 		05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvioVC.swift; sourceTree = "<group>"; };
 		05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTransporteVC.swift; sourceTree = "<group>"; };
+		05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteCapacitacionVC.swift; sourceTree = "<group>"; };
 		05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFotosVC.swift; sourceTree = "<group>"; };
 		05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTableViewCell.swift; sourceTree = "<group>"; };
 		05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFinalEnvioVC.swift; sourceTree = "<group>"; };
@@ -155,6 +189,41 @@
 			name = Dano;
 			sourceTree = "<group>";
 		};
+		052A369C22F118DA00B68DB5 /* Capacitacion */ = {
+			isa = PBXGroup;
+			children = (
+				05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */,
+				0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */,
+				0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */,
+				0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */,
+				0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */,
+				0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */,
+			);
+			name = Capacitacion;
+			sourceTree = "<group>";
+		};
+		0583B59E22F3519600E1B5C4 /* Seguimiento */ = {
+			isa = PBXGroup;
+			children = (
+				0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */,
+				0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */,
+				0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */,
+				0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */,
+				0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */,
+				0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */,
+			);
+			name = Seguimiento;
+			sourceTree = "<group>";
+		};
+		0583B5AD22F3626B00E1B5C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */,
+				0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		05897CD222C3FD83008AF884 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +245,7 @@
 		05897CDD22C3FD83008AF884 /* TuDoka */ = {
 			isa = PBXGroup;
 			children = (
+				0583B5AD22F3626B00E1B5C4 /* Controllers */,
 				059C963522CDD92A006CBF9A /* Model */,
 				05E93BBA22C440010018FF2A /* AuxiliarViews */,
 				05A113D522C416E800D0A16E /* View */,
@@ -195,12 +265,14 @@
 			isa = PBXGroup;
 			children = (
 				059C963622CDD969006CBF9A /* Cliente.swift */,
-				05688AFC22D014EE00AA483B /* DBManager.swift */,
 				0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */,
 				0517AEF622DD2CC700422D70 /* Proyecto.swift */,
 				05E508D222DE6DF300A1C911 /* Item.swift */,
 				053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */,
 				0500A7C422F0C64200440332 /* ReporteDano.swift */,
+				0562DEC822F2405F0096FD61 /* ReporteCapacitacion.swift */,
+				0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */,
+				0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,11 +289,14 @@
 		05A113D522C416E800D0A16E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0583B59E22F3519600E1B5C4 /* Seguimiento */,
+				052A369C22F118DA00B68DB5 /* Capacitacion */,
 				0500A7C122F0C5DA00440332 /* Dano */,
 				0500A7B822F086EC00440332 /* Envio */,
 				0500A7B722F086CC00440332 /* Devolucion */,
 				05897CE022C3FD83008AF884 /* InicioVC.swift */,
 				05A113D622C41BD200D0A16E /* MainMenu.swift */,
+				0562DEC622F23F4D0096FD61 /* ReporteObraVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,15 +464,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */,
+				0583B5A222F3524B00E1B5C4 /* ReporteSeguimiento.swift in Sources */,
+				0583B5AC22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift in Sources */,
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
 				053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */,
 				0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */,
+				0583B5B322F3C4FF00E1B5C4 /* StorageManager.swift in Sources */,
 				0500A7B622F0811900440332 /* ItemsDevolucionVC.swift in Sources */,
 				052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
 				0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */,
 				052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */,
 				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
+				0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */,
 				0500A7BC22F0891B00440332 /* FotosItemDevolucionVC.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
 				0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */,
@@ -405,24 +484,37 @@
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
 				05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */,
 				0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */,
+				0583B5A022F351BA00E1B5C4 /* ReporteSeguimientoVC.swift in Sources */,
 				05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */,
+				05F3C81922F120AC00B89B7C /* ReporteCapacitacionVC.swift in Sources */,
+				0583B5A622F3574B00E1B5C4 /* ItemsSeguimientoVC.swift in Sources */,
+				0583B5AA22F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift in Sources */,
 				05D055E122E11F5500B504F8 /* FotosResumenTableViewCell.swift in Sources */,
+				0562DED322F251580096FD61 /* ResumenCapacitacionVC.swift in Sources */,
+				0562DEC722F23F4D0096FD61 /* ReporteObraVC.swift in Sources */,
 				0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */,
 				0500A7BE22F0A2C500440332 /* OptionDevolucionTableViewCell.swift in Sources */,
+				0562DECF22F244B70096FD61 /* ItemsCapacitacionVC.swift in Sources */,
 				0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */,
 				05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */,
 				0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */,
+				0562DED122F24FA80096FD61 /* FotosCapacitacionVC.swift in Sources */,
 				053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */,
+				0583B5A822F3596500E1B5C4 /* FotosSeguimientoVC.swift in Sources */,
 				05E508D322DE6DF300A1C911 /* Item.swift in Sources */,
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
+				0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */,
+				0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */,
+				0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */,
 				052A369722F0E9E500B68DB5 /* FotosItemDanoVC.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
-				05688AFD22D014EE00AA483B /* DBManager.swift in Sources */,
+				0562DEC922F2405F0096FD61 /* ReporteCapacitacion.swift in Sources */,
 				0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */,
 				053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */,
 				05D055E322E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift in Sources */,
 				05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */,
+				0562DECB22F240B60096FD61 /* ActividadCapacitacion.swift in Sources */,
 				05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,10 +665,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4SA8D3UGH;
 				INFOPLIST_FILE = TuDoka/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.panteraNegra.TuDoka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -592,10 +681,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4SA8D3UGH;
 				INFOPLIST_FILE = TuDoka/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.panteraNegra.TuDoka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -1,17 +1,16 @@
 //
-//  EnviarCorreosDanoVC.swift
+//  EnviarCorreosVC.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/30/19.
+//  Created by Rafael Montoya on 7/31/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-
-class EnviarCorreosDanoVC: UIViewController {
-
-    var  reporte: ReporteDano?
+class EnviarCorreosCapacitacionVC: UIViewController {
+    
+    var  reporte: ReporteCapacitacion?
     
     var emails: [String] = []
     
@@ -39,8 +38,8 @@ class EnviarCorreosDanoVC: UIViewController {
             //Guardar info
             
             //Enviar correos
-            self.enviarEmail()
-//            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+            self.enviarEmails()
+            self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
             
             
             
@@ -55,10 +54,10 @@ class EnviarCorreosDanoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-    
+
 
     func enviarEmails(){
         if(email1TF.text! != ""){
@@ -72,40 +71,5 @@ class EnviarCorreosDanoVC: UIViewController {
             emails.append(email3TF.text!)
         }
     }
-
     
-    func enviarEmail(){
-
-        let session = URLSession.shared
-        let url = URL(string: "https://www.themyt.com/prueba_swift.php")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
-
-        struct Order: Codable {
-            let customerId: String
-            let items: [Item]
-        }
-        
-        // ...
-        
-        let order = Order(customerId: "12345",
-                          items: reporte!.getItems())
-        guard let uploadData = try? JSONEncoder().encode(order) else {
-            return
-        }
-        
-        
-        let task = session.uploadTask(with: request, from: uploadData) { data, response, error in
-            // Do something...
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print(dataString)
-            }
-        }
-        
-        task.resume()
-        
-        
-    }
 }

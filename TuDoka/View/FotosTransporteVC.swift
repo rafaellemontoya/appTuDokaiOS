@@ -34,8 +34,15 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             //Guardar info
+            FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporteEnvio!){
+                (respuesta, referencia) in
+                if(respuesta){
+                    self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
+                }
+            }
             
-            self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
+      
+           // self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
             
             
             
@@ -160,5 +167,111 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
         
         
     }
+    
+    
+    func guardarInfoTransporte(idReporte: String){
+        subirFotosTransporte(item: (self.reporteEnvio?.getFotoPlaca())!, idReporte: idReporte){
+            (respuesta, url) in
+            if(respuesta){
+                self.reporteEnvio?.setUrlfotoPlaca(url: url!)
+                
+                self.subirFotosTransporte(item: (self.reporteEnvio?.getFotoTracto())!, idReporte: idReporte){
+                    (respuesta, url) in
+                    if(respuesta){
+                        self.reporteEnvio?.seturlfotoTracto(url: url!)
+                        
+                        self.subirFotosTransporte(item: (self.reporteEnvio?.getFotoLicencia())!, idReporte: idReporte){
+                            (respuesta, url) in
+                            if(respuesta){
+                                self.reporteEnvio?.setUrlfotoLicencia(url: url!)
+                                self.guardarItems(items: (self.reporteEnvio?.getItems())!, idReporte: idReporte)
+                                FirebaseDBManager.dbInstance.guardarFotosTransporteEnvio(reporte: self.reporteEnvio!, idReporte: idReporte){
+                                    (respuesta) in
+                                    if(respuesta!){
+                                        self.guardarItems(items: (self.reporteEnvio?.getItems())!, idReporte: idReporte)
+                                    }
+                                }
+                              
+                                }
+                                
+                            }//error subir licencia
+                        }
+                    }//error subir tracto
+                }
+            }//Errror subir placa
+        
+        
+    }
+    func guardarItems(items: [Item], idReporte: String){
+        var flag = 0;
+        for item in items{ 
+            FirebaseDBManager.dbInstance.guardarItemsReporteEnvio(item: item, idReporte: idReporte){
+                (respuesta) in
+                //subo fotos
+                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
+                    (respuesta) in
+                    if(respuesta!){
+                        flag+=1;
+                        if(flag == items.count){
+                            let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
+                            
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                                NSLog("The \"OK\" alert occured.")
+                                //regreso a la pantalla anterior
+                                self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
+                                
+                                
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
+    func subirFotos(items: [UIImage], idReporte: String, idItem: String,completion: @escaping (Bool?)-> Void ){
+        var flag = 0;
+        for item in items{
+            
+            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteEnvio?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+                (respuesta, url) in
+                if (respuesta){
+                    //actualizar fotos en bd
+                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteEnvio(item: idItem, idReporte: idReporte, url: url!){
+                        (respuestaGuardar) in
+                        if (respuestaGuardar!){
+                            flag+=1
+                            if(flag == items.count){
+                                completion(true)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+        }//for
+        
+    }
+    
+    func subirFotosTransporte(item: UIImage, idReporte: String,completion: @escaping (Bool,String?)-> Void ){
+        
+        
+        
+        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteEnvio?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+            (respuesta, url) in
+            if (respuesta){
+                //actualizar fotos en bd
+                
+                completion(true, url)
+            }
+        }
+        
+        
+        
+    }
+    
     
 }

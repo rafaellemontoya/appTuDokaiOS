@@ -32,5 +32,9 @@ class HeaderResumenItemsTableViewCell: UITableViewCell {
         codigoItem.text = item.getCodigo()
         unidadesItemLB.text = "Unidades: " + String(item.getUnidades())
     }
+    
+    func agregarHeader(item: ActividadCapacitacion){
+        nombreItem.text = item.getDescripcion()
+    }
 
 }

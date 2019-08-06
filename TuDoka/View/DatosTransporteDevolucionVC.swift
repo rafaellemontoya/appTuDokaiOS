@@ -152,7 +152,7 @@ extension DatosTransporteDevolucionVC: UIImagePickerControllerDelegate{
             self.fotoTractoIV.image = selectedImage
             break
         case "fotoDocumento":
-            self.reporteDevolucion!.setFotoTracto(fotoTracto: selectedImage)
+            self.reporteDevolucion!.setFotoDocumentoDevolucion(fotoDocumentoDevolucion: selectedImage)
             fotoDocumentoDokaIV.contentMode = .scaleAspectFit
             self.fotoDocumentoDokaIV.image = selectedImage
             break

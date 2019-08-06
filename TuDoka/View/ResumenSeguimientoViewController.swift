@@ -1,16 +1,16 @@
 //
-//  ResumenItemsDanoVC.swift
+//  ResumenSeguimientoViewController.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/30/19.
+//  Created by Rafael Montoya on 8/1/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
     
-    var reporte: ReporteDano?
+    var reporte: ReporteSeguimiento?
     
     @IBOutlet weak var fotosTV: UITableView!
     
@@ -30,12 +30,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
             //regreso a la pantalla anterior
             //Guardar info
             
-            FirebaseDBManager.dbInstance.guardarReporteDano(reporte: self.reporte!){
-                (respuesta, referencia) in
-                if(respuesta){
-                    self.guardarItems(items: (self.reporte?.getItems())!, idReporte: referencia!.documentID)
-                }
-            }
+            self.performSegue(withIdentifier: "envioEmailSeguimientoSegue", sender: self)
             
             
             
@@ -58,7 +53,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         let cell = fotosTV.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
-        cell.resumenItemsDano = self
+        cell.resumenSeguimiento = self
         
         cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
         
@@ -97,9 +92,9 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "finalizarReporteDanoBTN"){
-                        let receiver = segue.destination as! EnviarCorreosDanoVC
-                        receiver.reporte = self.reporte!
+        if(segue.identifier == "envioEmailSeguimientoSegue"){
+            let receiver = segue.destination as! EnviarCorreosSeguimientoVC
+            receiver.reporte = self.reporte!
         }
     }
     
@@ -183,64 +178,6 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(alert, animated: true, completion: nil)
         
     }
-    
-    func guardarItems(items: [Item], idReporte: String){
-        var flag = 0;
-        for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteDano(item: item, idReporte: idReporte){
-                (respuesta) in
-                //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta, arrayRespuesta) in
-                    if(respuesta){
-                        item.addUrls(urls: arrayRespuesta!)
-                        flag+=1;
-                        if(flag == items.count){
-                            let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
-                            
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
-                                NSLog("The \"OK\" alert occured.")
-                                //regreso a la pantalla anterior
-                                self.performSegue(withIdentifier: "finalizarReporteDanoBTN", sender: self)
-                                
-                                
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                        
-                        
-                    }
-                }
-            }
-        }
-    }
-    func subirFotos(items: [UIImage], idReporte: String, idItem: String,completion: @escaping (Bool, [String]?)-> Void ){
-        var flag = 0;
-        var urls: [String] = []
-        for item in items{
-            
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-                (respuesta, url) in
-                if (respuesta){
-                    //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteDano(item: idItem, idReporte: idReporte, url: url!){
-                        (respuestaGuardar) in
-                        if (respuestaGuardar!){
-                            urls.append(url!)
-                            flag+=1
-                            if(flag == items.count){
-                                completion(true, urls)
-                            }
-                            
-                        }
-                    }
-                }
-            }
-            
-        }//for
-        
-    }
-    
     
     
 }

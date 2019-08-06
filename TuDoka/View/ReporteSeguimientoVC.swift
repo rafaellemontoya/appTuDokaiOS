@@ -1,19 +1,20 @@
 //
-//  ReporteDanoVC.swift
+//  ReporteSeguimientoVC.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/30/19.
+//  Created by Rafael Montoya on 8/1/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
+class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    
     private var clientesArray: [Cliente] = []
     private var proyectosArray: [Proyecto] = []
-    private var reporteDano: ReporteDano?
+    private var reporte: ReporteSeguimiento?
     
+    @IBOutlet weak var nombreCursoTF: UITextField!
     
     @IBOutlet weak var nombreProyectoDanoTV: UITableView!
     
@@ -96,7 +97,12 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     }
     
     @IBAction func continuarBTN(_ sender: Any) {
-        performSegue(withIdentifier: "confirmacionProyectoDanoSegue", sender: self)
+        
+        if(nombreCursoTF.text != ""){
+            reporte?.setNombreCurso(nombreCurso: nombreCursoTF.text!)
+            performSegue(withIdentifier: "confirmacionDatosSeguimientoSegue", sender: self)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -145,7 +151,7 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
             nombreClienteTF.text = self.clientesArray[indexPath.row].nombre
             numeroClienteTF.text = self.clientesArray[indexPath.row].numero
             
-            reporteDano!.setCliente(cliente: self.clientesArray[indexPath.row])
+            reporte!.setCliente(cliente: self.clientesArray[indexPath.row])
             getInfoProyectos(keyCliente: clientesArray[indexPath.row].key)
             
         }else if(tableView == self.nombreProyectoDanoTV || tableView == self.numeroProyectoTV){
@@ -155,7 +161,7 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
             self.numeroProyectoTV.isHidden = true;
             nombreProyectoTF.text = self.proyectosArray[indexPath.row].nombre
             numeroProyectoTF.text = self.proyectosArray[indexPath.row].numero
-            reporteDano!.setProyecto(proyecto: proyectosArray[indexPath.row])
+            reporte!.setProyecto(proyecto: proyectosArray[indexPath.row])
         }
         
         
@@ -170,9 +176,8 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.reporteDano = ReporteDano()
-        self.reporteDano!.setIdUsuario(idUsuario: "keyUsuario")
-        self.reporteDano!.setPais(pais: "MX")
+        self.reporte = ReporteSeguimiento()
+        
         getInfoClientes()
         getInfoProyectos(keyCliente: "")
         
@@ -218,15 +223,15 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if( self.reporteDano?.getCliente().key != ""){
-            if(segue.identifier == "confirmacionProyectoDanoSegue"){
-                let receiverVC = segue.destination as! ConfirmacionDatosDanoVC
-                receiverVC.reporteDano = self.reporteDano
+        if( self.reporte?.getCliente().key != ""){
+            if(segue.identifier == "confirmacionDatosSeguimientoSegue"){
+                let receiverVC = segue.destination as! ConfirmacionDatosSeguimientoVC
+                receiverVC.reporte = self.reporte
             }
         }else{
             print("Error")
         }
-    
+        
         
         
     }

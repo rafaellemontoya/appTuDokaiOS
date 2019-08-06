@@ -18,6 +18,10 @@ class ReporteEnvio{
     private var fotoPlaca: UIImage?
     private var fotoTracto: UIImage?
     private var idUsuario: String?
+    private var pais: String?
+    private var urlfotoLicencia: String?
+    private var urlfotoPlaca: String?
+    private var urlfotoTracto: String?
     
     init() {
         numeroRemision = ""
@@ -76,6 +80,31 @@ class ReporteEnvio{
     func getIdUsuario() -> String{
         return idUsuario!
     }
+    func setPais(idPais: String){
+        self.pais = idPais
+    }
+    func getIdPais() -> String{
+        return pais!
+    }
+    func setUrlfotoLicencia(url: String){
+        self.urlfotoLicencia = url
+    }
+    func getUrlfotoLicencia() -> String{
+        return urlfotoLicencia!
+    }
+    func seturlfotoTracto(url: String){
+        self.urlfotoTracto = url
+    }
+    func getUrlfotoTracto() -> String{
+        return urlfotoTracto!
+    }
+    func setUrlfotoPlaca(url: String){
+        self.urlfotoPlaca = url
+    }
+    func getUrlfotoPlaca() -> String{
+        return urlfotoPlaca!
+    }
+  
     
     
 }

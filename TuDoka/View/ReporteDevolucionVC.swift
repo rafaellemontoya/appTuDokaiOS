@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     //Nombre Cliente
-    
+    var db: Firestore!
     @IBOutlet weak var nombreClienteTV: UITableView!
     
     
@@ -111,7 +112,22 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
     private var proyectosArray: [Proyecto] = []
     private var reporteDevolucion: ReporteDevolucion?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clientesArray.count;
+        
+        switch tableView {
+        case self.nombreClienteTV:
+            return clientesArray.count
+            break
+        case self.numeroClienteTV:
+            return clientesArray.count
+            break
+        case self.nombreProyectoTV:
+            return proyectosArray.count
+            break
+        case self.numeroProyectoTV:
+            return proyectosArray.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -180,9 +196,11 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         self.reporteDevolucion = ReporteDevolucion()
-        
+        self.reporteDevolucion?.setPais(pais: "MX")
+        self.reporteDevolucion?.setIdUsuario(idUsuario: "idRafa")
         getInfoClientes()
         getInfoProyectos(keyCliente: "")
         
@@ -192,23 +210,36 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
     
     
     func getInfoClientes(){
+       
+        FirebaseDBManager.dbInstance.obtenerClientes(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.clientesArray = clientesArray!
+                self.nombreClienteTV.reloadData()
+                self.numeroClienteTV.reloadData()
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
         
-        self.clientesArray.append( Cliente(key: "key", nombre: "Tec de monterrey", numero: "129", pais: "MX"))
-        
-        nombreClienteTV.reloadData()
-        numeroClienteTV.reloadData()
     }
     
     func getInfoProyectos(keyCliente: String){
-        if (keyCliente == ""){
-            self.proyectosArray.append(Proyecto(key: "keyProyecto", nombre: "NAICM", numero: "12313", pais: "MX", keyCliente: "4321"))
-            self.proyectosArray.append(Proyecto(key: "keyProyectoTec", nombre: "Nueva unidad", numero: "334", pais: "MX", keyCliente: "key"))
-        }else{
-            self.proyectosArray.append(Proyecto(key: "keyProyectoTec", nombre: "Nueva unidad", numero: "334", pais: "MX", keyCliente: "key"))
+        FirebaseDBManager.dbInstance.obtenerProyectos(idCliente: "key"){
+            (respuesta, respuestaArray) in
+            if(respuesta){
+                self.proyectosArray = respuestaArray!
+                self.nombreProyectoTV.reloadData()
+                self.numeroProyectoTV.reloadData()
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
         }
         
-        nombreProyectoTV.reloadData()
-        numeroProyectoTV.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -222,23 +253,7 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
         }else{
             print("Error")
         }
-        
-        
-        
-//        if(self.reporteEnvio?.getCliente().key != nil || self.reporteEnvio?.getProyecto().key != nil)
-//        {
-//            if(segue.identifier == "confirmacionProyecto"){
-//                let receiverVC = segue.destination as! ConfirmacionProyectoVC
-//                receiverVC.reporteEnvio = self.reporteEnvio!
-//            }
-//        }else{
-//            print("proyecto vacío")
-//        }
-        
-        
-        
-        
-        
+ 
     }
     
 

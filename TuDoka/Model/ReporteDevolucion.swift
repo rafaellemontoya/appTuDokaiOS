@@ -17,7 +17,13 @@ class ReporteDevolucion {
     private var fotoPlaca: UIImage?
     private var fotoTracto: UIImage?
     private var fotoDocumentoDevolucion: UIImage?
+    private var urlfotoLicencia: String?
+    private var urlfotoPlaca: String?
+    private var urlfotoTracto: String?
+    private var urlfotoDocumentoDevolucion: String?
     private var idUsuario: String?
+    private var pais: String?
+    
     
     init(){
     
@@ -74,6 +80,36 @@ class ReporteDevolucion {
     }
     func getIdUsuario() -> String{
         return idUsuario!
+    }
+    func setPais(pais: String){
+        self.pais = pais
+    }
+    func getPais() -> String{
+        return pais!
+    }
+    func setUrlfotoLicencia(url: String){
+        self.urlfotoLicencia = url
+    }
+    func getUrlfotoLicencia() -> String{
+        return urlfotoLicencia!
+    }
+    func seturlfotoTracto(url: String){
+        self.urlfotoTracto = url
+    }
+    func getUrlfotoTracto() -> String{
+        return urlfotoTracto!
+    }
+    func setUrlfotoPlaca(url: String){
+        self.urlfotoPlaca = url
+    }
+    func getUrlfotoPlaca() -> String{
+        return urlfotoPlaca!
+    }
+    func setUrlfotoDocumentoDevolucion(url: String){
+        self.urlfotoDocumentoDevolucion = url
+    }
+    func getUrlfotoDocumentoDevolucion() -> String{
+        return urlfotoDocumentoDevolucion!
     }
     
     

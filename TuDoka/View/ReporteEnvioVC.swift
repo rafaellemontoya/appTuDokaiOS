@@ -179,6 +179,8 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         self.reporteEnvio = ReporteEnvio()
 
+        self.reporteEnvio?.setIdUsuario(idUsuario: "keyUsuario")
+        self.reporteEnvio?.setPais(idPais: "MX")
         getInfoClientes()
         getInfoProyectos(keyCliente: "")
         
@@ -187,24 +189,38 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
 
+    
     func getInfoClientes(){
         
-        self.clientesArray.append( Cliente(key: "key", nombre: "Tec de monterrey", numero: "129", pais: "MX"))
+        FirebaseDBManager.dbInstance.obtenerClientes(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.clientesArray = clientesArray!
+                self.tableNombreCliente.reloadData()
+                self.tableNumeroCliente.reloadData()
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
         
-        tableNombreCliente.reloadData()
-        tableNumeroCliente.reloadData()
     }
     
     func getInfoProyectos(keyCliente: String){
-        if (keyCliente == ""){
-            self.proyectosArray.append(Proyecto(key: "keyProyecto", nombre: "NAICM", numero: "12313", pais: "MX", keyCliente: "4321"))
-            self.proyectosArray.append(Proyecto(key: "keyProyectoTec", nombre: "Nueva unidad", numero: "334", pais: "MX", keyCliente: "key"))
-        }else{
-            self.proyectosArray.append(Proyecto(key: "keyProyectoTec", nombre: "Nueva unidad", numero: "334", pais: "MX", keyCliente: "key"))
+        FirebaseDBManager.dbInstance.obtenerProyectos(idCliente: "key"){
+            (respuesta, respuestaArray) in
+            if(respuesta){
+                self.proyectosArray = respuestaArray!
+                self.tableNombreProyecto.reloadData()
+                self.tableNumeroProyecto.reloadData()
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
         }
         
-        tableNombreProyecto.reloadData()
-        tableNumeroProyecto.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -9,15 +9,26 @@
 import Foundation
 import UIKit
 
-class Item{
+class Item: Codable{
     private var key: String;
     private var nombre: String;
     private var codigo: String;
     private var unidades: Int;
     private var pais: String;
     private var fotos: [UIImage]
-    private var descripcionDano: String?
+    private var urlFotos: [String]
+    private var descripcionDano: String
     
+    init(){
+        self.key = ""
+        self.nombre = ""
+        self.codigo = ""
+        self.unidades = 0
+        self.pais = ""
+        self.fotos = []
+        self.descripcionDano = ""
+        self.urlFotos = []
+    }
     init(key: String, nombre: String,codigo: String, pais: String) {
         self.unidades = 0;
         self.fotos = [];
@@ -25,6 +36,27 @@ class Item{
         self.nombre = nombre;
         self.codigo = codigo;
         self.pais = pais;
+        self.descripcionDano = ""
+        self.urlFotos = []
+    }
+    enum CodingKeys: String, CodingKey {
+        case nombre
+        case codigo
+        case unidades
+        case descripcionDano
+        case urlFotos
+    }
+    required init(from decoder:Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        nombre = try values.decode([String].self, forKey: .nombre) as! String
+        codigo = try values.decode([String].self, forKey: .codigo) as! String
+        unidades = try values.decode([Int].self, forKey: .unidades) as! Int
+        descripcionDano = try values.decode([String].self, forKey: .descripcionDano) as! String
+        urlFotos = []
+        
+        pais=""
+        fotos=[]
+        key = ""
         
     }
     
@@ -62,9 +94,30 @@ class Item{
         
     }
     func getDescripcionDano()->String{
-        return descripcionDano!
+        return descripcionDano
     }
     func setDescripcionDano(descripcion: String){
         self.descripcionDano = descripcion
+    }
+    func getKey()->String{
+        return key
+    }
+    func setKey(key: String){
+        self.key = key
+    }
+    func getPais()->String{
+        return pais
+    }
+    func setPais(pais: String){
+        self.pais = pais
+    }
+    func addUrl(url: String){
+        urlFotos.append(url)
+    }
+    func getUrl()->[String]{
+        return urlFotos
+    }
+    func addUrls(urls: [String]){
+        urlFotos = urls
     }
 }
