@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class ReporteEnvio{
+    private var idReporte: String
     private var cliente: Cliente?
     private var proyecto: Proyecto?
     private var numeroRemision: String
@@ -24,6 +25,7 @@ class ReporteEnvio{
     private var urlfotoTracto: String?
     
     init() {
+        idReporte = ""
         numeroRemision = ""
     }
     func setProyecto(proyecto: Proyecto){
@@ -103,6 +105,12 @@ class ReporteEnvio{
     }
     func getUrlfotoPlaca() -> String{
         return urlfotoPlaca!
+    }
+    func setIdReporte(idReporte: String){
+        self.idReporte = idReporte
+    }
+    func getIdReporte()->String{
+        return idReporte
     }
   
     

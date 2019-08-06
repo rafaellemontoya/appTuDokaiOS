@@ -33,6 +33,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             FirebaseDBManager.dbInstance.guardarReporteDevolucion(reporte: self.reporteDevolucion!){
                 (respuesta, referencia) in
                 if(respuesta){
+                    self.reporteDevolucion?.setIdReporte(idReporte: referencia!.documentID)
                     self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
                     }
                 }

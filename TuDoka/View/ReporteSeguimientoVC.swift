@@ -177,7 +177,8 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         self.reporte = ReporteSeguimiento()
-        
+        reporte?.setIdUsuario(idUsuario: "IdUsuario")
+        reporte?.setPais(pais: "MX")
         getInfoClientes()
         getInfoProyectos(keyCliente: "")
         

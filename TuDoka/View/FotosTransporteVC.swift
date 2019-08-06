@@ -37,6 +37,7 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
             FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporteEnvio!){
                 (respuesta, referencia) in
                 if(respuesta){
+                    self.reporteEnvio?.setIdReporte(idReporte: referencia!.documentID)
                     self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
                 }
             }

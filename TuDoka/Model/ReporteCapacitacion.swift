@@ -10,6 +10,7 @@ import Foundation
 
 
 class ReporteCapacitacion{
+    private var idReporte: String
     private var cliente: Cliente?
     private var proyecto: Proyecto?
     private var nombreCurso: String?
@@ -18,7 +19,7 @@ class ReporteCapacitacion{
     private var pais: String?
     
     init(){
-        
+        idReporte = ""
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -61,5 +62,11 @@ class ReporteCapacitacion{
     }
     func getPais() -> String{
         return pais!
+    }
+    func setIdReporte(idReporte: String){
+        self.idReporte = idReporte
+    }
+    func getIdReporte()->String{
+        return idReporte
     }
 }

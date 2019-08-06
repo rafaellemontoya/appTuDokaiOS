@@ -353,4 +353,57 @@ class FirebaseDBManager{
     
     
     
+    /*** FUNCIONES GUARDADO DE SEGUIMIENTO **/
+    
+    func guardarReporteSeguimiento(reporte: ReporteSeguimiento, completion: @escaping (Bool, DocumentReference?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesSeguimiento").addDocument(data: [
+            
+            "cliente": reporte.getCliente().key,
+            "proyecto": reporte.getProyecto().key,
+            "fechaCreacion": NSDate().timeIntervalSince1970,
+            "idUsuario": reporte.getIdUsuario(),
+            "nombreCurso": reporte.getNombreCurso(),
+            "pais": reporte.getPais()
+            ]
+        ) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false, nil)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(true, ref)
+                
+                
+            }
+            
+        }
+    }
+    func guardarItemsReporteSeguimiento(actividad: ActividadCapacitacion, idReporte: String, completion: @escaping (Bool, DocumentReference?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesSeguimiento").document(idReporte).collection("actividades").addDocument(data: ["descripcion": actividad.getDescripcion()])
+        { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                completion(false, nil)
+            } else {
+                print("Document successfully updated")
+                completion(true, ref)
+            }
+        }
+    }
+    func guardarFotosItemsReporteSeguimiento(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
+        
+        db.collection("reportesSeguimiento").document(idReporte).collection("actividades").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully updated")
+                completion(true)
+            }
+        }
+    }
+    
+    
 }

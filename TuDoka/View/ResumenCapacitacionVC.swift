@@ -32,10 +32,11 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
             FirebaseDBManager.dbInstance.guardarReporteCapacitacion(reporte: self.reporte!){
                 (respuesta, referencia) in
                 if(respuesta){
+                    self.reporte?.setIdReporte(idReporte: referencia!.documentID)
                     self.guardarActividades(items: (self.reporte?.getItems())!, idReporte: referencia!.documentID)
                 }
             }
-//            self.performSegue(withIdentifier: "enviarCorreosCapacitacionSegue", sender: self)
+
             
             
             

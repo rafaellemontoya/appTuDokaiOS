@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class ReporteDano{
+    private var idReporte: String
     private var cliente: Cliente?
     private var proyecto: Proyecto?
     private var items: [Item] = []
@@ -17,7 +18,7 @@ class ReporteDano{
     private var pais: String?
 
     init(){
-        
+        idReporte = ""
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -54,5 +55,10 @@ class ReporteDano{
     func getPais() -> String{
         return pais!
     }
-    
+    func setIdReporte(idReporte: String){
+        self.idReporte = idReporte
+    }
+    func getIdReporte()->String{
+        return idReporte
+    }
 }

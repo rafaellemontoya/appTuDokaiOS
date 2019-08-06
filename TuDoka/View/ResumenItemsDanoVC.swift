@@ -33,6 +33,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
             FirebaseDBManager.dbInstance.guardarReporteDano(reporte: self.reporte!){
                 (respuesta, referencia) in
                 if(respuesta){
+                    self.reporte?.setIdReporte(idReporte: referencia!.documentID)
                     self.guardarItems(items: (self.reporte?.getItems())!, idReporte: referencia!.documentID)
                 }
             }

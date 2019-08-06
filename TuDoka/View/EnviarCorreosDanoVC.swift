@@ -83,16 +83,30 @@ class EnviarCorreosDanoVC: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
 
-        struct Order: Codable {
-            let customerId: String
+        struct PDF: Codable {
+            let reporteId: String
             let items: [Item]
+            let emails: [String]
+            let nombreProyecto : String
+            let numeroProyecto : String
+            let nombreCliente: String
+            let numeroCliente: String
+            let usuario: String
+            
         }
         
         // ...
         
-        let order = Order(customerId: "12345",
-                          items: reporte!.getItems())
-        guard let uploadData = try? JSONEncoder().encode(order) else {
+        let pdf = PDF(reporteId: reporte!.getIdReporte(),
+                          items: reporte!.getItems(),
+                          emails: self.emails,
+                          nombreProyecto: reporte!.getProyecto().nombre,
+            numeroProyecto: reporte!.getProyecto().nombre,
+            nombreCliente: reporte!.getCliente().nombre,
+            numeroCliente: reporte!.getCliente().numero,
+            usuario: reporte!.getIdUsuario()
+        )
+        guard let uploadData = try? JSONEncoder().encode(pdf) else {
             return
         }
         

@@ -29,8 +29,14 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             //Guardar info
-            
-            self.performSegue(withIdentifier: "envioEmailSeguimientoSegue", sender: self)
+            FirebaseDBManager.dbInstance.guardarReporteSeguimiento(reporte: self.reporte!){
+                (respuesta, referencia) in
+                if(respuesta){
+                    self.reporte?.setIdReporte(idReporte: referencia!.documentID)
+                    self.guardarActividades(items: (self.reporte?.getItems())!, idReporte: referencia!.documentID)
+                }
+            }
+
             
             
             
@@ -178,7 +184,62 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
         self.present(alert, animated: true, completion: nil)
         
     }
-    
+    func guardarActividades(items: [ActividadCapacitacion], idReporte: String){
+        var flag = 0;
+        for item in items{
+            FirebaseDBManager.dbInstance.guardarItemsReporteSeguimiento(actividad: item, idReporte: idReporte){
+                (respuesta, referencia) in
+                //subo fotos
+                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idActividad: referencia!.documentID){
+                    (respuesta, arrayRespuesta) in
+                    if(respuesta){
+                        item.setUrlFotos(urls: arrayRespuesta!)
+                        flag+=1;
+                        if(flag == items.count){
+                            let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
+                            
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                                NSLog("The \"OK\" alert occured.")
+                                //regreso a la pantalla anterior
+                                self.performSegue(withIdentifier: "envioEmailSeguimientoSegue", sender: self)
+                                
+                                
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
+    func subirFotos(items: [UIImage], idReporte: String, idActividad: String,completion: @escaping (Bool, [String]?)-> Void ){
+        var flag = 0;
+        var urls: [String] = []
+        for item in items{
+            
+            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+                (respuesta, url) in
+                if (respuesta){
+                    //actualizar fotos en bd
+                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteSeguimiento(item: idActividad, idReporte: idReporte, url: url!){
+                        (respuestaGuardar) in
+                        if (respuestaGuardar!){
+                            urls.append(url!)
+                            flag+=1
+                            if(flag == items.count){
+                                completion(true, urls)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+        }//for
+        
+    }
     
 }
 

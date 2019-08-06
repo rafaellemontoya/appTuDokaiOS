@@ -8,14 +8,17 @@
 
 import Foundation
 class ReporteSeguimiento {
+    private var idReporte: String
     private var cliente: Cliente?
     private var proyecto: Proyecto?
     private var nombreCurso: String?
     private var items: [ActividadCapacitacion] = []
     private var idUsuario: String?
+    private var pais: String
     
     init(){
-        
+        pais = ""
+        idReporte = ""
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -53,5 +56,16 @@ class ReporteSeguimiento {
     func getNombreCurso() -> String{
         return nombreCurso!
     }
-    
+    func setPais(pais: String){
+        self.pais = pais
+    }
+    func getPais() -> String{
+        return pais
+    }
+    func setIdReporte(idReporte: String){
+        self.idReporte = idReporte
+    }
+    func getIdReporte()->String{
+        return idReporte
+    }
 }

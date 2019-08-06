@@ -72,4 +72,53 @@ class EnviarCorreosCapacitacionVC: UIViewController {
         }
     }
     
+    func enviarEmail(){
+        
+        let session = URLSession.shared
+        let url = URL(string: "https://www.themyt.com/prueba_swift.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
+        
+        struct PDF: Codable {
+            let reporteId: String
+            let items: [ActividadCapacitacion]
+            let emails: [String]
+            let nombreProyecto : String
+            let numeroProyecto : String
+            let nombreCliente: String
+            let numeroCliente: String
+            let usuario: String
+            
+        }
+        
+        // ...
+        
+        let pdf = PDF(reporteId: reporte!.getIdReporte(),
+                      items: reporte!.getItems(),
+                      emails: self.emails,
+                      nombreProyecto: reporte!.getProyecto().nombre,
+                      numeroProyecto: reporte!.getProyecto().nombre,
+                      nombreCliente: reporte!.getCliente().nombre,
+                      numeroCliente: reporte!.getCliente().numero,
+                      usuario: reporte!.getIdUsuario()
+        )
+        guard let uploadData = try? JSONEncoder().encode(pdf) else {
+            return
+        }
+        
+        
+        let task = session.uploadTask(with: request, from: uploadData) { data, response, error in
+            // Do something...
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print(dataString)
+            }
+        }
+        
+        task.resume()
+        
+        
+    }
+    
 }
