@@ -15,11 +15,11 @@ class Proyecto{
     var pais: String;
     var keyCliente: String
     
-    init(key: String, nombre: String,numero: String, pais: String, keyCliente: String) {
-        self.key = key;
-        self.nombre = nombre;
-        self.numero = numero;
-        self.pais = pais;
-        self.keyCliente = keyCliente;
+    init() {
+        self.key = "";
+        self.nombre = "";
+        self.numero = "";
+        self.pais = "";
+        self.keyCliente = "";
     }
 }

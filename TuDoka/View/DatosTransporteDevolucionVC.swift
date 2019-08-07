@@ -137,22 +137,22 @@ extension DatosTransporteDevolucionVC: UIImagePickerControllerDelegate{
         //self.reporteEnvio!.getItems().last?.addPhoto(foto: selectedImage)
         switch btnSeleccionado {
         case "fotoLicencia":
-            self.reporteDevolucion!.setFotoLicencia(fotoLicencia: selectedImage)
+            self.reporteDevolucion!.fotoLicencia = selectedImage
             fotoLicenciaIV.contentMode = .scaleAspectFit
             self.fotoLicenciaIV.image = selectedImage
             break
-        case "fotoPlaca":
-            self.reporteDevolucion!.setFotoPlaca(fotoPlaca: selectedImage)
+        case "fotoPlacaTrasera":
+            self.reporteDevolucion!.fotoPlacaTrasera = selectedImage
             fotoPlacaIV.contentMode = .scaleAspectFit
             self.fotoPlacaIV.image = selectedImage
             break
-        case "fotoTracto":
-            self.reporteDevolucion!.setFotoTracto(fotoTracto: selectedImage)
+        case "fotoTractoTrasera":
+            self.reporteDevolucion!.fotoTractoTrasera = selectedImage
             fotoTractoIV.contentMode = .scaleAspectFit
             self.fotoTractoIV.image = selectedImage
             break
-        case "fotoDocumento":
-            self.reporteDevolucion!.setFotoDocumentoDevolucion(fotoDocumentoDevolucion: selectedImage)
+        case "fotoTractoLateral1":
+            self.reporteDevolucion!.fotoTractoLateral1 = selectedImage
             fotoDocumentoDokaIV.contentMode = .scaleAspectFit
             self.fotoDocumentoDokaIV.image = selectedImage
             break

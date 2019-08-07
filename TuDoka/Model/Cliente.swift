@@ -16,18 +16,13 @@ class Cliente{
     var pais: String;
     
     var foto: String?;
-    init(key: String, nombre: String,numero: String, pais: String) {
-        self.key = key;
-        self.nombre = nombre;
-        self.numero = numero;
-        self.pais = pais;
+    init() {
+        self.key = "";
+        self.nombre = "";
+        self.numero = "";
+        self.pais = "";
     }
-    /*init?(snapshot: QuerySnapshot) {
-        for document in snapshot.documents{
-            print("\(document.documentID) => \(document.data())")
-        }
-        
-    }*/
+ 
         
         
     

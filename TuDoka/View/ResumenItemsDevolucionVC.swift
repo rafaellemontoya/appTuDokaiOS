@@ -11,7 +11,7 @@ import UIKit
 class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     var reporteDevolucion: ReporteDevolucion?
-    
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var fotosTV: UITableView!
     
     
@@ -27,7 +27,16 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-            //regreso a la pantalla anterior
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            //Guardar info
+            self.activityIndicator.center = self.view.center
+            self.activityIndicator.hidesWhenStopped = true
+            
+            self.activityIndicator.color=UIColor.black
+            self.activityIndicator.backgroundColor = UIColor.red
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+            
             //Guardar info
             
             FirebaseDBManager.dbInstance.guardarReporteDevolucion(reporte: self.reporteDevolucion!){
@@ -183,50 +192,64 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     }
     
     func guardarInfoTransporte(idReporte: String){
-        subirFotosTransporte(item: (self.reporteDevolucion?.getFotoPlaca())!, idReporte: idReporte){
+        
+        //placa trasera
+        subirFotosTransporte(item: (self.reporteDevolucion?.fotoPlacaTrasera)!, idReporte: idReporte){
             (respuesta, url) in
             if(respuesta){
-                self.reporteDevolucion?.setUrlfotoPlaca(url: url!)
+                self.reporteDevolucion?.urlFotoPlacaTrasera = url!
                 
-                self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoTracto())!, idReporte: idReporte){
+                //Placa delantera
+                self.subirFotosTransporte(item: (self.reporteDevolucion?.fotoPlacaDelantera)!, idReporte: idReporte){
                     (respuesta, url) in
                     if(respuesta){
-                        self.reporteDevolucion?.seturlfotoTracto(url: url!)
+                        self.reporteDevolucion?.urlFotoPlacaDelantera = url!
                         
-                        self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoLicencia())!, idReporte: idReporte){
+                        //tracto trasera
+                        self.subirFotosTransporte(item: (self.reporteDevolucion?.fotoTractoTrasera)!, idReporte: idReporte){
                             (respuesta, url) in
                             if(respuesta){
-                                self.reporteDevolucion?.setUrlfotoLicencia(url: url!)
+                                self.reporteDevolucion?.urlFotoTractoTrasera = url!
                                 
-                                self.subirFotosTransporte(item: (self.reporteDevolucion?.getFotoDocumentoDevolucion())!, idReporte: idReporte){
+                                //Tracto lateral 1
+                                self.subirFotosTransporte(item: (self.reporteDevolucion?.fotoTractoLateral1)!, idReporte: idReporte){
                                     (respuesta, url) in
                                     if(respuesta){
-                                        self.reporteDevolucion?.setUrlfotoDocumentoDevolucion(url: url!)
-                                        FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporteDevolucion!, idReporte: idReporte){
-                                            (respuesta) in
-                                            if(respuesta!){
-                                                self.guardarItems(items: (self.reporteDevolucion?.getItems())!, idReporte: idReporte)
-                                            }
+                                        self.reporteDevolucion?.urlFotoTractoLateral1 = url!
+                                        
+                                        //tracto lateral 2
+                                        self.subirFotosTransporte(item: (self.reporteDevolucion?.fotoTractoLateral2)!, idReporte: idReporte){
+                                            (respuesta, url) in
+                                            if(respuesta){
+                                                self.reporteDevolucion?.urlFotoTractoLateral2 = url!
+                                                
+                                                //documento devolucion
+                                                self.subirFotosTransporte(item: (self.reporteDevolucion?.fotoDocumentoDevolucion)!, idReporte: idReporte){
+                                                    (respuesta, url) in
+                                                    if(respuesta){
+                                                        self.reporteDevolucion?.urlFotoDocumentoDevolucion = url!
+                                                        FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporteDevolucion!, idReporte: idReporte){
+                                                            (respuesta) in
+                                                            if(respuesta!){
+                                                                self.guardarItems(items: (self.reporteDevolucion?.getItems())!, idReporte: idReporte)
+                                                            }
+                                                        }
+                                                        
+                                                    }//error documento
+                                                }
+                                            }//error lateral 2
                                         }
-                                        
-                                        
-                                    }//error subir Documento
+                 
+                                    }//error lateral 1
                                 }
                                 
-                            }//error subir licencia
+                            }//error tracto trasera
                         }
-                    }//error subir tracto
+                    }//error placa delantera
                 }
-            }//Errror subir placa
+            }//Errror subir placa trasera
         }
-        subirFotosTransporte(item: (self.reporteDevolucion?.getFotoPlaca())!, idReporte: idReporte){
-            (respuesta, url) in
-            if(respuesta){
-                self.reporteDevolucion?.setUrlfotoPlaca(url: url!)
-                
-                
-            }
-        }
+        
     }
     func guardarItems(items: [Item], idReporte: String){
         var flag = 0;
@@ -239,6 +262,8 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                     if(respuesta!){
                         flag+=1;
                         if(flag == items.count){
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            self.activityIndicator.stopAnimating()
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -252,7 +277,20 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                         }
                         
                         
-                    }
+                    }else{
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.activityIndicator.stopAnimating()
+                        let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                            //regreso a la pantalla anterior
+                            
+                            
+                            
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }//Error al subir
                 }
             }
         }

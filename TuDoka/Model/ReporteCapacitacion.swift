@@ -17,9 +17,13 @@ class ReporteCapacitacion{
     private var items: [ActividadCapacitacion] = []
     private var idUsuario: String?
     private var pais: String?
+    var nombreUsuario: String
+    var emailUsuario: String
     
     init(){
         idReporte = ""
+        emailUsuario = "usuario@email.com"
+        nombreUsuario = "Nombre Usuario"
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -30,7 +34,7 @@ class ReporteCapacitacion{
     
     func getCliente()-> Cliente{
         guard let clienteTmp = cliente else {
-            return Cliente(key: "", nombre: "", numero: "", pais: "")
+            return Cliente()
         }
         return clienteTmp
     }

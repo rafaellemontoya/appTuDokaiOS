@@ -90,7 +90,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "fotosTransporteSegue"){
             let receiver = segue.destination as! FotosTransporteVC
-            receiver.reporteEnvio = self.reporteEnvio!
+            receiver.reporte = self.reporteEnvio!
         }
     }
     

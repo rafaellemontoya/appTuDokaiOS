@@ -31,7 +31,7 @@ class FirebaseDBManager{
             }else{
                 
                 for document in querySnapshot!.documents{
-                    let cliente = Cliente(key: "", nombre: "", numero: "", pais: "")
+                    let cliente = Cliente()
                     if let nombreCliente = document.data()["nombre"]as? String{
                         cliente.nombre = nombreCliente
                     }
@@ -124,7 +124,7 @@ class FirebaseDBManager{
             }else{
                 
                 for document in querySnapshot!.documents{
-                    let item = Proyecto(key: "", nombre: "", numero: "", pais: "", keyCliente: idCliente)
+                    let item = Proyecto()
                     if let nombreCliente = document.data()["nombre"]as? String{
                         item.nombre = nombreCliente
                     }
@@ -135,7 +135,7 @@ class FirebaseDBManager{
                         item.pais = paisCliente
                     }
                     item.key = document.documentID
-                    
+                    item.keyCliente = idCliente
                     array.append(item)
                     
                 }
@@ -197,10 +197,14 @@ class FirebaseDBManager{
     
     func guardarFotosTransporteDevolucion(reporte: ReporteDevolucion, idReporte: String, completion: @escaping (Bool?)-> Void ){
         
-        db.collection("reportesDevolucion").document(idReporte).updateData(["fotoDocumentoDevolucion" : reporte.getUrlfotoDocumentoDevolucion(),
-                                                                         "fotoLicencia": reporte.getUrlfotoLicencia(),
-                                                                         "fotoPlaca": reporte.getUrlfotoPlaca(),
-                                                                         "fotoTracto": reporte.getUrlfotoTracto()]){ err in
+        db.collection("reportesDevolucion").document(idReporte).updateData(["fotoDocumentoDevolucion" : reporte.urlFotoDocumentoDevolucion,
+                                                                         "fotoLicencia": reporte.urlFotoLicencia,
+                                                                         "fotoPlacaDelantera": reporte.urlFotoPlacaDelantera,
+                                                                         "fotoPlacaTrasera": reporte.urlFotoPlacaTrasera,
+                                                                         "fotoTractoTrasera": reporte.urlFotoTractoTrasera,
+                                                                         "fotoTractoLateral1": reporte.urlFotoTractoLateral1,
+                                                                         "fotoTractoLateral2": reporte.urlFotoTractoLateral2
+        ]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
                 completion(false)
@@ -265,9 +269,12 @@ class FirebaseDBManager{
     func guardarFotosTransporteEnvio(reporte: ReporteEnvio, idReporte: String, completion: @escaping (Bool?)-> Void ){
         
         db.collection("reportesEnvio").document(idReporte).updateData([
-                                                                            "fotoLicencia": reporte.getUrlfotoLicencia(),
-                                                                            "fotoPlaca": reporte.getUrlfotoPlaca(),
-                                                                            "fotoTracto": reporte.getUrlfotoTracto()]){ err in
+            "fotoLicencia": reporte.urlFotoLicencia,
+            "fotoPlacaDelantera": reporte.urlFotoPlacaDelantera,
+            "fotoPlacaTrasera": reporte.urlFotoPlacaTrasera,
+            "fotoTractoTrasera": reporte.urlFotoTractoTrasera,
+            "fotoTractoLateral1": reporte.urlFotoTractoLateral1,
+            "fotoTractoLateral2": reporte.urlFotoTractoLateral2]){ err in
                                                                                 if let err = err {
                                                                                     print("Error updating document: \(err)")
                                                                                     completion(false)
@@ -394,7 +401,6 @@ class FirebaseDBManager{
             "proyecto": reporte.getProyecto().key,
             "fechaCreacion": NSDate().timeIntervalSince1970,
             "idUsuario": reporte.getIdUsuario(),
-            "nombreCurso": reporte.getNombreCurso(),
             "pais": reporte.getPais()
             ]
         ) { err in

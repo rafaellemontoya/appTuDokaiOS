@@ -11,6 +11,7 @@ import UIKit
 class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
     
     var reporte: ReporteSeguimiento?
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet weak var fotosTV: UITableView!
     
@@ -27,8 +28,18 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-            //regreso a la pantalla anterior
+            
+            UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
+            self.activityIndicator.center = self.view.center
+            self.activityIndicator.hidesWhenStopped = true
+            
+            self.activityIndicator.color=UIColor.black
+            self.activityIndicator.backgroundColor = UIColor.red
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+            //Guardar info
+            
             FirebaseDBManager.dbInstance.guardarReporteSeguimiento(reporte: self.reporte!){
                 (respuesta, referencia) in
                 if(respuesta){
@@ -196,6 +207,8 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
                         item.setUrlFotos(urls: arrayRespuesta!)
                         flag+=1;
                         if(flag == items.count){
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            self.activityIndicator.stopAnimating()
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -209,6 +222,19 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
                         }
                         
                         
+                    }else{
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.activityIndicator.stopAnimating()
+                        let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                            //regreso a la pantalla anterior
+                            
+                            
+                            
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }

@@ -11,14 +11,23 @@ import UIKit
 
 class ReporteDano{
     private var idReporte: String
-    private var cliente: Cliente?
-    private var proyecto: Proyecto?
+    private var cliente: Cliente
+    private var proyecto: Proyecto
     private var items: [Item] = []
-    private var idUsuario: String?
-    private var pais: String?
+    private var idUsuario: String
+    private var pais: String
+    var nombreUsuario: String
+    var emailUsuario: String
 
     init(){
         idReporte = ""
+        emailUsuario = "usuario@email.com"
+        nombreUsuario = "Nombre Usuario"
+        cliente = Cliente()
+        proyecto = Proyecto()
+        idUsuario = ""
+        pais = ""
+        
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -28,14 +37,12 @@ class ReporteDano{
     }
 
     func getCliente()-> Cliente{
-        guard let clienteTmp = cliente else {
-            return Cliente(key: "", nombre: "", numero: "", pais: "")
-        }
-        return clienteTmp
+        
+        return cliente
     }
 
     func getProyecto() -> Proyecto{
-        return proyecto!
+        return proyecto
     }
     func setItems(item: Item){
         self.items.append(item)
@@ -47,13 +54,13 @@ class ReporteDano{
         self.idUsuario = idUsuario
     }
     func getIdUsuario() -> String{
-        return idUsuario!
+        return idUsuario
     }
     func setPais(pais: String){
         self.pais = pais
     }
     func getPais() -> String{
-        return pais!
+        return pais
     }
     func setIdReporte(idReporte: String){
         self.idReporte = idReporte
@@ -61,4 +68,5 @@ class ReporteDano{
     func getIdReporte()->String{
         return idReporte
     }
+    
 }

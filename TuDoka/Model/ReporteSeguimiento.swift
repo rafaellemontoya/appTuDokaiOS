@@ -9,16 +9,22 @@
 import Foundation
 class ReporteSeguimiento {
     private var idReporte: String
-    private var cliente: Cliente?
-    private var proyecto: Proyecto?
-    private var nombreCurso: String?
+    private var cliente: Cliente
+    private var proyecto: Proyecto
     private var items: [ActividadCapacitacion] = []
-    private var idUsuario: String?
+    private var idUsuario: String
     private var pais: String
-    
+    var nombreUsuario: String
+    var emailUsuario: String
     init(){
         pais = ""
         idReporte = ""
+        idUsuario = ""
+        emailUsuario = "usuario@email.com"
+        nombreUsuario = "Nombre Usuario"
+        cliente = Cliente()
+        proyecto = Proyecto()
+        
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -28,14 +34,12 @@ class ReporteSeguimiento {
     }
     
     func getCliente()-> Cliente{
-        guard let clienteTmp = cliente else {
-            return Cliente(key: "", nombre: "", numero: "", pais: "")
-        }
-        return clienteTmp
+        
+        return cliente
     }
     
     func getProyecto() -> Proyecto{
-        return proyecto!
+        return proyecto
     }
     func setItems(item: ActividadCapacitacion){
         self.items.append(item)
@@ -47,15 +51,10 @@ class ReporteSeguimiento {
         self.idUsuario = idUsuario
     }
     func getIdUsuario() -> String{
-        return idUsuario!
+        return idUsuario
     }
     
-    func setNombreCurso(nombreCurso: String){
-        self.nombreCurso = nombreCurso
-    }
-    func getNombreCurso() -> String{
-        return nombreCurso!
-    }
+
     func setPais(pais: String){
         self.pais = pais
     }

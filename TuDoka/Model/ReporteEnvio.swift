@@ -11,22 +11,41 @@ import UIKit
 
 class ReporteEnvio{
     private var idReporte: String
-    private var cliente: Cliente?
-    private var proyecto: Proyecto?
+    private var cliente: Cliente
+    private var proyecto: Proyecto
     private var numeroRemision: String
     private var items: [Item] = []
-    private var fotoLicencia: UIImage?
-    private var fotoPlaca: UIImage?
-    private var fotoTracto: UIImage?
-    private var idUsuario: String?
-    private var pais: String?
-    private var urlfotoLicencia: String?
-    private var urlfotoPlaca: String?
-    private var urlfotoTracto: String?
+    var fotoLicencia: UIImage?
+    var fotoPlacaDelantera: UIImage?
+    var fotoPlacaTrasera: UIImage?
+    var fotoTractoLateral1: UIImage?
+    var fotoTractoLateral2: UIImage?
+    var fotoTractoTrasera: UIImage?
+    private var idUsuario: String
+    private var pais: String
+    var urlFotoLicencia: String
+    var urlFotoPlacaDelantera: String
+    var urlFotoPlacaTrasera: String
+    var urlFotoTractoLateral1: String
+    var urlFotoTractoLateral2: String
+    var urlFotoTractoTrasera: String
     
     init() {
         idReporte = ""
         numeroRemision = ""
+        cliente = Cliente()
+        proyecto = Proyecto()
+        numeroRemision = ""
+        items = []
+        idUsuario = ""
+        pais = ""
+        urlFotoLicencia = ""
+        urlFotoPlacaDelantera = ""
+        urlFotoPlacaTrasera = ""
+        urlFotoTractoLateral1 = ""
+        urlFotoTractoLateral2 = ""
+        urlFotoTractoTrasera = ""
+        
     }
     func setProyecto(proyecto: Proyecto){
         self.proyecto = proyecto
@@ -36,14 +55,12 @@ class ReporteEnvio{
     }
     
     func getCliente()-> Cliente{
-        guard let clienteTmp = cliente else {
-            return Cliente(key: "", nombre: "", numero: "", pais: "")
-        }
-        return clienteTmp
+       
+        return cliente
     }
     
     func getProyecto() -> Proyecto{
-        return proyecto!
+        return proyecto
     }
     func setItems(item: Item){
         self.items.append(item)
@@ -57,55 +74,21 @@ class ReporteEnvio{
     func getNumeroRemision()-> String{
         return numeroRemision
     }
-    func setFotoLicencia(fotoLicencia: UIImage){
-        self.fotoLicencia = fotoLicencia
-    }
-    func getFotoLicencia() -> UIImage{
-        return fotoLicencia!
-    }
-    func setFotoPlaca(fotoPlaca: UIImage){
-        self.fotoPlaca = fotoPlaca
-    }
-    func getFotoPlaca() -> UIImage{
-        return fotoPlaca!
-    }
-    func setFotoTracto(fotoTracto: UIImage){
-        self.fotoTracto = fotoTracto
-    }
-    func getFotoTracto() -> UIImage{
-        return fotoTracto!
-    }
+    
     
     func setIdUsuario(idUsuario: String){
         self.idUsuario = idUsuario
     }
     func getIdUsuario() -> String{
-        return idUsuario!
+        return idUsuario
     }
     func setPais(idPais: String){
         self.pais = idPais
     }
     func getIdPais() -> String{
-        return pais!
+        return pais
     }
-    func setUrlfotoLicencia(url: String){
-        self.urlfotoLicencia = url
-    }
-    func getUrlfotoLicencia() -> String{
-        return urlfotoLicencia!
-    }
-    func seturlfotoTracto(url: String){
-        self.urlfotoTracto = url
-    }
-    func getUrlfotoTracto() -> String{
-        return urlfotoTracto!
-    }
-    func setUrlfotoPlaca(url: String){
-        self.urlfotoPlaca = url
-    }
-    func getUrlfotoPlaca() -> String{
-        return urlfotoPlaca!
-    }
+    
     func setIdReporte(idReporte: String){
         self.idReporte = idReporte
     }

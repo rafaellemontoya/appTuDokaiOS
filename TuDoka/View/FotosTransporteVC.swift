@@ -10,10 +10,10 @@ import UIKit
 
 class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
     
-    var reporteEnvio: ReporteEnvio?
+    var reporte: ReporteEnvio?
     var imagePicker: UIImagePickerController!
     var btnSeleccionado: String?
-    
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     
     enum ImageSource {
         case photoLibrary
@@ -32,12 +32,20 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Finalizar reporte", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-            //regreso a la pantalla anterior
+            UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
-            FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporteEnvio!){
+            self.activityIndicator.center = self.view.center
+            self.activityIndicator.hidesWhenStopped = true
+            
+            self.activityIndicator.color=UIColor.black
+            self.activityIndicator.backgroundColor = UIColor.red
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+            //Guardar info
+            FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporte!){
                 (respuesta, referencia) in
                 if(respuesta){
-                    self.reporteEnvio?.setIdReporte(idReporte: referencia!.documentID)
+                    self.reporte?.setIdReporte(idReporte: referencia!.documentID)
                     self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
                 }
             }
@@ -119,7 +127,7 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "agregarRemisionSegue"){
             let receiver = segue.destination as! AgregarRemisionVC
-            receiver.reporteEnvio = self.reporteEnvio!
+            receiver.reporteEnvio = self.reporte!
         }else if (segue.identifier == "menuPrincipalSegue"){
             
         }
@@ -146,19 +154,22 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
         //self.reporteEnvio!.getItems().last?.addPhoto(foto: selectedImage)
         switch btnSeleccionado {
         case "fotoLicencia":
-            self.reporteEnvio!.setFotoLicencia(fotoLicencia: selectedImage)
+            self.reporte!.fotoLicencia = selectedImage
             licenciaIV.contentMode = .scaleAspectFit
             self.licenciaIV.image = selectedImage
             break
-        case "fotoPlaca":
-            self.reporteEnvio!.setFotoPlaca(fotoPlaca: selectedImage)
+        case "fotoPlacaTrasera":
+            self.reporte!.fotoPlacaTrasera = selectedImage
             placaIV.contentMode = .scaleAspectFit
             self.placaIV.image = selectedImage
             break
-        case "fotoTracto":
-            self.reporteEnvio!.setFotoTracto(fotoTracto: selectedImage)
+        case "fotoTractoTrasera":
+            self.reporte!.fotoTractoTrasera = selectedImage
             tractoIV.contentMode = .scaleAspectFit
             self.tractoIV.image = selectedImage
+            break
+        case "fotoTractoLateral1":
+            
             break
         default:
             return
@@ -171,36 +182,57 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
     
     
     func guardarInfoTransporte(idReporte: String){
-        subirFotosTransporte(item: (self.reporteEnvio?.getFotoPlaca())!, idReporte: idReporte){
+        
+        //placa trasera
+        subirFotosTransporte(item: (self.reporte?.fotoPlacaTrasera)!, idReporte: idReporte){
             (respuesta, url) in
             if(respuesta){
-                self.reporteEnvio?.setUrlfotoPlaca(url: url!)
+                self.reporte?.urlFotoPlacaTrasera = url!
                 
-                self.subirFotosTransporte(item: (self.reporteEnvio?.getFotoTracto())!, idReporte: idReporte){
+                //Placa delantera
+                self.subirFotosTransporte(item: (self.reporte?.fotoPlacaDelantera)!, idReporte: idReporte){
                     (respuesta, url) in
                     if(respuesta){
-                        self.reporteEnvio?.seturlfotoTracto(url: url!)
+                        self.reporte?.urlFotoPlacaDelantera = url!
                         
-                        self.subirFotosTransporte(item: (self.reporteEnvio?.getFotoLicencia())!, idReporte: idReporte){
+                        //tracto trasera
+                        self.subirFotosTransporte(item: (self.reporte?.fotoTractoTrasera)!, idReporte: idReporte){
                             (respuesta, url) in
                             if(respuesta){
-                                self.reporteEnvio?.setUrlfotoLicencia(url: url!)
-                                self.guardarItems(items: (self.reporteEnvio?.getItems())!, idReporte: idReporte)
-                                FirebaseDBManager.dbInstance.guardarFotosTransporteEnvio(reporte: self.reporteEnvio!, idReporte: idReporte){
-                                    (respuesta) in
-                                    if(respuesta!){
-                                        self.guardarItems(items: (self.reporteEnvio?.getItems())!, idReporte: idReporte)
-                                    }
-                                }
-                              
+                                self.reporte?.urlFotoTractoTrasera = url!
+                                
+                                //Tracto lateral 1
+                                self.subirFotosTransporte(item: (self.reporte?.fotoTractoLateral1)!, idReporte: idReporte){
+                                    (respuesta, url) in
+                                    if(respuesta){
+                                        self.reporte?.urlFotoTractoLateral1 = url!
+                                        
+                                        //tracto lateral 2
+                                        self.subirFotosTransporte(item: (self.reporte?.fotoTractoLateral2)!, idReporte: idReporte){
+                                            (respuesta, url) in
+                                            if(respuesta){
+                                                self.reporte?.urlFotoTractoLateral2 = url!
+                                                
+                                                        FirebaseDBManager.dbInstance.guardarFotosTransporteEnvio(reporte: self.reporte!, idReporte: idReporte){
+                                                            (respuesta) in
+                                                            if(respuesta!){
+                                                                self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
+                                                            }
+                                                        }
+                                                        
+                                                
+                                            }//error lateral 2
+                                        }
+                                        
+                                    }//error lateral 1
                                 }
                                 
-                            }//error subir licencia
+                            }//error tracto trasera
                         }
-                    }//error subir tracto
+                    }//error placa delantera
                 }
-            }//Errror subir placa
-        
+            }//Errror subir placa trasera
+        }
         
     }
     func guardarItems(items: [Item], idReporte: String){
@@ -214,6 +246,8 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
                     if(respuesta!){
                         flag+=1;
                         if(flag == items.count){
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            self.activityIndicator.stopAnimating()
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -227,7 +261,20 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
                         }
                         
                         
-                    }
+                    }else{
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.activityIndicator.stopAnimating()
+                        let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                            //regreso a la pantalla anterior
+                            
+                            
+                            
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }//Error al subir
                 }
             }
         }
@@ -236,7 +283,7 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
         var flag = 0;
         for item in items{
             
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteEnvio?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
                 (respuesta, url) in
                 if (respuesta){
                     //actualizar fotos en bd
@@ -261,7 +308,7 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
         
         
         
-        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporteEnvio?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
             (respuesta, url) in
             if (respuesta){
                 //actualizar fotos en bd

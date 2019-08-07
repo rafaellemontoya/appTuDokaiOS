@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
     
     
@@ -177,6 +177,13 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegarTF()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        
+        
+        
         self.reporteEnvio = ReporteEnvio()
 
         self.reporteEnvio?.setIdUsuario(idUsuario: "keyUsuario")
@@ -187,7 +194,26 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         
     }
+    func delegarTF(){
+        self.textField.delegate = self
+        self.numeroClienteTF.delegate = self;
+        self.nombreProyectoTF.delegate = self
+        self.numeroProyectoTF.delegate = self
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        numeroClienteTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
+
 
     
     func getInfoClientes(){
@@ -233,6 +259,6 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         
     }
-  
+
 
 }

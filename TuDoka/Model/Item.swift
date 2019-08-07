@@ -18,6 +18,7 @@ class Item: Codable{
     private var fotos: [UIImage]
     private var urlFotos: [String]
     private var descripcionDano: String
+    private var tipoDano: TipoDano
     
     init(){
         self.key = ""
@@ -28,6 +29,8 @@ class Item: Codable{
         self.fotos = []
         self.descripcionDano = ""
         self.urlFotos = []
+        self.tipoDano = TipoDano()
+        
     }
     init(key: String, nombre: String,codigo: String, pais: String) {
         self.unidades = 0;
@@ -38,6 +41,7 @@ class Item: Codable{
         self.pais = pais;
         self.descripcionDano = ""
         self.urlFotos = []
+        self.tipoDano = TipoDano()
     }
     enum CodingKeys: String, CodingKey {
         case nombre
@@ -45,6 +49,7 @@ class Item: Codable{
         case unidades
         case descripcionDano
         case urlFotos
+        case tipoDano
     }
     required init(from decoder:Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -53,7 +58,7 @@ class Item: Codable{
         unidades = try values.decode([Int].self, forKey: .unidades) as! Int
         descripcionDano = try values.decode([String].self, forKey: .descripcionDano) as! String
         urlFotos = []
-        
+        tipoDano = TipoDano()
         pais=""
         fotos=[]
         key = ""
@@ -119,5 +124,11 @@ class Item: Codable{
     }
     func addUrls(urls: [String]){
         urlFotos = urls
+    }
+    func setTipoDano(tipoDano:TipoDano){
+        self.tipoDano = tipoDano
+    }
+    func getTipoDano()->TipoDano{
+        return tipoDano
     }
 }

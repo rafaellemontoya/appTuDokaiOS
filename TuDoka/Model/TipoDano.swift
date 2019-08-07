@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TipoDano {
+class TipoDano: Codable {
     var key: String
     var clasificacionEquipo: String
     var tipoDano: String

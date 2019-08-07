@@ -99,7 +99,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     @IBAction func continuarBTN(_ sender: Any) {
         
         if(nombreCursoTF.text != ""){
-            reporte?.setNombreCurso(nombreCurso: nombreCursoTF.text!)
+            
             performSegue(withIdentifier: "confirmacionDatosSeguimientoSegue", sender: self)
         }
         

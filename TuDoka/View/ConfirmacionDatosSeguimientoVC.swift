@@ -30,7 +30,7 @@ class ConfirmacionDatosSeguimientoVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        nombreCurso.text = reporte?.getNombreCurso()
+        nombreCurso.text = ""
         nombreClienteTF.text = reporte?.getCliente().nombre
         
         numeroClienteTF.text = reporte?.getCliente().numero

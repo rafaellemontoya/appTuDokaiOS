@@ -11,6 +11,7 @@ import UIKit
 
 class EnviarCorreosDanoVC: UIViewController {
 
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var  reporte: ReporteDano?
     
     var emails: [String] = []
@@ -25,7 +26,7 @@ class EnviarCorreosDanoVC: UIViewController {
     @IBAction func finalizarBTN(_ sender: Any) {
         
         
-        let alert = UIAlertController(title: "¿Estás seguro de querer terminar el reporte?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de querer enviar el reporte?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
@@ -36,7 +37,15 @@ class EnviarCorreosDanoVC: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
+            UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
+            self.activityIndicator.center = self.view.center
+            self.activityIndicator.hidesWhenStopped = true
+            
+            self.activityIndicator.color=UIColor.black
+            self.activityIndicator.backgroundColor = UIColor.red
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
             
             //Enviar correos
             self.emails = []
@@ -89,6 +98,8 @@ class EnviarCorreosDanoVC: UIViewController {
             let reporteId: String
             let items: [Item]
             let emails: [String]
+            let nombreUsuario: String
+            let emailUsuario: String
             let nombreProyecto : String
             let numeroProyecto : String
             let nombreCliente: String
@@ -102,6 +113,8 @@ class EnviarCorreosDanoVC: UIViewController {
         let pdf = PDF(reporteId: reporte!.getIdReporte(),
                           items: reporte!.getItems(),
                           emails: self.emails,
+                          nombreUsuario: self.reporte!.nombreUsuario,
+                          emailUsuario: self.reporte!.emailUsuario,
                           nombreProyecto: reporte!.getProyecto().nombre,
             numeroProyecto: reporte!.getProyecto().nombre,
             nombreCliente: reporte!.getCliente().nombre,
@@ -117,10 +130,44 @@ class EnviarCorreosDanoVC: UIViewController {
             // Do something...
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print(dataString)
+                DispatchQueue.main.async(execute: {
+                    /// code goes here
+                    self.emailsEnviados()
+                })
+                
             }
         }
         
         task.resume()
+        
+        
+    }
+    func emailsEnviados(){
+        UIApplication.shared.endIgnoringInteractionEvents()
+        self.activityIndicator.stopAnimating()
+        
+        let alert = UIAlertController(title: "Reporte enviado con éxito", message: "¿Quieres enviar a más personas?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Salir", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            
+            
+            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Enviar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            //Guardar info
+            self.email1TF.text = ""
+            self.email2TF.text = ""
+            self.email3TF.text = ""
+            
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        // dispatch to main thread to stop activity indicator
+        
         
         
     }
