@@ -15,8 +15,8 @@ class Item: Codable{
     private var codigo: String;
     private var unidades: Int;
     private var pais: String;
-    private var fotos: [UIImage]
-    private var urlFotos: [String]
+    private var foto: UIImage?
+    private var urlFoto: String
     private var descripcionDano: String
     private var tipoDano: TipoDano
     
@@ -26,21 +26,19 @@ class Item: Codable{
         self.codigo = ""
         self.unidades = 0
         self.pais = ""
-        self.fotos = []
         self.descripcionDano = ""
-        self.urlFotos = []
+        self.urlFoto = ""
         self.tipoDano = TipoDano()
         
     }
     init(key: String, nombre: String,codigo: String, pais: String) {
-        self.unidades = 0;
-        self.fotos = [];
+        self.unidades = 0
         self.key = key;
         self.nombre = nombre;
         self.codigo = codigo;
         self.pais = pais;
         self.descripcionDano = ""
-        self.urlFotos = []
+        self.urlFoto = ""
         self.tipoDano = TipoDano()
     }
     enum CodingKeys: String, CodingKey {
@@ -48,7 +46,7 @@ class Item: Codable{
         case codigo
         case unidades
         case descripcionDano
-        case urlFotos
+        case urlFoto
         case tipoDano
     }
     required init(from decoder:Decoder) throws {
@@ -57,10 +55,9 @@ class Item: Codable{
         codigo = try values.decode([String].self, forKey: .codigo) as! String
         unidades = try values.decode([Int].self, forKey: .unidades) as! Int
         descripcionDano = try values.decode([String].self, forKey: .descripcionDano) as! String
-        urlFotos = []
+        urlFoto = ""
         tipoDano = TipoDano()
         pais=""
-        fotos=[]
         key = ""
         
     }
@@ -86,18 +83,14 @@ class Item: Codable{
         self.unidades = unidades
     }
     
-    func getPhotos()->[UIImage]{
-        return fotos
+    func getPhotos()->UIImage{
+        return foto!
     }
     
     func addPhoto(foto: UIImage){
-        self.fotos.append(foto)
+        self.foto = foto
     }
-    func eliminarFoto(foto: Int){
-        
-        self.fotos.remove(at: foto)
-        
-    }
+    
     func getDescripcionDano()->String{
         return descripcionDano
     }
@@ -117,13 +110,13 @@ class Item: Codable{
         self.pais = pais
     }
     func addUrl(url: String){
-        urlFotos.append(url)
+        urlFoto = url
     }
-    func getUrl()->[String]{
-        return urlFotos
+    func getUrl()->String{
+        return urlFoto
     }
-    func addUrls(urls: [String]){
-        urlFotos = urls
+    func addUrls(urls: String){
+        urlFoto = urls
     }
     func setTipoDano(tipoDano:TipoDano){
         self.tipoDano = tipoDano

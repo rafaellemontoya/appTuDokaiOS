@@ -34,7 +34,7 @@ class ItemsCapacitacionVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fotosCapacitacionSegue"){
-            let receiverVC = segue.destination as! FotosCapacitacionVC
+            let receiverVC = segue.destination as! ResumenCapacitacionVC
             receiverVC.reporte = self.reporte!
         }
     }

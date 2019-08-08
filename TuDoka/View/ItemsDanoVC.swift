@@ -194,7 +194,7 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fotosDanoSegue"){
-            let receiverVC = segue.destination as! FotosItemDanoVC
+            let receiverVC = segue.destination as! ResumenItemsDanoVC
             receiverVC.reporte = self.reporte!
         }
     }

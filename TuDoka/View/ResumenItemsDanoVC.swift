@@ -60,7 +60,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reporte!.getItems()[section].getPhotos().count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +69,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = fotosTV.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
         cell.resumenItemsDano = self
         
-        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
+        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()))
         
         
         
@@ -178,7 +178,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporte!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
+            
             self.fotosTV.reloadData()
             
             
@@ -199,10 +199,10 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
             FirebaseDBManager.dbInstance.guardarItemsReporteDano(item: item, idReporte: idReporte){
                 (respuesta) in
                 //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta, arrayRespuesta) in
+                self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
+                    (respuesta, url) in
                     if(respuesta){
-                        item.addUrls(urls: arrayRespuesta!)
+                        item.addUrls(urls: url)
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
@@ -238,32 +238,26 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
-    func subirFotos(items: [UIImage], idReporte: String, idItem: String,completion: @escaping (Bool, [String]?)-> Void ){
-        var flag = 0;
-        var urls: [String] = []
-        for item in items{
-            
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-                (respuesta, url) in
-                if (respuesta){
-                    //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteDano(item: idItem, idReporte: idReporte, url: url!){
-                        (respuestaGuardar) in
-                        if (respuestaGuardar!){
-                            urls.append(url!)
-                            flag+=1
-                            if(flag == items.count){
-                                completion(true, urls)
-                            }
-                            
-                        }
-                    }
-                }
-            }
-            
-        }//for
+    func subirFotos(item: UIImage, idReporte: String, idItem: String,completion: @escaping (Bool, String)-> Void ){
+        
+        
+        
+        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+            (respuesta, url) in
+            if (respuesta){
+                //actualizar fotos en bd
+                completion(true, url!)
+                
+            }else{
+                completion(false, "")
+                
+            }//error al subir foto
+        }
+        
         
     }
+    
+   
     
     
     

@@ -140,8 +140,8 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fotoItemDevolucionSegue"){
-            let receiverVC = segue.destination as! FotosItemDevolucionVC
-            receiverVC.reporteDevolucion = self.reporteDevolucion!
+            let receiverVC = segue.destination as! ResumenItemsDevolucionVC
+            receiverVC.reporte = self.reporteDevolucion!
         }
     }
     

@@ -172,7 +172,8 @@ class FirebaseDBManager{
     func guardarItemsReporteDevolucion(item: Item, idReporte: String, completion: @escaping (Bool?)-> Void ){
         var ref: DocumentReference? = nil
         ref = db.collection("reportesDevolucion").document(idReporte).collection("items").document(item.getKey())
-        ref?.setData(["unidades": item.getUnidades()]){ err in
+        ref?.setData(["unidades": item.getUnidades(),
+                      "foto": item.getUrl()]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
                 completion(false)
@@ -182,18 +183,7 @@ class FirebaseDBManager{
             }
     }
 }
-    func guardarFotosItemsReporteDevolucion(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
-        
-        db.collection("reportesDevolucion").document(idReporte).collection("items").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
-            if let err = err {
-                print("Error updating document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully updated")
-                completion(true)
-            }
-        }
-    }
+    
     
     func guardarFotosTransporteDevolucion(reporte: ReporteDevolucion, idReporte: String, completion: @escaping (Bool?)-> Void ){
         
@@ -243,7 +233,8 @@ class FirebaseDBManager{
     func guardarItemsReporteEnvio(item: Item, idReporte: String, completion: @escaping (Bool?)-> Void ){
         var ref: DocumentReference? = nil
         ref = db.collection("reportesEnvio").document(idReporte).collection("items").document(item.getKey())
-        ref?.setData(["unidades": item.getUnidades()]){ err in
+        ref?.setData(["unidades": item.getUnidades(),
+                      "foto": item.getUrl()]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
                 completion(false)
@@ -253,18 +244,7 @@ class FirebaseDBManager{
             }
         }
     }
-    func guardarFotosItemsReporteEnvio(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
-        
-        db.collection("reportesEnvio").document(idReporte).collection("items").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
-            if let err = err {
-                print("Error updating document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully updated")
-                completion(true)
-            }
-        }
-    }
+    
     
     func guardarFotosTransporteEnvio(reporte: ReporteEnvio, idReporte: String, completion: @escaping (Bool?)-> Void ){
         
@@ -313,7 +293,10 @@ class FirebaseDBManager{
         var ref: DocumentReference? = nil
         ref = db.collection("reportesDano").document(idReporte).collection("items").document(item.getKey())
         ref?.setData(["unidades": item.getUnidades(),
-                      "descripcion": item.getDescripcionDano()]){ err in
+                      "tipoDano": item.getTipoDano().key,
+                      "foto": item.getUrl()
+            
+        ]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
                 completion(false)
@@ -323,18 +306,7 @@ class FirebaseDBManager{
             }
         }
     }
-    func guardarFotosItemsReporteDano(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
-        
-        db.collection("reportesDano").document(idReporte).collection("items").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
-            if let err = err {
-                print("Error updating document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully updated")
-                completion(true)
-            }
-        }
-    }
+
     
     
     /*** FUNCIONES GUARDADO DE CAPACITACION **/
@@ -365,7 +337,9 @@ class FirebaseDBManager{
     }
     func guardarItemsReporteCapacitacion(actividad: ActividadCapacitacion, idReporte: String, completion: @escaping (Bool, DocumentReference?)-> Void ){
         var ref: DocumentReference? = nil
-        ref = db.collection("reportesCapacitacion").document(idReporte).collection("actividades").addDocument(data: ["descripcion": actividad.getDescripcion()])
+        ref = db.collection("reportesCapacitacion").document(idReporte).collection("actividades").addDocument(data: [
+            "descripcion": actividad.getDescripcion(),
+            "foto": ""])
         { err in
                         if let err = err {
                             print("Error updating document: \(err)")

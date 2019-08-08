@@ -34,7 +34,7 @@ class ItemsSeguimientoVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fotosSeguimientoSegue"){
-            let receiverVC = segue.destination as! FotosSeguimientoVC
+            let receiverVC = segue.destination as! ResumenSeguimientoViewController
             receiverVC.reporte = self.reporte!
         }
     }

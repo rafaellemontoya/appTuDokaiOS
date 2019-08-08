@@ -38,11 +38,14 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    @IBAction func nuevoItemBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "agregarItemSegue", sender: self)
+    }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reporteEnvio!.getItems()[section].getPhotos().count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +54,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
             let cell = tableViewFotos.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
             cell.resumenItems = self
       
-            cell.agregarCelda(image:  (self.reporteEnvio!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
+            cell.agregarCelda(image:  (self.reporteEnvio!.getItems()[indexPath.section].getPhotos()))
         
         
         
@@ -65,6 +68,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerResumenCell") as! HeaderResumenItemsTableViewCell
+        cell.resumenItems = self
         cell.agregarHeader(item: self.reporteEnvio!.getItems()[section])
         
         return cell
@@ -85,12 +89,18 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
        
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "fotosTransporteSegue"){
             let receiver = segue.destination as! FotosTransporteVC
             receiver.reporte = self.reporteEnvio!
+        }
+        else if (segue.identifier == "agregarItemSegue"){
+            let receiver = segue.destination as! ItemsVC
+            receiver.reporteEnvio = self.reporteEnvio!
         }
     }
     
@@ -150,17 +160,18 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
     }
-    func eliminarFoto(cell: FotosResumenTableViewCell){
+    func eliminarItem(cell: HeaderResumenItemsTableViewCell){
         guard let indexPath = self.tableViewFotos.indexPath(for: cell) else {
             // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
             return
         }
         
-        let alert = UIAlertController(title: "¿Estás seguro de elimar esta foto?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de elimar este item?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporteEnvio!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
+            
+            self.reporteEnvio!.eliminarItem (id: indexPath.section)
             self.tableViewFotos.reloadData()
             
             

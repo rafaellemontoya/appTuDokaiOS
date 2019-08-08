@@ -98,7 +98,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.tableNombreProyecto.isHidden = true;
     }
     
-    
+
     
    
     
@@ -178,8 +178,8 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         
         delegarTF()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        view.addGestureRecognizer(tap)
         
         
         

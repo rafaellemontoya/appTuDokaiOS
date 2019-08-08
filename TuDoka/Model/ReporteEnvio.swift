@@ -96,6 +96,10 @@ class ReporteEnvio{
         return idReporte
     }
   
-    
+    func eliminarItem(id: Int){
+        
+        self.items.remove(at: id)
+        
+    }
     
 }

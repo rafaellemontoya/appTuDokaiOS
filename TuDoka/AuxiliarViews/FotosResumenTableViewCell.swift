@@ -58,7 +58,7 @@ class FotosResumenTableViewCell: UITableViewCell {
     }
     @objc func eliminar(tapGesture: UITapGestureRecognizer){
         if(resumenItems != nil){
-           self.resumenItems!.eliminarFoto(cell: self)
+//           self.resumenItems!.eliminarItem(cell: self)
         }else if(resumenItemsDevolucion != nil){
             self.resumenItemsDevolucion!.eliminarFoto(cell: self)
         }else if(resumenItemsDano != nil){

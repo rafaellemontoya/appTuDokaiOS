@@ -241,9 +241,10 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
             FirebaseDBManager.dbInstance.guardarItemsReporteEnvio(item: item, idReporte: idReporte){
                 (respuesta) in
                 //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta) in
-                    if(respuesta!){
+                self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
+                    (respuesta, url) in
+                    if(respuesta){
+                        item.addUrl(url: url)
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
@@ -279,42 +280,36 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
             }
         }
     }
-    func subirFotos(items: [UIImage], idReporte: String, idItem: String,completion: @escaping (Bool?)-> Void ){
-        var flag = 0;
-        for item in items{
+    func subirFotos(item: UIImage, idReporte: String, idItem: String,completion: @escaping (Bool, String)-> Void ){
+        
+        
             
             StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
                 (respuesta, url) in
                 if (respuesta){
                     //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteEnvio(item: idItem, idReporte: idReporte, url: url!){
-                        (respuestaGuardar) in
-                        if (respuestaGuardar!){
-                            flag+=1
-                            if(flag == items.count){
-                                completion(true)
-                            }
-                            
-                        }
-                    }
-                }
+                    completion(true, url!)
+                    
+                }else{
+                    completion(false, "")
+                    
+                }//error al subir foto
             }
-            
-        }//for
+        
         
     }
     
     func subirFotosTransporte(item: UIImage, idReporte: String,completion: @escaping (Bool,String?)-> Void ){
-        
-        
-        
+
         StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
             (respuesta, url) in
             if (respuesta){
                 //actualizar fotos en bd
                 
                 completion(true, url)
-            }
+            }else{
+                completion(false,nil)
+            }//error al subir fotos transporte
         }
         
         

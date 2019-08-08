@@ -8,11 +8,18 @@
 
 import UIKit
 
-class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate {
     
     var reporteEnvio: ReporteEnvio?
     var itemsArray: [Item] = []
     var itemSeleccionado: Item?
+    var imagePicker: UIImagePickerController!
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
+    @IBOutlet weak var fotoSeleccionada: UIImageView!
+    
     
     @IBOutlet weak var codigoPiezaTV: UITableView!
     
@@ -41,15 +48,35 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         codigoPiezaTV.isHidden = true;
         nombrePiezaTV.isHidden = true;
     }
+    @IBAction func nuevaFoto(_ sender: Any) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            selectImageFrom(.photoLibrary)
+            return
+        }
+        selectImageFrom(.camera)
+    }
     
-    
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
     @IBAction func btnContinuar(_ sender: Any) {
         
         if (unidadesItemTF.text == ""){
             print("error")
         }else{
             itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
+            itemSeleccionado!.addPhoto(foto: fotoSeleccionada.image!)
             reporteEnvio!.setItems(item: itemSeleccionado!)
+            performSegue(withIdentifier: "resumenItemsEnvio", sender: self)
         }
     }
     
@@ -118,12 +145,31 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "resumenFotosSegue"){
-            let receiverVC = segue.destination as! ResumenFotosVC
+        if (segue.identifier == "resumenItemsEnvio"){
+            let receiverVC = segue.destination as! ResumenItemsVC
             receiverVC.reporteEnvio = self.reporteEnvio!
         }
     }
 
     
 
+}
+extension ItemsVC: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        print ("hola desde extension")
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
+        }
+        
+        
+        fotoSeleccionada.image = selectedImage
+        fotoSeleccionada.contentMode = .scaleAspectFit
+        //imagenCamara.image = SharedControladores.shared.resize(selectedImage)
+        
+        
+        
+    }
+    
 }

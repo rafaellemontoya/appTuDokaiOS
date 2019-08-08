@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0500A7B622F0811900440332 /* ItemsDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7B522F0811900440332 /* ItemsDevolucionVC.swift */; };
-		0500A7BC22F0891B00440332 /* FotosItemDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BB22F0891B00440332 /* FotosItemDevolucionVC.swift */; };
 		0500A7BE22F0A2C500440332 /* OptionDevolucionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */; };
 		0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */; };
 		0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */; };
@@ -18,7 +17,6 @@
 		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
 		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
 		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
-		052A369722F0E9E500B68DB5 /* FotosItemDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */; };
 		052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */; };
 		052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */; };
 		053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */; };
@@ -30,7 +28,6 @@
 		0562DECB22F240B60096FD61 /* ActividadCapacitacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */; };
 		0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */; };
 		0562DECF22F244B70096FD61 /* ItemsCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */; };
-		0562DED122F24FA80096FD61 /* FotosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */; };
 		0562DED322F251580096FD61 /* ResumenCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */; };
 		0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */; };
 		057ACE9022F9FFFD00D2D095 /* TipoDano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057ACE8F22F9FFFD00D2D095 /* TipoDano.swift */; };
@@ -38,7 +35,6 @@
 		0583B5A222F3524B00E1B5C4 /* ReporteSeguimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */; };
 		0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */; };
 		0583B5A622F3574B00E1B5C4 /* ItemsSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */; };
-		0583B5A822F3596500E1B5C4 /* FotosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */; };
 		0583B5AA22F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */; };
 		0583B5AC22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */; };
 		0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */; };
@@ -63,16 +59,12 @@
 		05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */; };
 		05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */; };
 		05F3C81922F120AC00B89B7C /* ReporteCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */; };
-		05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */; };
-		05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */; };
-		05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */; };
 		05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */; };
 		D37B9BD2EA26D39CD9C6C54E /* Pods_TuDoka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0500A7B522F0811900440332 /* ItemsDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDevolucionVC.swift; sourceTree = "<group>"; };
-		0500A7BB22F0891B00440332 /* FotosItemDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosItemDevolucionVC.swift; sourceTree = "<group>"; };
 		0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionDevolucionTableViewCell.swift; sourceTree = "<group>"; };
 		0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsDevolucionVC.swift; sourceTree = "<group>"; };
 		0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDanoVC.swift; sourceTree = "<group>"; };
@@ -82,7 +74,6 @@
 		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
 		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
-		052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosItemDanoVC.swift; sourceTree = "<group>"; };
 		052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsDanoVC.swift; sourceTree = "<group>"; };
 		052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosDanoVC.swift; sourceTree = "<group>"; };
 		053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucionVC.swift; sourceTree = "<group>"; };
@@ -94,7 +85,6 @@
 		0562DECA22F240B60096FD61 /* ActividadCapacitacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadCapacitacion.swift; sourceTree = "<group>"; };
 		0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosCapacitacionVC.swift; sourceTree = "<group>"; };
 		0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCapacitacionVC.swift; sourceTree = "<group>"; };
-		0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosCapacitacionVC.swift; sourceTree = "<group>"; };
 		0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenCapacitacionVC.swift; sourceTree = "<group>"; };
 		0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosCapacitacionVC.swift; sourceTree = "<group>"; };
 		057ACE8F22F9FFFD00D2D095 /* TipoDano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoDano.swift; sourceTree = "<group>"; };
@@ -102,7 +92,6 @@
 		0583B5A122F3524B00E1B5C4 /* ReporteSeguimiento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteSeguimiento.swift; sourceTree = "<group>"; };
 		0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosSeguimientoVC.swift; sourceTree = "<group>"; };
 		0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSeguimientoVC.swift; sourceTree = "<group>"; };
-		0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosSeguimientoVC.swift; sourceTree = "<group>"; };
 		0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenSeguimientoViewController.swift; sourceTree = "<group>"; };
 		0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosSeguimientoVC.swift; sourceTree = "<group>"; };
 		0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDBManager.swift; sourceTree = "<group>"; };
@@ -129,9 +118,6 @@
 		05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTransporteVC.swift; sourceTree = "<group>"; };
 		05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteCapacitacionVC.swift; sourceTree = "<group>"; };
-		05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFotosVC.swift; sourceTree = "<group>"; };
-		05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTableViewCell.swift; sourceTree = "<group>"; };
-		05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenFinalEnvioVC.swift; sourceTree = "<group>"; };
 		05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarRemisionVC.swift; sourceTree = "<group>"; };
 		97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDoka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +143,6 @@
 				053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */,
 				053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */,
 				0500A7B522F0811900440332 /* ItemsDevolucionVC.swift */,
-				0500A7BB22F0891B00440332 /* FotosItemDevolucionVC.swift */,
 				0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */,
 			);
 			name = Devolucion;
@@ -169,8 +154,6 @@
 				05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */,
 				0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */,
 				0592F1FF22DE3AF500F6EA21 /* ItemsVC.swift */,
-				05F96FBE22E0BC0700E3CAC6 /* ResumenFotosVC.swift */,
-				05F96FC222E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift */,
 				05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */,
 				05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */,
 				05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */,
@@ -184,7 +167,6 @@
 				0500A7C222F0C62C00440332 /* ReporteDanoVC.swift */,
 				0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */,
 				0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */,
-				052A369622F0E9E500B68DB5 /* FotosItemDanoVC.swift */,
 				052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */,
 				052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */,
 			);
@@ -197,7 +179,6 @@
 				05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */,
 				0562DECC22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift */,
 				0562DECE22F244B70096FD61 /* ItemsCapacitacionVC.swift */,
-				0562DED022F24FA80096FD61 /* FotosCapacitacionVC.swift */,
 				0562DED222F251580096FD61 /* ResumenCapacitacionVC.swift */,
 				0562DED622F272960096FD61 /* EnviarCorreosCapacitacionVC.swift */,
 			);
@@ -210,7 +191,6 @@
 				0583B59F22F351BA00E1B5C4 /* ReporteSeguimientoVC.swift */,
 				0583B5A322F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift */,
 				0583B5A522F3574B00E1B5C4 /* ItemsSeguimientoVC.swift */,
-				0583B5A722F3596500E1B5C4 /* FotosSeguimientoVC.swift */,
 				0583B5A922F35AAB00E1B5C4 /* ResumenSeguimientoViewController.swift */,
 				0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */,
 			);
@@ -308,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */,
-				05F96FC022E0C0EC00E3CAC6 /* FotosTableViewCell.swift */,
 				05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */,
 				05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */,
 				0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */,
@@ -481,12 +460,10 @@
 				052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */,
 				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
 				0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */,
-				0500A7BC22F0891B00440332 /* FotosItemDevolucionVC.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
 				0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */,
 				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
-				05F96FC122E0C0EC00E3CAC6 /* FotosTableViewCell.swift in Sources */,
 				0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */,
 				0583B5A022F351BA00E1B5C4 /* ReporteSeguimientoVC.swift in Sources */,
 				05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */,
@@ -500,24 +477,19 @@
 				0500A7BE22F0A2C500440332 /* OptionDevolucionTableViewCell.swift in Sources */,
 				0562DECF22F244B70096FD61 /* ItemsCapacitacionVC.swift in Sources */,
 				0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */,
-				05F96FC322E0F2B700E3CAC6 /* ResumenFinalEnvioVC.swift in Sources */,
 				0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */,
-				0562DED122F24FA80096FD61 /* FotosCapacitacionVC.swift in Sources */,
 				053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */,
-				0583B5A822F3596500E1B5C4 /* FotosSeguimientoVC.swift in Sources */,
 				05E508D322DE6DF300A1C911 /* Item.swift in Sources */,
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
 				0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */,
 				0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */,
 				0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */,
-				052A369722F0E9E500B68DB5 /* FotosItemDanoVC.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
 				0562DEC922F2405F0096FD61 /* ReporteCapacitacion.swift in Sources */,
 				0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */,
 				053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */,
 				05D055E322E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift in Sources */,
-				05F96FBF22E0BC0700E3CAC6 /* ResumenFotosVC.swift in Sources */,
 				0562DECB22F240B60096FD61 /* ActividadCapacitacion.swift in Sources */,
 				05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */,
 			);
