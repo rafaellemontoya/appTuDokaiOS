@@ -15,6 +15,13 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var fotosTV: UITableView!
     
     
+    
+    @IBAction func nuevoItemBtn(_ sender: Any) {
+        
+        performSegue(withIdentifier: "nuevoItemSegue", sender: self)
+    }
+    
+    
     @IBAction func finalizarBTN(_ sender: Any) {
         
         let alert = UIAlertController(title: "¿Estás seguro de querer terminar el reporte?", message: "", preferredStyle: .alert)
@@ -104,9 +111,9 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "fotosTransporteSegue"){
-//            let receiver = segue.destination as! FotosTransporteVC
-//            receiver.reporteDevolucion = self.reporteDevolucion!
+        if(segue.identifier == "nuevoItemSegue"){
+            let receiver = segue.destination as! ItemsDevolucionVC
+            receiver.reporte = self.reporte!
         }
     }
     
@@ -172,11 +179,12 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             return
         }
         
-        let alert = UIAlertController(title: "¿Estás seguro de elimar esta foto?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de elimar este item?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             
+            self.reporte!.eliminarItem (id: indexPath.section)
             self.fotosTV.reloadData()
             
             
@@ -228,11 +236,20 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                                                     (respuesta, url) in
                                                     if(respuesta){
                                                         self.reporte?.urlFotoDocumentoDevolucion = url!
-                                                        FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporte!, idReporte: idReporte){
-                                                            (respuesta) in
-                                                            if(respuesta!){
-                                                                self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
-                                                            }
+                                                        
+                                                        //licencia
+                                                        self.subirFotosTransporte(item: (self.reporte?.fotoLicencia)!, idReporte: idReporte){
+                                                            (respuesta, url) in
+                                                            if(respuesta){
+                                                                self.reporte?.urlFotoLicencia = url!
+                                                                    FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporte!, idReporte: idReporte){
+                                                                        (respuesta) in
+                                                                        if(respuesta!){
+                                                                            self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
+                                                                        }
+                                                                    }
+                                                                
+                                                            }//error licencia
                                                         }
                                                         
                                                     }//error documento
@@ -254,30 +271,31 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
     func guardarItems(items: [Item], idReporte: String){
         var flag = 0;
         for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteDevolucion(item: item, idReporte: idReporte){
-                (respuesta) in
-                //subo fotos
-                self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta, url) in
-                    if(respuesta){
-                        item.addUrl(url: url)
-                        flag+=1;
-                        if(flag == items.count){
-                            UIApplication.shared.endIgnoringInteractionEvents()
-                            self.activityIndicator.stopAnimating()
-                            let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
-                            
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
-                                NSLog("The \"OK\" alert occured.")
-                                //regreso a la pantalla anterior
-                                self.performSegue(withIdentifier: "menuPrincipalDevolucionSegue", sender: self)
-                                
-                                
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                        }
+            self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
+                (respuesta, url) in
+                if(respuesta){
+                    item.addUrl(url: url)
+                    FirebaseDBManager.dbInstance.guardarItemsReporteDevolucion(item: item, idReporte: idReporte){
+                        (respuesta) in
+                        //subo fotos
                         
+                                flag+=1;
+                                if(flag == items.count){
+                                    UIApplication.shared.endIgnoringInteractionEvents()
+                                    self.activityIndicator.stopAnimating()
+                                    let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                                        NSLog("The \"OK\" alert occured.")
+                                        //regreso a la pantalla anterior
+                                        self.performSegue(withIdentifier: "menuPrincipalDevolucionSegue", sender: self)
+                                        
+                                        
+                                    }))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                         
+                            }
                     }else{
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.activityIndicator.stopAnimating()
@@ -291,7 +309,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                             
                         }))
                         self.present(alert, animated: true, completion: nil)
-                    }//Error al subir
+                    
                 }
             }
         }

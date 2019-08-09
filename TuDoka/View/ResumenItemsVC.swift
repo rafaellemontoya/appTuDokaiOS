@@ -160,7 +160,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
     }
-    func eliminarItem(cell: HeaderResumenItemsTableViewCell){
+    func eliminarItem(cell: FotosResumenTableViewCell){
         guard let indexPath = self.tableViewFotos.indexPath(for: cell) else {
             // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
             return

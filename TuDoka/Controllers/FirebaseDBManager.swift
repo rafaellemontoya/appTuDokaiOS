@@ -339,7 +339,7 @@ class FirebaseDBManager{
         var ref: DocumentReference? = nil
         ref = db.collection("reportesCapacitacion").document(idReporte).collection("actividades").addDocument(data: [
             "descripcion": actividad.getDescripcion(),
-            "foto": ""])
+            "foto": actividad.getUrlFoto()])
         { err in
                         if let err = err {
                             print("Error updating document: \(err)")
@@ -350,18 +350,7 @@ class FirebaseDBManager{
                         }
         }
     }
-    func guardarFotosItemsReporteCapacitacion(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
-        
-        db.collection("reportesCapacitacion").document(idReporte).collection("actividades").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
-            if let err = err {
-                print("Error updating document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully updated")
-                completion(true)
-            }
-        }
-    }
+    
     
     
     
@@ -392,7 +381,9 @@ class FirebaseDBManager{
     }
     func guardarItemsReporteSeguimiento(actividad: ActividadCapacitacion, idReporte: String, completion: @escaping (Bool, DocumentReference?)-> Void ){
         var ref: DocumentReference? = nil
-        ref = db.collection("reportesSeguimiento").document(idReporte).collection("actividades").addDocument(data: ["descripcion": actividad.getDescripcion()])
+        ref = db.collection("reportesSeguimiento").document(idReporte).collection("actividades").addDocument(data: [
+            "descripcion": actividad.getDescripcion(),
+            "foto": actividad.getUrlFoto()])
         { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -403,18 +394,7 @@ class FirebaseDBManager{
             }
         }
     }
-    func guardarFotosItemsReporteSeguimiento(item: String, idReporte: String,url: String, completion: @escaping (Bool?)-> Void ){
-        
-        db.collection("reportesSeguimiento").document(idReporte).collection("actividades").document(item).collection("fotos").addDocument(data: ["url" : url]){ err in
-            if let err = err {
-                print("Error updating document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully updated")
-                completion(true)
-            }
-        }
-    }
+    
     
     
 }

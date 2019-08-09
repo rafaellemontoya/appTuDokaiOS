@@ -130,7 +130,7 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        itemSeleccionado = Item(key: "", nombre: "", codigo: "", pais: "")
         getInfo()
         codigoPiezaTV.delegate = self
         codigoPiezaTV.dataSource = self
@@ -139,9 +139,16 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
     }
     
     func getInfo(){
-        self.itemsArray.append(Item(key: "keyItem1", nombre: "NombreItem1", codigo: "codigo item1", pais: "MX"))
-        self.itemsArray.append(Item(key: "keyItem2", nombre: "NombreItem2", codigo: "codigo item2", pais: "MX"))
-        self.itemsArray.append(Item(key: "keyItem3", nombre: "NombreItem3", codigo: "codigo item3", pais: "MX"))
+        FirebaseDBManager.dbInstance.obtenerItems(){
+            (respuesta, arrayRespuesta) in
+            if(respuesta){
+                self.itemsArray = arrayRespuesta!
+            }else{
+                self.itemsArray = []
+            }
+            self.nombrePiezaTV.reloadData()
+            self.codigoPiezaTV.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -10,7 +10,7 @@ import UIKit
 
 class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelegate  {
     
-    var reporteDevolucion: ReporteDevolucion?
+    var reporte: ReporteDevolucion?
     var imagePicker: UIImagePickerController!
     var btnSeleccionado: String?
     
@@ -21,56 +21,98 @@ class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelega
     }
     
     
-    @IBOutlet weak var fotoLicenciaIV: UIImageView!
     
-    @IBOutlet weak var fotoPlacaIV: UIImageView!
+    /* Image View*/
+    @IBOutlet weak var licenciaIV: UIImageView!
     
-    @IBOutlet weak var fotoTractoIV: UIImageView!
+    @IBOutlet weak var placaDelanteraIV: UIImageView!
     
-    @IBOutlet weak var fotoDocumentoDokaIV: UIImageView!
+    @IBOutlet weak var placaTraseraIV: UIImageView!
+    
+    @IBOutlet weak var tractoTraseroIV: UIImageView!
+    
+    @IBOutlet weak var tractoLateral1IV: UIImageView!
+    
+    @IBOutlet weak var tractoLateral2IV: UIImageView!
+    
+    @IBOutlet weak var documentoDevolucionIV: UIImageView!
     
     
-    @IBAction func fotoLicenciaBTN(_ sender: Any) {
-        btnSeleccionado = "fotoLicencia"
+    /* Button*/
+    @IBAction func licenciaBTN(_ sender: UIButton) {
+        btnSeleccionado = "licencia"
         imageSource()
     }
     
-    @IBAction func fotoPlacaBTN(_ sender: Any) {
-        btnSeleccionado = "fotoPlaca"
+    
+    @IBAction func placaDelanteraBtn(_ sender: Any) {
+        btnSeleccionado = "placaDelantera"
         imageSource()
     }
     
-    
-    @IBAction func fotoTractoBTN(_ sender: Any) {
-        btnSeleccionado = "fotoTracto"
+    @IBAction func placaTraseraBtn(_ sender: Any) {
+        btnSeleccionado = "placaTrasera"
         imageSource()
     }
     
-    @IBAction func fotoDocumentoDokaBTN(_ sender: Any) {
-        btnSeleccionado = "fotoDocumento"
+    @IBAction func tractoTraseroBtn(_ sender: Any) {
+        btnSeleccionado = "tractoTrasero"
+        imageSource()
+    }
+    
+    @IBAction func tractoLateral1Btn(_ sender: Any) {
+        btnSeleccionado = "tractoLateral1"
+        imageSource()
+    }
+    
+    @IBAction func tractoLateral2Btn(_ sender: Any) {
+        btnSeleccionado = "tractoLateral2"
+        imageSource()
+    }
+    
+    @IBAction func documentoDevolucionBtn(_ sender: Any) {
+        btnSeleccionado = "documentoDevolucion"
         imageSource()
     }
     
     @IBAction func continuarBTN(_ sender: Any) {
-        let alert = UIAlertController(title: "¿Estás seguro de querer continuar?", message: "NO podrás agregar estas fotos más adelante", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-            
-            
-            
-            
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Continuar", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-            //regreso a la pantalla anterior
-            //Guardar info
-            
-            self.performSegue(withIdentifier: "agregarItemDevolucionSegue", sender: self)
-
-            
-        }))
-        self.present(alert, animated: true, completion: nil)
         
+        if (licenciaIV.image == UIImage(named: "vacio") || placaDelanteraIV.image == UIImage(named: "vacio") ||
+            placaTraseraIV.image == UIImage(named: "vacio") || tractoTraseroIV.image == UIImage(named: "vacio") ||
+            tractoLateral1IV.image == UIImage(named: "vacio") || tractoLateral2IV.image == UIImage(named: "vacio")
+            || tractoTraseroIV.image == UIImage(named: "vacio")){
+            let alert = UIAlertController(title: "¡Error!", message: "Agrega todas las fotos para continuar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                
+            }))
+            
+            
+            
+            
+            self.present(alert, animated: true, completion: nil)
+        }else{
+        
+        
+            let alert = UIAlertController(title: "¿Estás seguro de querer continuar?", message: "NO podrás agregar estas fotos más adelante", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                
+                
+                
+                
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Continuar", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                //regreso a la pantalla anterior
+                //Guardar info
+                
+                self.performSegue(withIdentifier: "agregarItemDevolucionSegue", sender: self)
+
+                
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -112,7 +154,7 @@ class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "agregarItemDevolucionSegue"){
             let receiver = segue.destination as! ItemsDevolucionVC
-            receiver.reporteDevolucion = self.reporteDevolucion!
+            receiver.reporte = self.reporte!
         }
         
     }
@@ -136,28 +178,44 @@ extension DatosTransporteDevolucionVC: UIImagePickerControllerDelegate{
         }
         //self.reporteEnvio!.getItems().last?.addPhoto(foto: selectedImage)
         switch btnSeleccionado {
-        case "fotoLicencia":
-            self.reporteDevolucion!.fotoLicencia = selectedImage
-            fotoLicenciaIV.contentMode = .scaleAspectFit
-            self.fotoLicenciaIV.image = selectedImage
+        case "licencia":
+            self.reporte!.fotoLicencia = selectedImage
+            licenciaIV.contentMode = .scaleAspectFit
+            self.licenciaIV.image = selectedImage
             break
-        case "fotoPlacaTrasera":
-            self.reporteDevolucion!.fotoPlacaTrasera = selectedImage
-            fotoPlacaIV.contentMode = .scaleAspectFit
-            self.fotoPlacaIV.image = selectedImage
+        case "placaDelantera":
+            self.reporte!.fotoPlacaDelantera = selectedImage
+            placaDelanteraIV.contentMode = .scaleAspectFit
+            self.placaDelanteraIV.image = selectedImage
             break
-        case "fotoTractoTrasera":
-            self.reporteDevolucion!.fotoTractoTrasera = selectedImage
-            fotoTractoIV.contentMode = .scaleAspectFit
-            self.fotoTractoIV.image = selectedImage
+        case "placaTrasera":
+            self.reporte!.fotoPlacaTrasera = selectedImage
+            placaTraseraIV.contentMode = .scaleAspectFit
+            self.placaTraseraIV.image = selectedImage
             break
-        case "fotoTractoLateral1":
-            self.reporteDevolucion!.fotoTractoLateral1 = selectedImage
-            fotoDocumentoDokaIV.contentMode = .scaleAspectFit
-            self.fotoDocumentoDokaIV.image = selectedImage
+        case "tractoTrasero":
+            self.reporte!.fotoTractoTrasera = selectedImage
+            tractoTraseroIV.contentMode = .scaleAspectFit
+            self.tractoTraseroIV.image = selectedImage
+            break
+        case "tractoLateral1":
+            self.reporte!.fotoTractoLateral1 = selectedImage
+            tractoLateral1IV.contentMode = .scaleAspectFit
+            self.tractoLateral1IV.image = selectedImage
+            break
+        case "tractoLateral2":
+            self.reporte!.fotoTractoLateral2 = selectedImage
+            tractoLateral2IV.contentMode = .scaleAspectFit
+            self.tractoLateral2IV.image = selectedImage
+            break
+        case "documentoDevolucion":
+            self.reporte!.fotoDocumentoDevolucion = selectedImage
+            documentoDevolucionIV.contentMode = .scaleAspectFit
+            self.documentoDevolucionIV.image = selectedImage
             break
         default:
             return
+        
         }
         //imagenCamara.image = SharedControladores.shared.resize(selectedImage)
         

@@ -11,26 +11,24 @@ import UIKit
 
 class ActividadCapacitacion: Codable {
     private var descripcion: String
-    private var fotos: [UIImage]
-    private var urlFotos: [String]
+    private var foto: UIImage?
+    private var urlFoto: String
     
     enum CodingKeys: String, CodingKey {
         case descripcion
-        case urlFotos
+        case urlFoto
 
     }
     init() {
         descripcion = "";
-        fotos = [];
-        urlFotos = []
+        urlFoto = ""
     }
     required init(from decoder:Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        urlFotos = []
-        
+        urlFoto = ""
         descripcion=""
         
-        fotos = []
+        
         
     }
     func setDescripcion(descripcion: String){
@@ -39,19 +37,20 @@ class ActividadCapacitacion: Codable {
     func getDescripcion()->String{
         return self.descripcion
     }
-    func getPhotos()->[UIImage]{
-        return fotos
+    func getPhotos()->UIImage{
+        return foto!
     }
     
     func addPhoto(foto: UIImage){
-        self.fotos.append(foto)
+        self.foto = foto
     }
-    func eliminarFoto(foto: Int){
-        
-        self.fotos.remove(at: foto)
-        
+   
+    func setUrlFotos(urls: String){
+        urlFoto = urls
     }
-    func setUrlFotos(urls: [String]){
-        urlFotos = urls
+    
+    func getUrlFoto()->String{
+        return urlFoto
     }
+    
 }

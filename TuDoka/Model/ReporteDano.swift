@@ -68,5 +68,10 @@ class ReporteDano{
     func getIdReporte()->String{
         return idReporte
     }
+    func eliminarItem(id: Int){
+        
+        self.items.remove(at: id)
+        
+    }
     
 }

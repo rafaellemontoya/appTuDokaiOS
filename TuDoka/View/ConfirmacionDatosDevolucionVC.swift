@@ -37,7 +37,7 @@ class ConfirmacionDatosDevolucionVC: UIViewController {
         //cCreo una variable para inicializar
         if(segue.identifier == "datosTransporteDevolucionSegue"){
             let receiverVC = segue.destination as! DatosTransporteDevolucionVC
-            receiverVC.reporteDevolucion = self.reporteDevolucion!
+            receiverVC.reporte = self.reporteDevolucion!
         }
         
         

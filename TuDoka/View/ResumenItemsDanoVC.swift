@@ -15,6 +15,11 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var fotosTV: UITableView!
     
     
+    @IBAction func nuevoItemBtn(_ sender: Any) {
+        performSegue(withIdentifier: "nuevoItemSegue", sender: self)
+    }
+    
+    
     @IBAction func finalizarBTN(_ sender: Any) {
         
         let alert = UIAlertController(title: "¿Estás seguro de querer terminar el reporte?", message: "", preferredStyle: .alert)
@@ -109,6 +114,9 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         if(segue.identifier == "finalizarReporteDanoBTN"){
                         let receiver = segue.destination as! EnviarCorreosDanoVC
                         receiver.reporte = self.reporte!
+        }else if (segue.identifier == "nuevoItemSegue"){
+            let receiver = segue.destination as! ItemsDanoVC
+            receiver.reporte = self.reporte!
         }
     }
     
@@ -174,11 +182,12 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
             return
         }
         
-        let alert = UIAlertController(title: "¿Estás seguro de elimar esta foto?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de elimar este item?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             
+            self.reporte!.eliminarItem (id: indexPath.section)
             self.fotosTV.reloadData()
             
             
@@ -196,13 +205,14 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
     func guardarItems(items: [Item], idReporte: String){
         var flag = 0;
         for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteDano(item: item, idReporte: idReporte){
-                (respuesta) in
-                //subo fotos
-                self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                    (respuesta, url) in
-                    if(respuesta){
-                        item.addUrls(urls: url)
+            //subo fotos
+            self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
+                (respuesta, url) in
+                if(respuesta){
+                    item.addUrls(urls: url)
+                    FirebaseDBManager.dbInstance.guardarItemsReporteDano(item: item, idReporte: idReporte){
+                        (respuesta) in
+                
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
@@ -219,7 +229,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
                             self.present(alert, animated: true, completion: nil)
                         }
                         
-                        
+                    }
                     }else{
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.activityIndicator.stopAnimating()
@@ -233,7 +243,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
                             
                         }))
                         self.present(alert, animated: true, completion: nil)
-                    }//Error al subir
+                    
                 }
             }
         }

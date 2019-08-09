@@ -8,82 +8,98 @@
 
 import UIKit
 
-class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
-    var reporteDevolucion: ReporteDevolucion?
+class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+   
+    var reporte: ReporteDevolucion?
     var itemsArray: [Item] = []
     var itemSeleccionado: Item?
-    
-    
-    @IBOutlet weak var nombrePiezaDevolucionTV: UITableView!
-    
+    var imagePicker: UIImagePickerController!
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
+    @IBOutlet weak var fotoSeleccionada: UIImageView!
     
     
     @IBOutlet weak var codigoPiezaTV: UITableView!
     
     
-    @IBOutlet weak var nombrePiezaTF: UITextField!
+    @IBOutlet weak var nombrePiezaTV: UITableView!
     
+    @IBOutlet weak var nombreItemTF: UITextField!
     
-    @IBAction func nombrePiezaTFTouch(_ sender: Any) {
+    @IBOutlet weak var codigoItemF: UITextField!
+    
+    @IBOutlet weak var unidadesItemTF: UITextField!
+    
+    @IBAction func nombreItemEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = true;
-        nombrePiezaDevolucionTV.isHidden = false;
+        nombrePiezaTV.isHidden = false;
+        
     }
     
-    @IBAction func nombrePiezaTFEdit(_ sender: Any) {
-        print(nombrePiezaTF.text)
+    
+    @IBAction func CodigoItemEdit(_ sender: Any) {
+        codigoPiezaTV.isHidden = false;
+        nombrePiezaTV.isHidden = true;
+    }
+    
+    @IBAction func unidadesItemEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = true;
-        nombrePiezaDevolucionTV.isHidden = false;
+        nombrePiezaTV.isHidden = true;
+    }
+    @IBAction func nuevaFoto(_ sender: Any) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            selectImageFrom(.photoLibrary)
+            return
+        }
+        selectImageFrom(.camera)
     }
     
-    
-    @IBOutlet weak var codigoPiezaTF: UITextField!
-    
-    @IBAction func codigoPiezaTFTouch(_ sender: Any) {
-        codigoPiezaTV.isHidden = false;
-        nombrePiezaDevolucionTV.isHidden = true;
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+        
     }
-    
-    @IBAction func codigoPiezaTFEdit(_ sender: Any) {
-        print(nombrePiezaTF.text)
-        codigoPiezaTV.isHidden = false;
-        nombrePiezaDevolucionTV.isHidden = true;
-    }
-    
-    
-    @IBOutlet weak var unidadesTF: UITextField!
-    
-    
-    
-    @IBAction func continuarBTN(_ sender: Any) {
-        if (unidadesTF.text == ""){
+    @IBAction func btnContinuar(_ sender: Any) {
+        
+        if (unidadesItemTF.text == ""){
             print("error")
         }else{
-            itemSeleccionado!.setUnidades(unidades: Int (unidadesTF.text!)! )
-            reporteDevolucion!.setItems(item: itemSeleccionado!)
-            performSegue(withIdentifier: "fotoItemDevolucionSegue", sender: self)
+            itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
+            itemSeleccionado!.addPhoto(foto: fotoSeleccionada.image!)
+            reporte!.setItems(item: itemSeleccionado!)
+            performSegue(withIdentifier: "resumenItemsDevolucion", sender: self)
         }
     }
     
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = OptionDevolucionTableViewCell()
+        var cell = OptionTableViewCell()
         switch tableView {
-        case self.nombrePiezaDevolucionTV:
-            cell = nombrePiezaDevolucionTV.dequeueReusableCell(withIdentifier: "optionNombrePieza") as! OptionDevolucionTableViewCell
+        case self.nombrePiezaTV:
+            cell = nombrePiezaTV.dequeueReusableCell(withIdentifier: "optionNombrePieza") as! OptionTableViewCell
             cell.agregarCelda(name: self.itemsArray[indexPath.row].getNombre())
             break;
         case self.codigoPiezaTV:
-            cell = codigoPiezaTV.dequeueReusableCell(withIdentifier: "optionCodigoPieza") as! OptionDevolucionTableViewCell
+            cell = codigoPiezaTV.dequeueReusableCell(withIdentifier: "optionCodigoPieza") as! OptionTableViewCell
             cell.agregarCelda(name: self.itemsArray[indexPath.row].getCodigo())
             break;
             
         default:
-            cell = OptionDevolucionTableViewCell()
+            cell = OptionTableViewCell()
             break;
         }
         
@@ -98,11 +114,11 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
         
         
         //Cliente seleccionado
-        if (tableView == self.nombrePiezaDevolucionTV || tableView == self.codigoPiezaTV){
-            self.nombrePiezaDevolucionTV.isHidden = true;
+        if (tableView == self.nombrePiezaTV || tableView == self.codigoPiezaTV){
+            self.nombrePiezaTV.isHidden = true;
             self.codigoPiezaTV.isHidden = true;
-            nombrePiezaTF.text = self.itemsArray[indexPath.row].getNombre()
-            codigoPiezaTF.text = self.itemsArray[indexPath.row].getCodigo()
+            nombreItemTF.text = self.itemsArray[indexPath.row].getNombre()
+            codigoItemF.text = self.itemsArray[indexPath.row].getCodigo()
             
             self.itemSeleccionado = itemsArray[indexPath.row];
             
@@ -114,37 +130,54 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        itemSeleccionado = Item(key: "", nombre: "", codigo: "", pais: "")
         getInfo()
         codigoPiezaTV.delegate = self
         codigoPiezaTV.dataSource = self
-        nombrePiezaDevolucionTV.delegate = self
-        nombrePiezaDevolucionTV.dataSource = self
+        nombrePiezaTV.delegate = self
+        nombrePiezaTV.dataSource = self
     }
     
     func getInfo(){
         FirebaseDBManager.dbInstance.obtenerItems(){
-            (respuesta, respuestaArray) in
+            (respuesta, arrayRespuesta) in
             if(respuesta){
-                self.itemsArray = respuestaArray!
-                self.nombrePiezaDevolucionTV.reloadData()
-                self.codigoPiezaTV.reloadData()
-                
+                self.itemsArray = arrayRespuesta!
             }else{
-                print("Error obteniendo documentos ")
+                self.itemsArray = []
             }
-            
-            
+            self.nombrePiezaTV.reloadData()
+            self.codigoPiezaTV.reloadData()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "fotoItemDevolucionSegue"){
+        if (segue.identifier == "resumenItemsDevolucion"){
             let receiverVC = segue.destination as! ResumenItemsDevolucionVC
-            receiverVC.reporte = self.reporteDevolucion!
+            receiverVC.reporte = self.reporte!
         }
     }
     
+    
+    
+}
+extension ItemsDevolucionVC: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
+        }
+        
+        
+        fotoSeleccionada.image = selectedImage
+        fotoSeleccionada.contentMode = .scaleAspectFit
+        //imagenCamara.image = SharedControladores.shared.resize(selectedImage)
+        
+        
+        
+    }
     
 
 }

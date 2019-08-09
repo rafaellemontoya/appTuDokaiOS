@@ -24,7 +24,7 @@ class HeaderResumenItemsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var unidadesItemLB: UILabel!
     
-    @IBOutlet weak var eliminarBtn: UIButton!
+    
     
     
     override func awakeFromNib() {
@@ -43,28 +43,13 @@ class HeaderResumenItemsTableViewCell: UITableViewCell {
         codigoItem.text = item.getCodigo()
         unidadesItemLB.text = "Unidades: " + String(item.getUnidades())
         
-        eliminarBtn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(eliminar)))
+
     }
     
     func agregarHeader(item: ActividadCapacitacion){
         nombreItem.text = item.getDescripcion()
     }
     
-    @objc func eliminar(tapGesture: UITapGestureRecognizer){
-        if(resumenItems != nil){
-            self.resumenItems!.eliminarItem(cell: self)
-        }
-//        else if(resumenItemsDevolucion != nil){
-//            self.resumenItemsDevolucion!.eliminarFoto(cell: self)
-//        }else if(resumenItemsDano != nil){
-//            self.resumenItemsDano!.eliminarFoto(cell: self)
-//        }else if(resumenCapacitacion != nil){
-//            self.resumenCapacitacion!.eliminarFoto(cell: self)
-//        }else if(resumenSeguimiento != nil){
-//            self.resumenSeguimiento!.eliminarFoto(cell: self)
-//        }
-        
-        
-    }
+
 
 }

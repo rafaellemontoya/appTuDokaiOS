@@ -16,6 +16,12 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
     @IBOutlet weak var fotosTV: UITableView!
     
     
+    @IBAction func nuevoItemBtn(_ sender: Any) {
+        performSegue(withIdentifier: "nuevoItemSegue", sender: self)
+    }
+    
+    
+    
     @IBAction func finalizarBTN(_ sender: Any) {
         
         let alert = UIAlertController(title: "¿Estás seguro de querer terminar el reporte?", message: "", preferredStyle: .alert)
@@ -63,7 +69,7 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reporte!.getItems()[section].getPhotos().count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +78,7 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
         let cell = fotosTV.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
         cell.resumenSeguimiento = self
         
-        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
+        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()))
         
         
         
@@ -111,6 +117,9 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "envioEmailSeguimientoSegue"){
             let receiver = segue.destination as! EnviarCorreosSeguimientoVC
+            receiver.reporte = self.reporte!
+        }else if(segue.identifier == "nuevoItemSegue"){
+            let receiver = segue.destination as! ItemsSeguimientoVC
             receiver.reporte = self.reporte!
         }
     }
@@ -176,12 +185,12 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
             // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
             return
         }
-        
-        let alert = UIAlertController(title: "¿Estás seguro de elimar esta foto?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de elimar este item?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporte!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
+            
+            self.reporte!.eliminarItem (id: indexPath.section)
             self.fotosTV.reloadData()
             
             
@@ -198,13 +207,14 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
     func guardarActividades(items: [ActividadCapacitacion], idReporte: String){
         var flag = 0;
         for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteSeguimiento(actividad: item, idReporte: idReporte){
-                (respuesta, referencia) in
-                //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idActividad: referencia!.documentID){
-                    (respuesta, arrayRespuesta) in
-                    if(respuesta){
-                        item.setUrlFotos(urls: arrayRespuesta!)
+            //subo fotos
+            self.subirFotos(item: item.getPhotos(), idReporte: idReporte){
+                (respuesta, url) in
+                if(respuesta){
+                    item.setUrlFotos(urls: url)
+                    FirebaseDBManager.dbInstance.guardarItemsReporteSeguimiento(actividad: item, idReporte: idReporte){
+                        (respuesta, referencia) in
+                
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
@@ -221,7 +231,7 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
                             self.present(alert, animated: true, completion: nil)
                         }
                         
-                        
+                    }
                     }else{
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.activityIndicator.stopAnimating()
@@ -236,34 +246,21 @@ class ResumenSeguimientoViewController: UIViewController, UITableViewDataSource,
                         }))
                         self.present(alert, animated: true, completion: nil)
                     }
-                }
+                
             }
         }
     }
-    func subirFotos(items: [UIImage], idReporte: String, idActividad: String,completion: @escaping (Bool, [String]?)-> Void ){
-        var flag = 0;
-        var urls: [String] = []
-        for item in items{
+    func subirFotos(item: UIImage, idReporte: String,completion: @escaping (Bool, String)-> Void ){
             
             StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
                 (respuesta, url) in
                 if (respuesta){
-                    //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteSeguimiento(item: idActividad, idReporte: idReporte, url: url!){
-                        (respuestaGuardar) in
-                        if (respuestaGuardar!){
-                            urls.append(url!)
-                            flag+=1
-                            if(flag == items.count){
-                                completion(true, urls)
-                            }
-                            
-                        }
-                    }
+                        completion(true, url!)
+                
+                }else{
+                    completion(false, "")
                 }
             }
-            
-        }//for
         
     }
     

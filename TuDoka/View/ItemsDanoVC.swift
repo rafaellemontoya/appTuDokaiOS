@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate {
 
     var reporte: ReporteDano?
     var itemsArray: [Item] = []
     var tipoDanoArray: [TipoDano] = []
     var itemSeleccionado: Item?
     var tipoDanoSeleccionado: TipoDano?
+    var imagePicker: UIImagePickerController!
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
     
     @IBOutlet weak var codigoPiezaTV: UITableView!
     
@@ -28,9 +33,43 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var unidadesItemTF: UITextField!
     
+    @IBOutlet weak var itemDanoIV: UIImageView!
     
-    @IBOutlet weak var descripcionDanoTF: UITextView!
-    
+    @IBAction func nuevaFotoBtn(_ sender: Any) {
+        imageSource()
+    }
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    func imageSource(){
+        let alert = UIAlertController(title: "¿Quiéres tomar una nueva foto o seleccionar de tu galería?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Tomar foto", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.camera)
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Seleccionar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.photoLibrary)
+            
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     @IBAction func nombreItemEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = true;
         nombrePiezaTV.isHidden = false;
@@ -69,14 +108,15 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func btnContinuar(_ sender: Any) {
         
-        if (unidadesItemTF.text == "" || descripcionDanoTF.text == ""){
+        if (unidadesItemTF.text == "" || itemDanoIV.image == nil ){
             print("error")
         }else{
             itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
-            itemSeleccionado!.setDescripcionDano(descripcion: descripcionDanoTF.text!)
-            itemSeleccionado!.setTipoDano(tipoDano: tipoDanoSeleccionado!)
             
+            itemSeleccionado!.setTipoDano(tipoDano: tipoDanoSeleccionado!)
+            itemSeleccionado!.addPhoto(foto: itemDanoIV.image!)
             reporte!.setItems(item: itemSeleccionado!)
+            performSegue(withIdentifier: "resumenItemsDano", sender: self)
         }
     }
     
@@ -193,12 +233,31 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "fotosDanoSegue"){
+        if (segue.identifier == "resumenItemsDano"){
             let receiverVC = segue.destination as! ResumenItemsDanoVC
             receiverVC.reporte = self.reporte!
         }
     }
     
     
+    
+}
+extension ItemsDanoVC: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        print ("hola desde extension")
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
+        }
+        
+        
+        itemDanoIV.image = selectedImage
+        itemDanoIV.contentMode = .scaleAspectFit
+        //imagenCamara.image = SharedControladores.shared.resize(selectedImage)
+        
+        
+        
+    }
     
 }

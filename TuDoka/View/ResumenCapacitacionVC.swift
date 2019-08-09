@@ -14,6 +14,10 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var fotosTV: UITableView!
     
+    @IBAction func nuevoItemBtn(_ sender: Any) {
+        
+        performSegue(withIdentifier: "nuevoItemSegue", sender: self)
+    }
     
     @IBAction func finalizarBTN(_ sender: Any) {
         
@@ -62,7 +66,7 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reporte!.getItems()[section].getPhotos().count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +75,7 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
         let cell = fotosTV.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
         cell.resumenCapacitacion = self
         
-        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()[indexPath.row]))
+        cell.agregarCelda(image:  (self.reporte!.getItems()[indexPath.section].getPhotos()))
         
         
         
@@ -110,6 +114,10 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "enviarCorreosCapacitacionSegue"){
             let receiver = segue.destination as! EnviarCorreosCapacitacionVC
+            receiver.reporte = self.reporte!
+        }
+        else if ( segue.identifier == "nuevoItemSegue"){
+            let receiver = segue.destination as! ItemsCapacitacionVC
             receiver.reporte = self.reporte!
         }
     }
@@ -176,11 +184,12 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
             return
         }
         
-        let alert = UIAlertController(title: "¿Estás seguro de elimar esta foto?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de elimar este item?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Eliminar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-            self.reporte!.getItems()[indexPath.section].eliminarFoto(foto: indexPath.row)
+            
+            self.reporte!.eliminarItem (id: indexPath.section)
             self.fotosTV.reloadData()
             
             
@@ -197,18 +206,18 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
     func guardarActividades(items: [ActividadCapacitacion], idReporte: String){
         var flag = 0;
         for item in items{
-            FirebaseDBManager.dbInstance.guardarItemsReporteCapacitacion(actividad: item, idReporte: idReporte){
-                (respuesta, referencia) in
-                //subo fotos
-                self.subirFotos(items: item.getPhotos(), idReporte: idReporte, idActividad: referencia!.documentID){
-                    (respuesta, arrayRespuesta) in
-                    if(respuesta){
-                        item.setUrlFotos(urls: arrayRespuesta!)
+            //subo fotos
+            self.subirFotos(item: item.getPhotos(), idReporte: idReporte){
+                (respuesta, url) in
+                if(respuesta){
+                    item.setUrlFotos(urls: url)
+                    FirebaseDBManager.dbInstance.guardarItemsReporteCapacitacion(actividad: item, idReporte: idReporte){
+                        (respuesta, referencia) in
+                        
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
                             self.activityIndicator.stopAnimating()
-
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -221,49 +230,36 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
                             self.present(alert, animated: true, completion: nil)
                         }
                         
-                        
-                    }else{
-                        UIApplication.shared.endIgnoringInteractionEvents()
-                        self.activityIndicator.stopAnimating()
-                        let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
-                            NSLog("The \"OK\" alert occured.")
-                            //regreso a la pantalla anterior
-                            
-                            
-                            
-                        }))
-                        self.present(alert, animated: true, completion: nil)
                     }
+                }else{
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityIndicator.stopAnimating()
+                    let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                        //regreso a la pantalla anterior
+                        
+                        
+                        
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
+                
             }
         }
     }
-    func subirFotos(items: [UIImage], idReporte: String, idActividad: String,completion: @escaping (Bool, [String]?)-> Void ){
-        var flag = 0;
-        var urls: [String] = []
-        for item in items{
-            
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-                (respuesta, url) in
-                if (respuesta){
-                    //actualizar fotos en bd
-                    FirebaseDBManager.dbInstance.guardarFotosItemsReporteCapacitacion(item: idActividad, idReporte: idReporte, url: url!){
-                        (respuestaGuardar) in
-                        if (respuestaGuardar!){
-                            urls.append(url!)
-                            flag+=1
-                            if(flag == items.count){
-                                completion(true, urls)
-                            }
-                            
-                        }
-                    }
-                }
+    func subirFotos(item: UIImage, idReporte: String,completion: @escaping (Bool, String)-> Void ){
+        
+        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
+            (respuesta, url) in
+            if (respuesta){
+                completion(true, url!)
+                
+            }else{
+                completion(false, "")
             }
-            
-        }//for
+        }
         
     }
     
