@@ -14,6 +14,9 @@
 		0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C422F0C64200440332 /* ReporteDano.swift */; };
 		0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */; };
 		0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */; };
+		050C2E052333FC3700F9B8C0 /* DocumentoClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */; };
+		050C2E07233402AB00F9B8C0 /* NumerosDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */; };
+		050C2E0923342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */; };
 		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
 		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
 		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
@@ -51,9 +54,12 @@
 		05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05A113D022C4117000D0A16E /* HelveticaNeueLTW1G-BOLD.otf */; };
 		05A113D422C412D600D0A16E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A113D322C412D600D0A16E /* Constants.swift */; };
 		05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A113D622C41BD200D0A16E /* MainMenu.swift */; };
+		05C9C0AA2332F6D10056B96A /* EnviarCorreoEnvioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C9C0A92332F6D10056B96A /* EnviarCorreoEnvioViewController.swift */; };
 		05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */; };
 		05D055E122E11F5500B504F8 /* FotosResumenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */; };
 		05D055E322E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */; };
+		05D29C45232C3E65003D1837 /* ListasDeCargaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D29C44232C3E65003D1837 /* ListasDeCargaViewController.swift */; };
+		05D29C47232C53A5003D1837 /* RemisionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D29C46232C53A5003D1837 /* RemisionTableViewCell.swift */; };
 		05E508D322DE6DF300A1C911 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E508D222DE6DF300A1C911 /* Item.swift */; };
 		05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */; };
 		05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */; };
@@ -71,6 +77,9 @@
 		0500A7C422F0C64200440332 /* ReporteDano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDano.swift; sourceTree = "<group>"; };
 		0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDanoVC.swift; sourceTree = "<group>"; };
 		0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDanoVC.swift; sourceTree = "<group>"; };
+		050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentoClienteViewController.swift; sourceTree = "<group>"; };
+		050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerosDevolucionViewController.swift; sourceTree = "<group>"; };
+		050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarReporteDevolucionViewController.swift; sourceTree = "<group>"; };
 		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
 		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
@@ -110,9 +119,12 @@
 		05A113D022C4117000D0A16E /* HelveticaNeueLTW1G-BOLD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTW1G-BOLD.otf"; sourceTree = "<group>"; };
 		05A113D322C412D600D0A16E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		05A113D622C41BD200D0A16E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		05C9C0A92332F6D10056B96A /* EnviarCorreoEnvioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreoEnvioViewController.swift; sourceTree = "<group>"; };
 		05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsVC.swift; sourceTree = "<group>"; };
 		05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosResumenTableViewCell.swift; sourceTree = "<group>"; };
 		05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderResumenItemsTableViewCell.swift; sourceTree = "<group>"; };
+		05D29C44232C3E65003D1837 /* ListasDeCargaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasDeCargaViewController.swift; sourceTree = "<group>"; };
+		05D29C46232C53A5003D1837 /* RemisionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemisionTableViewCell.swift; sourceTree = "<group>"; };
 		05E508D222DE6DF300A1C911 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvioVC.swift; sourceTree = "<group>"; };
 		05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,9 +153,12 @@
 			children = (
 				053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */,
 				053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */,
+				050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */,
+				050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */,
 				053D482C22EFA12500752F15 /* DatosTransporteDevolucionVC.swift */,
 				0500A7B522F0811900440332 /* ItemsDevolucionVC.swift */,
 				0500A7BF22F0A68100440332 /* ResumenItemsDevolucionVC.swift */,
+				050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */,
 			);
 			name = Devolucion;
 			sourceTree = "<group>";
@@ -154,9 +169,11 @@
 				05E93BB822C43E790018FF2A /* ReporteEnvioVC.swift */,
 				0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */,
 				0592F1FF22DE3AF500F6EA21 /* ItemsVC.swift */,
-				05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */,
 				05D055DC22E0FD5200B504F8 /* ResumenItemsVC.swift */,
+				05D29C44232C3E65003D1837 /* ListasDeCargaViewController.swift */,
 				05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */,
+				05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */,
+				05C9C0A92332F6D10056B96A /* EnviarCorreoEnvioViewController.swift */,
 			);
 			name = Envio;
 			sourceTree = "<group>";
@@ -247,9 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				059C963622CDD969006CBF9A /* Cliente.swift */,
-				0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */,
 				0517AEF622DD2CC700422D70 /* Proyecto.swift */,
 				05E508D222DE6DF300A1C911 /* Item.swift */,
+				0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */,
 				053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */,
 				0500A7C422F0C64200440332 /* ReporteDano.swift */,
 				0562DEC822F2405F0096FD61 /* ReporteCapacitacion.swift */,
@@ -291,6 +308,7 @@
 				05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */,
 				05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */,
 				0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */,
+				05D29C46232C53A5003D1837 /* RemisionTableViewCell.swift */,
 			);
 			path = AuxiliarViews;
 			sourceTree = "<group>";
@@ -451,10 +469,12 @@
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
 				053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */,
 				0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */,
+				05D29C45232C3E65003D1837 /* ListasDeCargaViewController.swift in Sources */,
 				0583B5B322F3C4FF00E1B5C4 /* StorageManager.swift in Sources */,
 				0500A7B622F0811900440332 /* ItemsDevolucionVC.swift in Sources */,
 				052A369B22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift in Sources */,
 				059C963722CDD969006CBF9A /* Cliente.swift in Sources */,
+				05C9C0AA2332F6D10056B96A /* EnviarCorreoEnvioViewController.swift in Sources */,
 				0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */,
 				057ACE9022F9FFFD00D2D095 /* TipoDano.swift in Sources */,
 				052A369922F0F47200B68DB5 /* ResumenItemsDanoVC.swift in Sources */,
@@ -463,6 +483,7 @@
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
 				0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */,
 				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
+				050C2E07233402AB00F9B8C0 /* NumerosDevolucionViewController.swift in Sources */,
 				05E93BBC22C4405C0018FF2A /* OptionTableViewCell.swift in Sources */,
 				0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */,
 				0583B5A022F351BA00E1B5C4 /* ReporteSeguimientoVC.swift in Sources */,
@@ -483,13 +504,16 @@
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
 				0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */,
 				0583B5A422F3538E00E1B5C4 /* ConfirmacionDatosSeguimientoVC.swift in Sources */,
+				050C2E052333FC3700F9B8C0 /* DocumentoClienteViewController.swift in Sources */,
 				0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
 				0562DEC922F2405F0096FD61 /* ReporteCapacitacion.swift in Sources */,
 				0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */,
+				05D29C47232C53A5003D1837 /* RemisionTableViewCell.swift in Sources */,
 				053D482722EF3EF500752F15 /* ReporteDevolucionVC.swift in Sources */,
 				05D055E322E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift in Sources */,
+				050C2E0923342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift in Sources */,
 				0562DECB22F240B60096FD61 /* ActividadCapacitacion.swift in Sources */,
 				05A113D722C41BD200D0A16E /* MainMenu.swift in Sources */,
 			);

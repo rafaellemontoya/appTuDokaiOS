@@ -9,7 +9,7 @@
 import UIKit
 
 
-class EnviarCorreosDanoVC: UIViewController {
+class EnviarCorreosDanoVC: UIViewController, UITextFieldDelegate {
 
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var  reporte: ReporteDano?
@@ -66,7 +66,7 @@ class EnviarCorreosDanoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        delegarTF()
         // Do any additional setup after loading the view.
     }
     
@@ -170,5 +170,24 @@ class EnviarCorreosDanoVC: UIViewController {
         
         
         
+    }
+    func delegarTF(){
+        self.email1TF.delegate = self
+        self.email2TF.delegate = self;
+        self.email3TF.delegate = self
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        email1TF.resignFirstResponder()
+        email2TF.resignFirstResponder()
+        email3TF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
     }
 }

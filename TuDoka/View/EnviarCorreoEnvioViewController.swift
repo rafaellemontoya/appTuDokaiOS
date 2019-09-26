@@ -1,17 +1,18 @@
 //
-//  EnviarCorreosVC.swift
+//  EnviarCorreoEnvioViewController.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/31/19.
+//  Created by Rafael Montoya on 9/18/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
+class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
     
-    var  reporte: ReporteCapacitacion?
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    var  reporte: ReporteEnvio?
+    
     var emails: [String] = []
     
     @IBOutlet weak var email1TF: UITextField!
@@ -34,7 +35,8 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-//            UIApplication.shared.beginIgnoringInteractionEvents()
+            //regreso a la pantalla anterior
+            UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
             self.activityIndicator.center = self.view.center
             self.activityIndicator.hidesWhenStopped = true
@@ -46,9 +48,9 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
             
             //Enviar correos
             self.emails = []
-            self.cargarEmails()
-            
-//            self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
+            self.enviarEmails()
+            self.enviarEmail()
+            //            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
             
             
             
@@ -63,14 +65,12 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         delegarTF()
-        
         // Do any additional setup after loading the view.
     }
-
-
-    func cargarEmails(){
+    
+    
+    func enviarEmails(){
         if(email1TF.text! != ""){
             emails.append(email1TF.text!)
         }
@@ -81,13 +81,13 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         if(email3TF.text! != ""){
             emails.append(email3TF.text!)
         }
-        self.enviarEmails()
     }
     
-    func enviarEmails(){
+    
+    func enviarEmail(){
         
         let session = URLSession.shared
-        let url = URL(string: "https://www.themyt.com/reportedoka/reporteCapacitacion.php")!
+        let url = URL(string: "https://www.themyt.com/reportedoka/reporte_envio.php")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -95,9 +95,8 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         
         struct PDF: Codable {
             let reporteId: String
-            let items: [ActividadCapacitacion]
+            let items: [Item]
             let emails: [String]
-            let nombreCurso: String
             let nombreUsuario: String
             let emailUsuario: String
             let nombreProyecto : String
@@ -105,7 +104,15 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
             let nombreCliente: String
             let numeroCliente: String
             let usuario: String
+            let urlListaCarga: [String]
+            let remisiones: [String]
             
+            let urlFotoLicencia: String
+            let urlFotoPlacaDelantera: String
+            let urlFotoPlacaTrasera: String
+            let urlFotoTractoLateral1: String
+            let urlFotoTractoLateral2: String
+            let urlFotoTractoTrasera: String
         }
         
         // ...
@@ -113,19 +120,28 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         let pdf = PDF(reporteId: reporte!.getIdReporte(),
                       items: reporte!.getItems(),
                       emails: self.emails,
-                      nombreCurso: self.reporte!.getNombreCurso(),
                       nombreUsuario: self.reporte!.nombreUsuario,
                       emailUsuario: self.reporte!.emailUsuario,
                       nombreProyecto: reporte!.getProyecto().nombre,
                       numeroProyecto: reporte!.getProyecto().nombre,
                       nombreCliente: reporte!.getCliente().nombre,
                       numeroCliente: reporte!.getCliente().numero,
-                      usuario: reporte!.getIdUsuario()
+                      usuario: reporte!.getIdUsuario(),
+                      urlListaCarga: reporte!.urlListaCarga,
+                      remisiones: reporte!.listaRemision,
+                      urlFotoLicencia: reporte!.urlFotoLicencia,
+                      urlFotoPlacaDelantera: reporte!.urlFotoPlacaDelantera,
+                      urlFotoPlacaTrasera: reporte!.urlFotoPlacaTrasera,
+                      urlFotoTractoLateral1: reporte!.urlFotoTractoLateral1,
+                      urlFotoTractoLateral2: reporte!.urlFotoTractoLateral2,
+                      urlFotoTractoTrasera: reporte!.urlFotoTractoTrasera
+            
+            
         )
         guard let uploadData = try? JSONEncoder().encode(pdf) else {
             return
         }
-        
+        print(pdf)
         
         let task = session.uploadTask(with: request, from: uploadData) { data, response, error in
             // Do something...
@@ -135,6 +151,7 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
                     /// code goes here
                     self.emailsEnviados()
                 })
+                
             }
         }
         
@@ -152,7 +169,7 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
             //regreso a la pantalla anterior
             
             
-            self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
+            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Enviar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
@@ -171,7 +188,6 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         
         
     }
-    
     func delegarTF(){
         self.email1TF.delegate = self
         self.email2TF.delegate = self;

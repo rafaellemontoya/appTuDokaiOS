@@ -35,8 +35,8 @@ class ConfirmacionDatosDevolucionVC: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //cCreo una variable para inicializar
-        if(segue.identifier == "datosTransporteDevolucionSegue"){
-            let receiverVC = segue.destination as! DatosTransporteDevolucionVC
+        if(segue.identifier == "documentosClienteS"){
+            let receiverVC = segue.destination as! DocumentoClienteViewController
             receiverVC.reporte = self.reporteDevolucion!
         }
         

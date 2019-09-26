@@ -40,44 +40,8 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
             
         self.present(alert, animated: true, completion: nil)
         }else{
+            self.performSegue(withIdentifier: "agregarRemisionSegue", sender: self)
             
-            let alert = UIAlertController(title: "¿Quiéres agregar un número de remisión?", message: "Puedes agregarlo más tarde", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Agregar", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-                //regreso a la pantalla anterior
-                self.performSegue(withIdentifier: "agregarRemisionSegue", sender: self)
-                
-                
-            }))
-            
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Finalizar reporte", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-                UIApplication.shared.beginIgnoringInteractionEvents()
-                //Guardar info
-                self.activityIndicator.center = self.view.center
-                self.activityIndicator.hidesWhenStopped = true
-                
-                self.activityIndicator.color=UIColor.black
-                self.activityIndicator.backgroundColor = UIColor.red
-                self.view.addSubview(self.activityIndicator)
-                self.activityIndicator.startAnimating()
-                //Guardar info
-                FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporte!){
-                    (respuesta, referencia) in
-                    if(respuesta){
-                        self.reporte?.setIdReporte(idReporte: referencia!.documentID)
-                        self.guardarInfoTransporte(idReporte: (referencia?.documentID)!)
-                    }
-                }
-                
-                
-                // self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
-                
-                
-                
-                
-            }))
-            self.present(alert, animated: true, completion: nil)
             
         }
         
@@ -169,7 +133,7 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "agregarRemisionSegue"){
             let receiver = segue.destination as! AgregarRemisionVC
-            receiver.reporteEnvio = self.reporte!
+            receiver.reporte = self.reporte!
         }else if (segue.identifier == "menuPrincipalSegue"){
             
         }
@@ -235,148 +199,7 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
     }
     
     
-    func guardarInfoTransporte(idReporte: String){
-        
-        //placa trasera
-        subirFotosTransporte(item: (self.reporte?.fotoPlacaTrasera)!, idReporte: idReporte){
-            (respuesta, url) in
-            if(respuesta){
-                self.reporte?.urlFotoPlacaTrasera = url!
-                
-                //Placa delantera
-                self.subirFotosTransporte(item: (self.reporte?.fotoPlacaDelantera)!, idReporte: idReporte){
-                    (respuesta, url) in
-                    if(respuesta){
-                        self.reporte?.urlFotoPlacaDelantera = url!
-                        
-                        //tracto trasera
-                        self.subirFotosTransporte(item: (self.reporte?.fotoTractoTrasera)!, idReporte: idReporte){
-                            (respuesta, url) in
-                            if(respuesta){
-                                self.reporte?.urlFotoTractoTrasera = url!
-                                
-                                //Tracto lateral 1
-                                self.subirFotosTransporte(item: (self.reporte?.fotoTractoLateral1)!, idReporte: idReporte){
-                                    (respuesta, url) in
-                                    if(respuesta){
-                                        self.reporte?.urlFotoTractoLateral1 = url!
-                                        
-                                        //tracto lateral 2
-                                        self.subirFotosTransporte(item: (self.reporte?.fotoTractoLateral2)!, idReporte: idReporte){
-                                            (respuesta, url) in
-                                            if(respuesta){
-                                                self.reporte?.urlFotoTractoLateral2 = url!
-                                                
-                                                //licencia
-                                                self.subirFotosTransporte(item: (self.reporte?.fotoLicencia)!, idReporte: idReporte){
-                                                    (respuesta, url) in
-                                                    if(respuesta){
-                                                        self.reporte?.urlFotoLicencia = url!
-                                                        
-                                                        FirebaseDBManager.dbInstance.guardarFotosTransporteEnvio(reporte: self.reporte!, idReporte: idReporte){
-                                                            (respuesta) in
-                                                            if(respuesta!){
-                                                                self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
-                                                            }//error al guardar fotos en bd
-                                                        }// actualizar en bd
-                                                        
-                                                    }//error licencia
-                                                }
-                                            }//error lateral 2
-                                        }
-                                        
-                                    }//error lateral 1
-                                }
-                                
-                            }//error tracto trasera
-                        }
-                    }//error placa delantera
-                }
-            }//Errror subir placa trasera
-        }
-        
-    }
-    func guardarItems(items: [Item], idReporte: String){
-        var flag = 0;
-        for item in items{
-            //subo fotos
-            self.subirFotos(item: item.getPhotos(), idReporte: idReporte, idItem: item.getKey()){
-                (respuesta, url) in
-                if(respuesta){
-                    item.addUrl(url: url)
-                    
-                    FirebaseDBManager.dbInstance.guardarItemsReporteEnvio(item: item, idReporte: idReporte){
-                        (respuesta) in
-                        flag+=1;
-                        if(flag == items.count){
-                            UIApplication.shared.endIgnoringInteractionEvents()
-                            self.activityIndicator.stopAnimating()
-                            let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
-                            
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
-                                NSLog("The \"OK\" alert occured.")
-                                //regreso a la pantalla anterior
-                                self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
-                                
-                                
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                        }//flag
-                    }
-                        
-                    }else{
-                        UIApplication.shared.endIgnoringInteractionEvents()
-                        self.activityIndicator.stopAnimating()
-                        let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
-                            NSLog("The \"OK\" alert occured.")
-                            //regreso a la pantalla anterior
-                            
-                            
-                            
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    
-                }
-            }
-        }
-    }
-    func subirFotos(item: UIImage, idReporte: String, idItem: String,completion: @escaping (Bool, String)-> Void ){
-        
-        
-            
-            StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-                (respuesta, url) in
-                if (respuesta){
-                    //actualizar fotos en bd
-                    completion(true, url!)
-                    
-                }else{
-                    completion(false, "")
-                    
-                }//error al subir foto
-            }
-        
-        
-    }
     
-    func subirFotosTransporte(item: UIImage, idReporte: String,completion: @escaping (Bool,String?)-> Void ){
-
-        StorageManager.dbInstance.subirFoto(idUsuario: (self.reporte?.getIdUsuario())!, idReporte: idReporte, imagen: StorageManager.dbInstance.resize(item)){
-            (respuesta, url) in
-            if (respuesta){
-                //actualizar fotos en bd
-                
-                completion(true, url)
-            }else{
-                completion(false,nil)
-            }//error al subir fotos transporte
-        }
-        
-        
-        
-    }
     
     
 }

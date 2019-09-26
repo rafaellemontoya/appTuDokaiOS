@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsSeguimientoVC: UIViewController ,UINavigationControllerDelegate {
+class ItemsSeguimientoVC: UIViewController ,UINavigationControllerDelegate, UITextViewDelegate {
     
     var reporte: ReporteSeguimiento?
     var itemSeleccionado: ActividadCapacitacion?
@@ -78,6 +78,7 @@ class ItemsSeguimientoVC: UIViewController ,UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegarTF()
         // Do any additional setup after loading the view.
     }
     
@@ -87,7 +88,32 @@ class ItemsSeguimientoVC: UIViewController ,UINavigationControllerDelegate {
             receiverVC.reporte = self.reporte!
         }
     }
+    func delegarTF(){
+        self.descripcionActividad.delegate = self
+        
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        descripcionActividad.resignFirstResponder()
+        
+        self.view.endEditing(true)
+        return true
+    }
+    /* Updated for Swift 4 */
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            descripcionActividad.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+
     
     
 }

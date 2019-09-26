@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnviarCorreosSeguimientoVC: UIViewController {
+class EnviarCorreosSeguimientoVC: UIViewController, UITextFieldDelegate {
     
     var  reporte: ReporteSeguimiento?
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
@@ -62,7 +62,7 @@ class EnviarCorreosSeguimientoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        delegarTF()
         // Do any additional setup after loading the view.
     }
     
@@ -165,6 +165,26 @@ class EnviarCorreosSeguimientoVC: UIViewController {
         
         
         
+    }
+    
+    func delegarTF(){
+        self.email1TF.delegate = self
+        self.email2TF.delegate = self;
+        self.email3TF.delegate = self
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        email1TF.resignFirstResponder()
+        email2TF.resignFirstResponder()
+        email3TF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
     }
 }
 

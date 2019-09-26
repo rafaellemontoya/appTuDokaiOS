@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     //Nombre Cliente
     var db: Firestore!
     @IBOutlet weak var nombreClienteTV: UITableView!
@@ -197,7 +197,7 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+        delegarTF()
         self.reporteDevolucion = ReporteDevolucion()
         self.reporteDevolucion?.setPais(pais: "MX")
         self.reporteDevolucion?.setIdUsuario(idUsuario: "idRafa")
@@ -256,6 +256,26 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
  
     }
     
-
+    func delegarTF(){
+        self.nombreClienteTF.delegate = self
+        self.numeroClienteTF.delegate = self;
+        self.nombreProyectoTF.delegate = self
+        self.numeroProyectoTf.delegate = self
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        nombreProyectoTF.resignFirstResponder()
+        numeroProyectoTf.resignFirstResponder()
+        nombreClienteTF.resignFirstResponder()
+        numeroClienteTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
 
 }

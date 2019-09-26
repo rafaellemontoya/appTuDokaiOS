@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
    
     var reporte: ReporteDevolucion?
     var itemsArray: [Item] = []
@@ -130,6 +130,8 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        delegarTF()
         itemSeleccionado = Item(key: "", nombre: "", codigo: "", pais: "")
         getInfo()
         codigoPiezaTV.delegate = self
@@ -157,7 +159,25 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
             receiverVC.reporte = self.reporte!
         }
     }
+    func delegarTF(){
+        self.unidadesItemTF.delegate = self
+        self.codigoItemF.delegate = self;
+        self.nombreItemTF.delegate = self
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        unidadesItemTF.resignFirstResponder()
+        codigoItemF.resignFirstResponder()
+        nombreItemTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
     
     
 }

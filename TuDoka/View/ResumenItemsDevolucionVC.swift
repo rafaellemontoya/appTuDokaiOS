@@ -115,6 +115,10 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             let receiver = segue.destination as! ItemsDevolucionVC
             receiver.reporte = self.reporte!
         }
+        if(segue.identifier == "enviarReporteS"){
+            let receiver = segue.destination as! EnviarReporteDevolucionViewController
+            receiver.reporte = self.reporte!
+        }
     }
     
     var startingFrame: CGRect?
@@ -235,7 +239,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                                                 self.subirFotosTransporte(item: (self.reporte?.fotoDocumentoDevolucion)!, idReporte: idReporte){
                                                     (respuesta, url) in
                                                     if(respuesta){
-                                                        self.reporte?.urlFotoDocumentoDevolucion = url!
+                                                        
                                                         
                                                         //licencia
                                                         self.subirFotosTransporte(item: (self.reporte?.fotoLicencia)!, idReporte: idReporte){
@@ -245,7 +249,17 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                                                                     FirebaseDBManager.dbInstance.guardarFotosTransporteDevolucion(reporte: self.reporte!, idReporte: idReporte){
                                                                         (respuesta) in
                                                                         if(respuesta!){
-                                                                            self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
+                                                                            
+                                                                            //Listas de carga
+                                                                            self.guardarListasCarga(items: self.reporte!.listaCarga, idReporte: idReporte){
+                                                                                (respuesta) in
+                                                                                if(respuesta){
+                                                                                    self.guardarRemision(remisiones: self.reporte!.listaRemision, idReporte: idReporte)
+                                                                                    self.guardarItems(items: (self.reporte?.getItems())!, idReporte: idReporte)
+                                                                                }else{
+                                                                                    
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
                                                                 
@@ -268,6 +282,23 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         }
         
     }
+    func guardarRemision(remisiones: [String], idReporte: String){
+        
+        for item in remisiones{
+            //subo fotos
+            
+            
+            
+            FirebaseDBManager.dbInstance.guardarRemisionesDevolucion(remision: item, idReporte: idReporte){
+                (respuesta) in
+                
+            }
+            
+        }
+        
+        
+    }
+    
     func guardarItems(items: [Item], idReporte: String){
         var flag = 0;
         for item in items{
@@ -288,7 +319,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                                     alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
                                         NSLog("The \"OK\" alert occured.")
                                         //regreso a la pantalla anterior
-                                        self.performSegue(withIdentifier: "menuPrincipalDevolucionSegue", sender: self)
+                                        self.performSegue(withIdentifier: "enviarReporteS", sender: self)
                                         
                                         
                                     }))
@@ -314,6 +345,33 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
+    
+    func guardarListasCarga(items: [UIImage], idReporte: String,completion: @escaping (Bool)-> Void ){
+        var flag = 0;
+        for item in items{
+            //subo fotos
+            self.subirFotos(item: item, idReporte: idReporte, idItem: ""){
+                (respuesta, url) in
+                if(respuesta){
+                    self.reporte!.urlListaCarga.append(url)
+                    
+                    FirebaseDBManager.dbInstance.guardarDocumentosCargaDevolucion(url: url, idReporte: idReporte){
+                        (respuesta) in
+                        flag+=1;
+                        if(flag == items.count){
+                            
+                            completion(true)
+                        }//flag
+                    }
+                    
+                }else{
+                    completion(false)
+                    
+                }
+            }
+        }
+    }
+    
     func subirFotos(item: UIImage, idReporte: String, idItem: String,completion: @escaping (Bool, String)-> Void ){
         
         
@@ -349,6 +407,7 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         
         
     }
+    
     
     
 }

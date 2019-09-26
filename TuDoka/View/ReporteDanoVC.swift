@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     private var clientesArray: [Cliente] = []
     private var proyectosArray: [Proyecto] = []
@@ -169,7 +169,7 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        delegarTF()
         self.reporteDano = ReporteDano()
         self.reporteDano!.setIdUsuario(idUsuario: "keyUsuario")
         self.reporteDano!.setPais(pais: "MX")
@@ -231,6 +231,26 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
         
     }
     
+    func delegarTF(){
+        self.nombreClienteTF.delegate = self
+        self.numeroClienteTF.delegate = self;
+        self.nombreProyectoTF.delegate = self
+        self.numeroProyectoTF.delegate = self
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        nombreClienteTF.resignFirstResponder()
+        numeroClienteTF.resignFirstResponder()
+        nombreProyectoTF.resignFirstResponder()
+        numeroProyectoTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
     
 }

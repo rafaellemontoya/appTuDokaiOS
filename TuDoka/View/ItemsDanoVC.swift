@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate {
+class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
 
     var reporte: ReporteDano?
     var itemsArray: [Item] = []
@@ -240,7 +240,25 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
     }
     
     
+    func delegarTF(){
+        self.unidadesItemTF.delegate = self
+        self.codigoItemF.delegate = self;
+        self.nombreItemTF.delegate = self
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        unidadesItemTF.resignFirstResponder()
+        codigoItemF.resignFirstResponder()
+        nombreItemTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
 }
 extension ItemsDanoVC: UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){

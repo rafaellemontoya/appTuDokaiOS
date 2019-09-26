@@ -1,24 +1,35 @@
+
 //
-//  ResumenItemsVC.swift
+//  DocumentoClienteViewController.swift
 //  TuDoka
 //
-//  Created by Rafael Montoya on 7/18/19.
+//  Created by Rafael Montoya on 9/19/19.
 //  Copyright © 2019 M y T Desarrollo de Software. All rights reserved.
 //
 
 import UIKit
 
-class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
-    var reporteEnvio: ReporteEnvio?
+class DocumentoClienteViewController:  UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate{
     
     
+    
+    var reporte: ReporteDevolucion?
+    var imagePicker: UIImagePickerController!
+    
+    
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
     
     @IBOutlet weak var tableViewFotos: UITableView!
     
     
-    @IBAction func continuarBtn(_ sender: Any) {
+    
+    
+    @IBAction func btnContinuar(_ sender: Any) {
         
-        let alert = UIAlertController(title: "¿Estás seguro de querer continuar?", message: "No podrás agregar items ni fotos en este reporte", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Estás seguro de querer continuar?", message: "No podrás agregar más listas de documentos de devolución en este reporte", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
@@ -29,64 +40,94 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.addAction(UIAlertAction(title: NSLocalizedString("Continuar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
-
-            self.performSegue(withIdentifier: "listaCargaS", sender: self)
+            
+            self.performSegue(withIdentifier: "numerosDevolucionS", sender: self)
             
             
         }))
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     
-    @IBAction func nuevoItemBtn(_ sender: Any) {
-        self.performSegue(withIdentifier: "agregarItemSegue", sender: self)
+    @IBAction func nuevaFotoBtn(_ sender: Any) {
+        imageSource()
     }
     
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+        
     }
+    
+    
+    func imageSource(){
+        let alert = UIAlertController(title: "¿Quiéres tomar una nueva foto o seleccionar de tu galería?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Tomar foto", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.camera)
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Seleccionar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.photoLibrary)
+            
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-            let cell = tableViewFotos.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
-            cell.resumenItems = self
-      
-            cell.agregarCelda(image:  (self.reporteEnvio!.getItems()[indexPath.section].getPhotos()))
+        let cell = tableViewFotos.dequeueReusableCell(withIdentifier: "celdaItem") as! FotosResumenTableViewCell
+        cell.resumenListaDocumentoCliente = self
+        
+        cell.agregarCelda(image:  (self.reporte!.listaCarga [indexPath.row]))
         
         
         
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return reporte!.listaCarga.count
+        
+        
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return reporteEnvio!.getItems().count
-    }
-   
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "headerResumenCell") as! HeaderResumenItemsTableViewCell
-        cell.resumenItems = self
-        cell.agregarHeader(item: self.reporteEnvio!.getItems()[section])
-        
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerResumenCell")
         return cell?.bounds.height ?? 44
     }
     
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-       
+        
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
         
@@ -94,14 +135,11 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "listaCargaS"){
-            let receiver = segue.destination as! ListasDeCargaViewController
-            receiver.reporte = self.reporteEnvio!
+        if(segue.identifier == "numerosDevolucionS"){
+            let receiver = segue.destination as! NumerosDevolucionViewController
+            receiver.reporte = self.reporte!
         }
-        else if (segue.identifier == "agregarItemSegue"){
-            let receiver = segue.destination as! ItemsVC
-            receiver.reporteEnvio = self.reporteEnvio!
-        }
+        
     }
     
     var startingFrame: CGRect?
@@ -171,7 +209,7 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
             NSLog("The \"OK\" alert occured.")
             //regreso a la pantalla anterior
             
-            self.reporteEnvio!.eliminarItem (id: indexPath.section)
+            self.reporte!.listaCarga.remove (at: indexPath.row)
             self.tableViewFotos.reloadData()
             
             
@@ -186,6 +224,24 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-
+    
 }
 
+extension DocumentoClienteViewController: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        print ("hola desde extension")
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
+        }
+        
+        reporte!.listaCarga.append( selectedImage)
+        tableViewFotos.reloadData()
+        //imagenCamara.image = SharedControladores.shared.resize(selectedImage)
+        
+        
+        
+    }
+    
+}

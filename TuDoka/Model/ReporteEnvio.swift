@@ -29,6 +29,12 @@ class ReporteEnvio{
     var urlFotoTractoLateral1: String
     var urlFotoTractoLateral2: String
     var urlFotoTractoTrasera: String
+    var listaCarga: [UIImage]
+    var listaRemision: [String]
+    var urlListaCarga: [String]
+    
+    var nombreUsuario: String
+    var emailUsuario: String
     
     init() {
         idReporte = ""
@@ -45,6 +51,11 @@ class ReporteEnvio{
         urlFotoTractoLateral1 = ""
         urlFotoTractoLateral2 = ""
         urlFotoTractoTrasera = ""
+        listaCarga=[]
+        listaRemision = []
+        urlListaCarga = []
+        emailUsuario = "usuario@email.com"
+        nombreUsuario = "Nombre Usuario"
         
     }
     func setProyecto(proyecto: Proyecto){

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsCapacitacionVC: UIViewController,UINavigationControllerDelegate {
+class ItemsCapacitacionVC: UIViewController,UINavigationControllerDelegate, UITextViewDelegate {
 
     var reporte: ReporteCapacitacion?
      var itemSeleccionado: ActividadCapacitacion?
@@ -75,7 +75,7 @@ class ItemsCapacitacionVC: UIViewController,UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+delegarTF()
         // Do any additional setup after loading the view.
     }
     
@@ -86,8 +86,33 @@ class ItemsCapacitacionVC: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-
+    func delegarTF(){
+        self.descripcionActividad.delegate = self
+        
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        descripcionActividad.resignFirstResponder()
+        
+        self.view.endEditing(true)
+        return true
+    }
+    
+
+    /* Updated for Swift 4 */
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            descripcionActividad.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 extension ItemsCapacitacionVC: UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){

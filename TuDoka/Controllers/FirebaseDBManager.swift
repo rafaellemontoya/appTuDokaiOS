@@ -187,7 +187,7 @@ class FirebaseDBManager{
     
     func guardarFotosTransporteDevolucion(reporte: ReporteDevolucion, idReporte: String, completion: @escaping (Bool?)-> Void ){
         
-        db.collection("reportesDevolucion").document(idReporte).updateData(["fotoDocumentoDevolucion" : reporte.urlFotoDocumentoDevolucion,
+        db.collection("reportesDevolucion").document(idReporte).updateData([
                                                                          "fotoLicencia": reporte.urlFotoLicencia,
                                                                          "fotoPlacaDelantera": reporte.urlFotoPlacaDelantera,
                                                                          "fotoPlacaTrasera": reporte.urlFotoPlacaTrasera,
@@ -204,6 +204,49 @@ class FirebaseDBManager{
             }
         }
     }
+    
+    func guardarRemisionesDevolucion(remision: String, idReporte: String, completion: @escaping (Bool?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesDevolucion").document(idReporte).collection("numeroDevolucion").addDocument(data: [
+            
+            "remision": remision
+            
+            ]
+        ) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(true)
+                
+                
+            }
+            
+        }
+    }
+    
+    func guardarDocumentosCargaDevolucion(url: String, idReporte: String, completion: @escaping (Bool?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesDevolucion").document(idReporte).collection("documentosCliente").addDocument(data: [
+            
+            "foto": url
+            
+            ]
+        ) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(true)
+                
+                
+            }
+            
+        }
+    }
+    
     
     /*** FUNCIONES GUARDADO DE ENVIO **/
     
@@ -242,6 +285,49 @@ class FirebaseDBManager{
                 print("Document successfully updated")
                 completion(true)
             }
+        }
+    }
+    
+    
+    func guardarRemisionesEnvio(remision: String, idReporte: String, completion: @escaping (Bool?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesEnvio").document(idReporte).collection("remisiones").addDocument(data: [
+            
+            "remision": remision
+            
+            ]
+        ) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(true)
+                
+                
+            }
+            
+        }
+    }
+    
+    func guardarDocumentosCargaEnvio(url: String, idReporte: String, completion: @escaping (Bool?)-> Void ){
+        var ref: DocumentReference? = nil
+        ref = db.collection("reportesEnvio").document(idReporte).collection("documentosCarga").addDocument(data: [
+            
+            "foto": url
+            
+            ]
+        ) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(true)
+                
+                
+            }
+            
         }
     }
     

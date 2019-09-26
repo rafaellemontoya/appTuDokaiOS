@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     private var clientesArray: [Cliente] = []
     private var proyectosArray: [Proyecto] = []
@@ -98,10 +98,10 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     
     @IBAction func continuarBTN(_ sender: Any) {
         
-        if(nombreCursoTF.text != ""){
+        
             
             performSegue(withIdentifier: "confirmacionDatosSeguimientoSegue", sender: self)
-        }
+        
         
     }
     
@@ -175,7 +175,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        delegarTF()
         self.reporte = ReporteSeguimiento()
         reporte?.setIdUsuario(idUsuario: "IdUsuario")
         reporte?.setPais(pais: "MX")
@@ -237,6 +237,26 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         
     }
     
+    func delegarTF(){
+        self.nombreClienteTF.delegate = self
+        self.numeroClienteTF.delegate = self;
+        self.nombreProyectoTF.delegate = self
+        self.numeroProyectoTF.delegate = self
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        nombreClienteTF.resignFirstResponder()
+        numeroClienteTF.resignFirstResponder()
+        nombreProyectoTF.resignFirstResponder()
+        numeroProyectoTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
     
 }

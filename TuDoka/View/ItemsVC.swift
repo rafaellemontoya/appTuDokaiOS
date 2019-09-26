@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate {
+class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
     var reporteEnvio: ReporteEnvio?
     var itemsArray: [Item] = []
@@ -130,6 +130,7 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegarTF()
         itemSeleccionado = Item(key: "", nombre: "", codigo: "", pais: "")
         getInfo()
         codigoPiezaTV.delegate = self
@@ -158,7 +159,27 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
         }
     }
 
+    func delegarTF(){
+        self.unidadesItemTF.delegate = self
+        self.codigoItemF.delegate = self;
+        self.nombreItemTF.delegate = self
+        
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        unidadesItemTF.resignFirstResponder()
+        codigoItemF.resignFirstResponder()
+        nombreItemTF.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
+    
+
 
 }
 extension ItemsVC: UIImagePickerControllerDelegate{

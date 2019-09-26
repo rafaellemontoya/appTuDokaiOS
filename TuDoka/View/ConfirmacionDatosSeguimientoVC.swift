@@ -21,7 +21,7 @@ class ConfirmacionDatosSeguimientoVC: UIViewController {
     
     @IBOutlet weak var numeroProyectoLB: UILabel!
     
-    @IBOutlet weak var nombreCurso: UILabel!
+    
     
     
     
@@ -30,7 +30,7 @@ class ConfirmacionDatosSeguimientoVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        nombreCurso.text = ""
+        
         nombreClienteTF.text = reporte?.getCliente().nombre
         
         numeroClienteTF.text = reporte?.getCliente().numero
