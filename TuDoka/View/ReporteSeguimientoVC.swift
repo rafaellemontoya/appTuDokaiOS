@@ -33,6 +33,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         self.numeroClienteDanoTV.isHidden = true
         self.numeroProyectoTV.isHidden = true
         self.nombreProyectoDanoTV.isHidden = true;
+        getInfoClientes(busquedaParam: nombreClienteTF.text!)
     }
     
     @IBAction func nombreClienteTouch(_ sender: Any) {
@@ -69,6 +70,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         self.numeroClienteDanoTV.isHidden = true
         self.numeroProyectoTV.isHidden = true
         self.nombreProyectoDanoTV.isHidden = false;
+        getInfoProyectos(busquedaParam: nombreProyectoTF.text!, keyCliente: reporte!.getCliente().nombre)
     }
     
     @IBAction func nombreProyectoTouch(_ sender: Any) {
@@ -152,7 +154,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
             numeroClienteTF.text = self.clientesArray[indexPath.row].numero
             
             reporte!.setCliente(cliente: self.clientesArray[indexPath.row])
-            getInfoProyectos(keyCliente: clientesArray[indexPath.row].key)
+            getInfoProyectos(busquedaParam:"", keyCliente: clientesArray[indexPath.row].key)
             
         }else if(tableView == self.nombreProyectoDanoTV || tableView == self.numeroProyectoTV){
             //Proyecto seleccionado
@@ -179,8 +181,8 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         self.reporte = ReporteSeguimiento()
         reporte?.setIdUsuario(idUsuario: "IdUsuario")
         reporte?.setPais(pais: "MX")
-        getInfoClientes()
-        getInfoProyectos(keyCliente: "")
+        getInfoClientes(busquedaParam: "")
+        getInfoProyectos(busquedaParam:"",keyCliente: "")
         
         
         
@@ -188,9 +190,9 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     
     
     
-    func getInfoClientes(){
+    func getInfoClientes(busquedaParam: String){
         
-        FirebaseDBManager.dbInstance.obtenerClientes(){
+        FirebaseDBManager.dbInstance.obtenerClientes(busquedaParam: busquedaParam){
             (respuesta, clientesArray) in
             if(respuesta){
                 self.clientesArray = clientesArray!
@@ -205,8 +207,8 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         
     }
     
-    func getInfoProyectos(keyCliente: String){
-        FirebaseDBManager.dbInstance.obtenerProyectos(idCliente: "key"){
+    func getInfoProyectos(busquedaParam: String, keyCliente: String){
+        FirebaseDBManager.dbInstance.obtenerProyectos(busquedaParam:busquedaParam,idCliente: "key"){
             (respuesta, respuestaArray) in
             if(respuesta){
                 self.proyectosArray = respuestaArray!

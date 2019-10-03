@@ -96,13 +96,21 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
         codigoPiezaTV.isHidden = true;
         nombrePiezaTV.isHidden = true;
         tipoDanoTV.isHidden = false;
+        getInfo(busquedaParam: tipoDanoTF.text!)
     }
     
     @IBAction func tipoDanoEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = true;
         nombrePiezaTV.isHidden = true;
         tipoDanoTV.isHidden = false;
+        
     }
+    
+    @IBAction func nombreChanged(_ sender: Any) {
+        getInfo(busquedaParam: nombreItemTF.text!)
+    }
+    
+    
     
     
     
@@ -199,7 +207,7 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getInfo()
+        getInfo(busquedaParam: "")
         codigoPiezaTV.delegate = self
         codigoPiezaTV.dataSource = self
         nombrePiezaTV.delegate = self
@@ -209,9 +217,9 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
         tipoDanoTV.dataSource = self
     }
     
-    func getInfo(){
+    func getInfo(busquedaParam: String){
        
-        FirebaseDBManager.dbInstance.obtenerItems(){
+        FirebaseDBManager.dbInstance.obtenerItems(busquedaParam:busquedaParam){
             (respuesta, arrayRespuesta) in
             if(respuesta){
                 self.itemsArray = arrayRespuesta!
@@ -221,7 +229,7 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
             self.nombrePiezaTV.reloadData()
             self.codigoPiezaTV.reloadData()
         }
-        FirebaseDBManager.dbInstance.obtenerDescripcionDano(){
+        FirebaseDBManager.dbInstance.obtenerDescripcionDano(busquedaParam:busquedaParam){
             (respuesta, arrayRespuesta) in
             if(respuesta){
                 self.tipoDanoArray = arrayRespuesta!

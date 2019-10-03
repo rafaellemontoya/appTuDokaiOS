@@ -22,9 +22,10 @@ class FirebaseDBManager{
         db = Firestore.firestore()
     }
     
-    func obtenerClientes (completion: @escaping (Bool, [Cliente]?)-> Void ){
-        var clientesArray: [Cliente] = []
-        db.collection("clients").getDocuments(){(querySnapshot, err) in
+    func obtenerClientes (busquedaParam: String, completion: @escaping (Bool, [Cliente]?)-> Void ){
+        let clientsRef = db.collection("clients")
+        var clientesArray2: [Cliente] = []
+        clientsRef.whereField("nombreBusqueda", isGreaterThan: busquedaParam).getDocuments(){(querySnapshot, err) in
             if let err = err{
                 print("Error obteniendo documentos \(err)")
                 completion(false, nil)
@@ -43,19 +44,21 @@ class FirebaseDBManager{
                     }
                     cliente.key = document.documentID
                     
-                    clientesArray.append(cliente)
+                    clientesArray2.append(cliente)
                     
                 }
-                completion(true, clientesArray)
+                completion(true, clientesArray2)
                 
             }
             
         }
+
     }
     
-    func obtenerItems (completion: @escaping (Bool, [Item]?)-> Void ){
+    func obtenerItems (busquedaParam: String, completion: @escaping (Bool, [Item]?)-> Void ){
         var itemArray: [Item] = []
-        db.collection("material").getDocuments(){(querySnapshot, err) in
+        
+        db.collection("material").whereField("nombreBusqueda", isGreaterThan: busquedaParam).getDocuments(){(querySnapshot, err) in
             if let err = err{
                 print("Error obteniendo documentos \(err)")
                 completion(false, nil)
@@ -84,9 +87,9 @@ class FirebaseDBManager{
         }
     }
     
-    func obtenerDescripcionDano (completion: @escaping (Bool, [TipoDano]?)-> Void ){
+    func obtenerDescripcionDano (busquedaParam: String, completion: @escaping (Bool, [TipoDano]?)-> Void ){
         var itemArray: [TipoDano] = []
-        db.collection("damage").getDocuments(){(querySnapshot, err) in
+        db.collection("damage").whereField("nombreBusqueda", isGreaterThan: busquedaParam).getDocuments(){(querySnapshot, err) in
             if let err = err{
                 print("Error obteniendo documentos \(err)")
                 completion(false, nil)
@@ -115,9 +118,9 @@ class FirebaseDBManager{
         }
     }
     
-    func obtenerProyectos (idCliente: String, completion: @escaping (Bool, [Proyecto]?)-> Void ){
+    func obtenerProyectos (busquedaParam: String, idCliente: String, completion: @escaping (Bool, [Proyecto]?)-> Void ){
         var array: [Proyecto] = []
-        db.collection("projects").getDocuments(){(querySnapshot, err) in
+        db.collection("projects").whereField("nombreBusqueda", isGreaterThan: busquedaParam).getDocuments(){(querySnapshot, err) in
             if let err = err{
                 print("Error obteniendo documentos \(err)")
                 completion(false, nil)

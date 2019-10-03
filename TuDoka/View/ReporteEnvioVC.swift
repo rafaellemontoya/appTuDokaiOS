@@ -46,6 +46,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         tableNumeroCliente.isHidden = true
         tableNumeroProyecto.isHidden = true
         tableNombreProyecto.isHidden = false
+        getInfoProyectos(busquedaParam: nombreProyectoTF.text!, keyCliente: "")
     }
     //Numero proyecto
     
@@ -62,15 +63,18 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         tableNumeroCliente.isHidden = true
         tableNumeroProyecto.isHidden = false
         tableNombreProyecto.isHidden = true
+        
     }
     
     
     //Numero cliente
     @IBAction func numeroClienteEdit(_ sender: Any) {
+        
         tableNombreCliente.isHidden = true
         tableNumeroCliente.isHidden = false
         tableNumeroProyecto.isHidden = true
         self.tableNombreProyecto.isHidden = true;
+        
     }
     
     @IBAction func numeroClienteChanged(_ sender: Any) {
@@ -79,6 +83,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         tableNumeroCliente.isHidden = false
         tableNumeroProyecto.isHidden = true
         self.tableNombreProyecto.isHidden = true;
+        
     }
     
     //nombre cliente
@@ -96,6 +101,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.tableNumeroCliente.isHidden = true
         self.tableNumeroProyecto.isHidden = true
         self.tableNombreProyecto.isHidden = true;
+        getInfoClientes(busquedaParam: textField.text!)
     }
     
 
@@ -153,7 +159,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
             numeroClienteTF.text = self.clientesArray[indexPath.row].numero
             
             reporteEnvio!.setCliente(cliente: self.clientesArray[indexPath.row])
-            getInfoProyectos(keyCliente: clientesArray[indexPath.row].key)
+            getInfoProyectos(busquedaParam:"", keyCliente: clientesArray[indexPath.row].key)
             
         }else if(tableView == self.tableNombreProyecto || tableView == self.tableNumeroProyecto){
             //Proyecto seleccionado
@@ -178,18 +184,13 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         
         delegarTF()
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        view.addGestureRecognizer(tap)
-        
-        
-        
-        
+
         self.reporteEnvio = ReporteEnvio()
 
         self.reporteEnvio?.setIdUsuario(idUsuario: "keyUsuario")
         self.reporteEnvio?.setPais(idPais: "MX")
-        getInfoClientes()
-        getInfoProyectos(keyCliente: "")
+        getInfoClientes(busquedaParam: "")
+        getInfoProyectos(busquedaParam: "", keyCliente: "")
         
         
         
@@ -216,9 +217,9 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
 
 
     
-    func getInfoClientes(){
+    func getInfoClientes(busquedaParam: String){
         
-        FirebaseDBManager.dbInstance.obtenerClientes(){
+        FirebaseDBManager.dbInstance.obtenerClientes(busquedaParam: busquedaParam){
             (respuesta, clientesArray) in
             if(respuesta){
                 self.clientesArray = clientesArray!
@@ -233,8 +234,8 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         
     }
     
-    func getInfoProyectos(keyCliente: String){
-        FirebaseDBManager.dbInstance.obtenerProyectos(idCliente: "key"){
+    func getInfoProyectos(busquedaParam: String, keyCliente: String){
+        FirebaseDBManager.dbInstance.obtenerProyectos(busquedaParam:busquedaParam, idCliente: "key"){
             (respuesta, respuestaArray) in
             if(respuesta){
                 self.proyectosArray = respuestaArray!

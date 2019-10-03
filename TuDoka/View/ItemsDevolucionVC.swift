@@ -38,6 +38,11 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
         
     }
     
+    @IBAction func nombreChanged(_ sender: Any) {
+        getInfo(busquedaParam: nombreItemTF.text!)
+    }
+    
+    
     
     @IBAction func CodigoItemEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = false;
@@ -133,15 +138,15 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
         
         delegarTF()
         itemSeleccionado = Item(key: "", nombre: "", codigo: "", pais: "")
-        getInfo()
+        getInfo(busquedaParam:"")
         codigoPiezaTV.delegate = self
         codigoPiezaTV.dataSource = self
         nombrePiezaTV.delegate = self
         nombrePiezaTV.dataSource = self
     }
     
-    func getInfo(){
-        FirebaseDBManager.dbInstance.obtenerItems(){
+    func getInfo(busquedaParam: String){
+        FirebaseDBManager.dbInstance.obtenerItems(busquedaParam: busquedaParam){
             (respuesta, arrayRespuesta) in
             if(respuesta){
                 self.itemsArray = arrayRespuesta!

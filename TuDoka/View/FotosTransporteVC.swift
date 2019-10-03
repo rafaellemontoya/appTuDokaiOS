@@ -143,6 +143,7 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
     
@@ -197,6 +198,8 @@ extension FotosTransporteVC: UIImagePickerControllerDelegate{
         
         
     }
+    
+    
     
     
     
