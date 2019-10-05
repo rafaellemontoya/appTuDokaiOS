@@ -86,9 +86,10 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       
+        self.view.backgroundColor = UIColor.white
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
+        tableViewFotos.backgroundColor = UIColor.white
         
         
     }

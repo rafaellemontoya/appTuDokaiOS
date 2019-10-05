@@ -2,15 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Permitènos acceder a tu galería para seleccionar imágenes para tu reporte</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Permiténos acceder a tu cámara para que puedas completar tus reportes</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>HelveticaNeueLTW1G-BOLD.otf</string>
-		<string>HelveticaNeueLTW1G-Light.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -29,6 +20,15 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Permiténos acceder a tu cámara para que puedas completar tus reportes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Permitènos acceder a tu galería para seleccionar imágenes para tu reporte</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HelveticaNeueLTW1G-BOLD.otf</string>
+		<string>HelveticaNeueLTW1G-Light.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

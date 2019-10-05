@@ -144,6 +144,7 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
 
         // Do any additional setup after loading the view.
         
+        
     }
     
     

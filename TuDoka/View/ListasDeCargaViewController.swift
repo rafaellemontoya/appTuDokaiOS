@@ -126,7 +126,7 @@ class ListasDeCargaViewController: UIViewController,UITableViewDataSource, UITab
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
-    
+    tableViewFotos.backgroundColor = UIColor.white
     tableViewFotos.dataSource = self
     tableViewFotos.delegate = self
     
