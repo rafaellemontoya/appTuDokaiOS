@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
@@ -173,7 +174,7 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
         super.viewDidLoad()
         delegarTF()
         self.reporteDano = ReporteDano()
-        self.reporteDano!.setIdUsuario(idUsuario: "keyUsuario")
+        self.reporteDano!.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         self.reporteDano!.setPais(pais: "MX")
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"", keyCliente: "")
@@ -218,7 +219,9 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         
         if( self.reporteDano?.getCliente().key != ""){
             if(segue.identifier == "confirmacionProyectoDanoSegue"){

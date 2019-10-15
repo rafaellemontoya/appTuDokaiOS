@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
@@ -187,7 +188,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
 
         self.reporteEnvio = ReporteEnvio()
 
-        self.reporteEnvio?.setIdUsuario(idUsuario: "keyUsuario")
+        self.reporteEnvio?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         self.reporteEnvio?.setPais(idPais: "MX")
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam: "", keyCliente: "")
@@ -251,6 +252,9 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         //cCreo una variable para inicializar
         if(segue.identifier == "confirmacionProyecto"){
             let receiverVC = segue.destination as! ConfirmacionProyectoVC

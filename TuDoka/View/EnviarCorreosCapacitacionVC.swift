@@ -11,7 +11,7 @@ import UIKit
 class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     
     var  reporte: ReporteCapacitacion?
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var emails: [String] = []
     
     @IBOutlet weak var email1TF: UITextField!
@@ -19,6 +19,10 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email2TF: UITextField!
     
     @IBOutlet weak var email3TF: UITextField!
+    
+    @IBAction func salir(_ sender: Any) {
+        self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
+    }
     
     
     @IBAction func finalizarBTN(_ sender: Any) {
@@ -35,14 +39,8 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
 //            UIApplication.shared.beginIgnoringInteractionEvents()
-            //Guardar info
-            self.activityIndicator.center = self.view.center
-            self.activityIndicator.hidesWhenStopped = true
-            
-            self.activityIndicator.color=UIColor.black
-            self.activityIndicator.backgroundColor = UIColor.red
-            self.view.addSubview(self.activityIndicator)
-            self.activityIndicator.startAnimating()
+            //Guardar info)
+            CustomLoader.instance.showLoaderView()
             
             //Enviar correos
             self.emails = []
@@ -65,6 +63,8 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         delegarTF()
+        
+        self.navigationItem.hidesBackButton = true
         
         // Do any additional setup after loading the view.
     }
@@ -144,7 +144,7 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     }
     func emailsEnviados(){
         UIApplication.shared.endIgnoringInteractionEvents()
-        self.activityIndicator.stopAnimating()
+        CustomLoader.instance.hideLoaderView()
         
         let alert = UIAlertController(title: "Reporte enviado con éxito", message: "¿Quieres enviar a más personas?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Salir", comment: "Default action"), style: .default, handler: { _ in
@@ -191,4 +191,5 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+
 }

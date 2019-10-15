@@ -127,7 +127,8 @@ class DocumentoClienteViewController:  UIViewController,UITableViewDataSource, U
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        tableViewFotos.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.white
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
         
@@ -135,6 +136,9 @@ class DocumentoClienteViewController:  UIViewController,UITableViewDataSource, U
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if(segue.identifier == "numerosDevolucionS"){
             let receiver = segue.destination as! NumerosDevolucionViewController
             receiver.reporte = self.reporte!
@@ -178,6 +182,7 @@ class DocumentoClienteViewController:  UIViewController,UITableViewDataSource, U
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        tableViewFotos.backgroundColor = UIColor.white
         NotificationCenter.default.removeObserver(self)
         
     }

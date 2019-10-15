@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -179,10 +180,12 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         delegarTF()
         self.reporte = ReporteSeguimiento()
-        reporte?.setIdUsuario(idUsuario: "IdUsuario")
+        reporte?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         reporte?.setPais(pais: "MX")
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"",keyCliente: "")
+        
+        
         
         
         
@@ -224,7 +227,9 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         
         if( self.reporte?.getCliente().key != ""){
             if(segue.identifier == "confirmacionDatosSeguimientoSegue"){

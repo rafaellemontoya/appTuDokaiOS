@@ -41,7 +41,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
                      
                  }
                  else if let user = user {
-                     print("Inicio de sesión "+user.uid)
+                    
+                    
+                    
                     self.performSegue(withIdentifier: "sesionIniciadaS", sender: self)
                      
                      
@@ -53,8 +55,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         delegarTF()
+        
+        if((Auth.auth().currentUser?.uid) != nil){
+            performSegue(withIdentifier: "sesionIniciadaS", sender: self)
+        }
     }
     
 
@@ -75,5 +83,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
          self.view.endEditing(true)
          return true
      }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
+    }
 
 }

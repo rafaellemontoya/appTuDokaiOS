@@ -13,11 +13,14 @@ class FirebaseDBManager{
     var db: Firestore!
     static let dbInstance = FirebaseDBManager()
     var nombreReporteBD: String;
+    
     private init(){
         
         let settings = FirestoreSettings()
         nombreReporteBD = "";
+        settings.areTimestampsInSnapshotsEnabled = true
         Firestore.firestore().settings = settings
+        
         // [END setup]
         db = Firestore.firestore()
     }

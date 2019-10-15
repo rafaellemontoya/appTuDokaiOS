@@ -67,6 +67,11 @@
 		05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */; };
 		05F3C81922F120AC00B89B7C /* ReporteCapacitacionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */; };
 		05F96FC522E0F60B00E3CAC6 /* AgregarRemisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */; };
+		97801C77235501760035DD67 /* IntroduccionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97801C76235501760035DD67 /* IntroduccionViewController.swift */; };
+		9786E015234C0351004A6E24 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9786E014234C0351004A6E24 /* Gif+Image.swift */; };
+		9786E017234C038B004A6E24 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9786E016234C038B004A6E24 /* CustomLoader.swift */; };
+		9786E019234C08CC004A6E24 /* demo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9786E018234C08CC004A6E24 /* demo2.gif */; };
+		979B7C54234E92A10009E043 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979B7C53234E92A00009E043 /* demo.gif */; };
 		D37B9BD2EA26D39CD9C6C54E /* Pods_TuDoka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +138,12 @@
 		05EEDE1322E2587300F129F6 /* FotosTransporteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosTransporteVC.swift; sourceTree = "<group>"; };
 		05F3C81822F120AC00B89B7C /* ReporteCapacitacionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteCapacitacionVC.swift; sourceTree = "<group>"; };
 		05F96FC422E0F60B00E3CAC6 /* AgregarRemisionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarRemisionVC.swift; sourceTree = "<group>"; };
+		973EAB852355273600970207 /* TuDoka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TuDoka.entitlements; sourceTree = "<group>"; };
+		97801C76235501760035DD67 /* IntroduccionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduccionViewController.swift; sourceTree = "<group>"; };
+		9786E014234C0351004A6E24 /* Gif+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
+		9786E016234C038B004A6E24 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
+		9786E018234C08CC004A6E24 /* demo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo2.gif; sourceTree = "<group>"; };
+		979B7C53234E92A00009E043 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = demo.gif; path = ../../../../Downloads/demo.gif; sourceTree = "<group>"; };
 		97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDoka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.release.xcconfig"; sourceTree = "<group>"; };
 		B7F112B4EAB0F69CD94BFD79 /* Pods-TuDoka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +257,7 @@
 		05897CDD22C3FD83008AF884 /* TuDoka */ = {
 			isa = PBXGroup;
 			children = (
+				973EAB852355273600970207 /* TuDoka.entitlements */,
 				0583B5AD22F3626B00E1B5C4 /* Controllers */,
 				059C963522CDD92A006CBF9A /* Model */,
 				05E93BBA22C440010018FF2A /* AuxiliarViews */,
@@ -300,6 +312,7 @@
 				05A113D622C41BD200D0A16E /* MainMenu.swift */,
 				0562DEC622F23F4D0096FD61 /* ReporteObraVC.swift */,
 				05EC3396233D8E100059F6A6 /* LoginViewController.swift */,
+				97801C76235501760035DD67 /* IntroduccionViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,8 +323,12 @@
 				05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */,
 				05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */,
 				05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */,
+				979B7C53234E92A00009E043 /* demo.gif */,
 				0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */,
 				05D29C46232C53A5003D1837 /* RemisionTableViewCell.swift */,
+				9786E014234C0351004A6E24 /* Gif+Image.swift */,
+				9786E018234C08CC004A6E24 /* demo2.gif */,
+				9786E016234C038B004A6E24 /* CustomLoader.swift */,
 			);
 			path = AuxiliarViews;
 			sourceTree = "<group>";
@@ -394,6 +411,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A113D122C4117100D0A16E /* HelveticaNeueLTW1G-Light.otf in Resources */,
+				979B7C54234E92A10009E043 /* demo.gif in Resources */,
+				9786E019234C08CC004A6E24 /* demo2.gif in Resources */,
 				05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */,
 				05897CE922C3FD85008AF884 /* LaunchScreen.storyboard in Resources */,
 				05897CF122C40242008AF884 /* GoogleService-Info.plist in Resources */,
@@ -430,27 +449,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -485,6 +500,7 @@
 				053D482922EF3F1F00752F15 /* ReporteDevolucion.swift in Sources */,
 				0562DECD22F2434A0096FD61 /* ConfirmacionDatosCapacitacionVC.swift in Sources */,
 				05E93BB922C43E790018FF2A /* ReporteEnvioVC.swift in Sources */,
+				9786E015234C0351004A6E24 /* Gif+Image.swift in Sources */,
 				0500A7C322F0C62C00440332 /* ReporteDanoVC.swift in Sources */,
 				05EEDE1422E2587300F129F6 /* FotosTransporteVC.swift in Sources */,
 				050C2E07233402AB00F9B8C0 /* NumerosDevolucionViewController.swift in Sources */,
@@ -504,6 +520,7 @@
 				0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */,
 				0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */,
 				053D482D22EFA12500752F15 /* DatosTransporteDevolucionVC.swift in Sources */,
+				97801C77235501760035DD67 /* IntroduccionViewController.swift in Sources */,
 				05E508D322DE6DF300A1C911 /* Item.swift in Sources */,
 				0592F20022DE3AF500F6EA21 /* ItemsVC.swift in Sources */,
 				0562DED722F272960096FD61 /* EnviarCorreosCapacitacionVC.swift in Sources */,
@@ -512,6 +529,7 @@
 				0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */,
 				05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */,
 				05A113D422C412D600D0A16E /* Constants.swift in Sources */,
+				9786E017234C038B004A6E24 /* CustomLoader.swift in Sources */,
 				0562DEC922F2405F0096FD61 /* ReporteCapacitacion.swift in Sources */,
 				0500A7C022F0A68100440332 /* ResumenItemsDevolucionVC.swift in Sources */,
 				05D29C47232C53A5003D1837 /* RemisionTableViewCell.swift in Sources */,
@@ -666,13 +684,16 @@
 			baseConfigurationReference = B7F112B4EAB0F69CD94BFD79 /* Pods-TuDoka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -685,13 +706,16 @@
 			baseConfigurationReference = B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

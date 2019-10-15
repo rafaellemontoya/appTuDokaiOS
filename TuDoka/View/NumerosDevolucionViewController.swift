@@ -54,7 +54,7 @@ class NumerosDevolucionViewController: UIViewController, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableViewFotos.backgroundColor = UIColor.white
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
         delegarTF()
@@ -62,6 +62,9 @@ class NumerosDevolucionViewController: UIViewController, UITableViewDataSource, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "fotosTransporteSegue"){
             let receiver = segue.destination as! DatosTransporteDevolucionVC
             receiver.reporte = self.reporte!

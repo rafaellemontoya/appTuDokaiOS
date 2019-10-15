@@ -134,6 +134,9 @@ class ListasDeCargaViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
     if(segue.identifier == "fotosTransporteSegue"){
     let receiver = segue.destination as! FotosTransporteVC
     receiver.reporte = self.reporte!

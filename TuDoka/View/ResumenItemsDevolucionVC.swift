@@ -11,7 +11,7 @@ import UIKit
 class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     var reporte: ReporteDevolucion?
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBOutlet weak var fotosTV: UITableView!
     
     
@@ -36,13 +36,8 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
             NSLog("The \"OK\" alert occured.")
             UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
-            self.activityIndicator.center = self.view.center
-            self.activityIndicator.hidesWhenStopped = true
             
-            self.activityIndicator.color=UIColor.black
-            self.activityIndicator.backgroundColor = UIColor.red
-            self.view.addSubview(self.activityIndicator)
-            self.activityIndicator.startAnimating()
+            CustomLoader.instance.showLoaderView()
             
             //Guardar info
             
@@ -105,12 +100,15 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        fotosTV.backgroundColor = UIColor.white
         fotosTV.dataSource = self
         fotosTV.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if(segue.identifier == "nuevoItemSegue"){
             let receiver = segue.destination as! ItemsDevolucionVC
             receiver.reporte = self.reporte!
@@ -313,7 +311,8 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                                 flag+=1;
                                 if(flag == items.count){
                                     UIApplication.shared.endIgnoringInteractionEvents()
-                                    self.activityIndicator.stopAnimating()
+                                    
+                                    CustomLoader.instance.hideLoaderView()
                                     let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                                     
                                     alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -329,7 +328,8 @@ class ResumenItemsDevolucionVC: UIViewController, UITableViewDataSource, UITable
                             }
                     }else{
                         UIApplication.shared.endIgnoringInteractionEvents()
-                        self.activityIndicator.stopAnimating()
+                        
+                        CustomLoader.instance.hideLoaderView()
                         let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
                         
                         alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in

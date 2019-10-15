@@ -20,14 +20,20 @@ class InicioVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let firebaseAuth = Auth.auth()
-       
-        
-        if (Auth.auth().currentUser != nil){
-            performSegue(withIdentifier: "session", sender: self)
-        }else{
-            performSegue(withIdentifier: "noSesion", sender: self)
-        }
+//        let firebaseAuth = Auth.auth()
+//
+//
+//        if (Auth.auth().currentUser != nil){
+//            DispatchQueue.main.asyncAfter(deadline:.now() + 5.0, execute: {
+//               self.performSegue(withIdentifier: "session", sender: self)
+//            })
+//
+//        }else{
+//            DispatchQueue.main.asyncAfter(deadline:.now() + 5.0, execute: {
+//               self.performSegue(withIdentifier: "noSesion", sender: self)
+//            })
+////            performSegue(withIdentifier: "noSesion", sender: self)
+//        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -35,9 +41,13 @@ class InicioVC: UIViewController {
         
          
          if (Auth.auth().currentUser != nil){
-             performSegue(withIdentifier: "session", sender: self)
+             DispatchQueue.main.asyncAfter(deadline:.now() + 3.0, execute: {
+                self.performSegue(withIdentifier: "session", sender: self)
+             })
          }else{
-             performSegue(withIdentifier: "noSesion", sender: self)
+             DispatchQueue.main.asyncAfter(deadline:.now() + 3.0, execute: {
+                self.performSegue(withIdentifier: "noSesion", sender: self)
+             })
          }
     }
     //TODO CHECAR SESION
@@ -45,11 +55,13 @@ class InicioVC: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         
         
         if (segue.identifier == "session"){
-        let receiverVC = segue.destination as! MainMenu
+        
             
             
         }else if (segue.identifier == "noSesion"){

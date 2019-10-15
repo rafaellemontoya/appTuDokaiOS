@@ -13,7 +13,7 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     var reporte: ReporteEnvio?
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
     
     @IBOutlet weak var tableViewFotos: UITableView!
     
@@ -43,13 +43,8 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
     @IBAction func continuarBTN(_ sender: Any) {
        
             //Guardar info
-            self.activityIndicator.center = self.view.center
-            self.activityIndicator.hidesWhenStopped = true
+        CustomLoader.instance.showLoaderView()
             
-            self.activityIndicator.color=UIColor.black
-            self.activityIndicator.backgroundColor = UIColor.red
-            self.view.addSubview(self.activityIndicator)
-            self.activityIndicator.startAnimating()
             //Guardar info
             FirebaseDBManager.dbInstance.guardarReporteEnvio(reporte: self.reporte!){
                 (respuesta, referencia) in
@@ -70,6 +65,7 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableViewFotos.backgroundColor = UIColor.white
         tableViewFotos.dataSource = self
         tableViewFotos.delegate = self
         delegarTF()
@@ -77,6 +73,9 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "enviarCorreosEnvioS"){
             let receiver = segue.destination as! EnviarCorreoEnvioViewController
             receiver.reporte = self.reporte!
@@ -227,7 +226,8 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
                         flag+=1;
                         if(flag == items.count){
                             UIApplication.shared.endIgnoringInteractionEvents()
-                            self.activityIndicator.stopAnimating()
+                            
+                            CustomLoader.instance.hideLoaderView()
                             let alert = UIAlertController(title: "¡Reporte creado exitosamente!", message: "", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
@@ -243,7 +243,7 @@ class AgregarRemisionVC: UIViewController, UITableViewDataSource, UITableViewDel
                     
                 }else{
                     UIApplication.shared.endIgnoringInteractionEvents()
-                    self.activityIndicator.stopAnimating()
+                    CustomLoader.instance.showLoaderView()
                     let alert = UIAlertController(title: "¡Error al crear el reporte!", message: "Revisa tu conexión a internet e intentalo nuevamente", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in

@@ -7,10 +7,9 @@ target 'TuDoka' do
 
   # Pods for TuDoka
 	pod 'Firebase/Core'
-	pod 'Firebase/Messaging'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
 	pod 'Firebase/Firestore'
-	pod 'Firebase/Functions'
+
 
 end

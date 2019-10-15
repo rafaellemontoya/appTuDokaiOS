@@ -12,11 +12,16 @@ class MainMenu: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
 
         // Do any additional setup after loading the view.
     }
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.navigationItem.hidesBackButton = true
+    }
  
 
 }

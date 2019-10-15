@@ -54,13 +54,28 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
         nombrePiezaTV.isHidden = true;
     }
     @IBAction func nuevaFoto(_ sender: Any) {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            selectImageFrom(.photoLibrary)
-            return
-        }
-        selectImageFrom(.camera)
+        imageSource()
     }
-    
+    func imageSource(){
+        let alert = UIAlertController(title: "¿Quiéres tomar una nueva foto o seleccionar de tu galería?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Tomar foto", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.camera)
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Seleccionar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.photoLibrary)
+            
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     func selectImageFrom(_ source: ImageSource){
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
@@ -75,8 +90,15 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
     }
     @IBAction func btnContinuar(_ sender: Any) {
         
-        if (unidadesItemTF.text == ""){
+                if (unidadesItemTF.text == ""||fotoSeleccionada.image == nil){
             print("error")
+            let alert = UIAlertController(title: "Da click en 'Nueva foto para continuar'", message: "", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                       NSLog("The \"OK\" alert occured.")
+                       //regreso a la pantalla anterior
+                   }))
+                   
+                   self.present(alert, animated: true, completion: nil)
         }else{
             itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
             itemSeleccionado!.addPhoto(foto: fotoSeleccionada.image!)
@@ -159,6 +181,9 @@ class ItemsDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "resumenItemsDevolucion"){
             let receiverVC = segue.destination as! ResumenItemsDevolucionVC
             receiverVC.reporte = self.reporte!

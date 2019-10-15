@@ -62,12 +62,23 @@ class ItemsCapacitacionVC: UIViewController,UINavigationControllerDelegate, UITe
     
     @IBAction func continuarBTN(_ sender: Any) {
         
-        if (descripcionActividad.text! != ""){
+        if (descripcionActividad.text! != "" && fotoSeleccionadaIV.image != nil){
+            
             itemSeleccionado = ActividadCapacitacion()
             itemSeleccionado!.setDescripcion(descripcion: descripcionActividad.text!)
             reporte?.setItems(item: itemSeleccionado!)
             itemSeleccionado?.addPhoto(foto: fotoSeleccionadaIV.image!)
             performSegue(withIdentifier: "itemsCapacitacionSegue", sender: self)
+        }else{
+            
+                print("error")
+                let alert = UIAlertController(title: "Da click en 'Nueva foto para continuar'", message: "", preferredStyle: .alert)
+                       alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                           NSLog("The \"OK\" alert occured.")
+                           //regreso a la pantalla anterior
+                       }))
+                       
+                       self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -80,6 +91,9 @@ delegarTF()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "itemsCapacitacionSegue"){
             let receiverVC = segue.destination as! ResumenCapacitacionVC
             receiverVC.reporte = self.reporte!

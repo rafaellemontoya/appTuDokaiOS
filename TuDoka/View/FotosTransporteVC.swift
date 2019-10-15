@@ -131,6 +131,9 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "agregarRemisionSegue"){
             let receiver = segue.destination as! AgregarRemisionVC
             receiver.reporte = self.reporte!

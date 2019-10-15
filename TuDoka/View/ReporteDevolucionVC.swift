@@ -202,7 +202,7 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
         delegarTF()
         self.reporteDevolucion = ReporteDevolucion()
         self.reporteDevolucion?.setPais(pais: "MX")
-        self.reporteDevolucion?.setIdUsuario(idUsuario: "idRafa")
+        self.reporteDevolucion?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"", keyCliente: "")
         
@@ -245,7 +245,9 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
        
         if( self.reporteDevolucion?.getCliente().key != ""){
             if(segue.identifier == "confirmacionProyectoDevolucion"){

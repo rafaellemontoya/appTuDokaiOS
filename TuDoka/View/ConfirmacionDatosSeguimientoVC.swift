@@ -39,6 +39,9 @@ class ConfirmacionDatosSeguimientoVC: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //cCreo una variable para inicializar
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if(segue.identifier == "itemsSeguimientoSegue"){
             let receiverVC = segue.destination as! ItemsSeguimientoVC
             receiverVC.reporte = self.reporte!

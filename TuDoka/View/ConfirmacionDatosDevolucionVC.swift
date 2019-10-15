@@ -34,6 +34,9 @@ class ConfirmacionDatosDevolucionVC: UIViewController {
         numeroProyectoLB.text = reporteDevolucion?.getProyecto().numero
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         //cCreo una variable para inicializar
         if(segue.identifier == "documentosClienteS"){
             let receiverVC = segue.destination as! DocumentoClienteViewController

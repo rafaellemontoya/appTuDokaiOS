@@ -117,7 +117,15 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
     @IBAction func btnContinuar(_ sender: Any) {
         
         if (unidadesItemTF.text == "" || itemDanoIV.image == nil ){
-            print("error")
+                    
+                print("error")
+                let alert = UIAlertController(title: "Da click en 'Nueva foto para continuar'", message: "", preferredStyle: .alert)
+                       alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                           NSLog("The \"OK\" alert occured.")
+                           //regreso a la pantalla anterior
+                       }))
+                       
+                       self.present(alert, animated: true, completion: nil)
         }else{
             itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
             
@@ -241,6 +249,9 @@ class ItemsDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate,U
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "resumenItemsDano"){
             let receiverVC = segue.destination as! ResumenItemsDanoVC
             receiverVC.reporte = self.reporte!

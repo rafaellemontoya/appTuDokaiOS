@@ -95,6 +95,9 @@ class ResumenItemsVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if(segue.identifier == "listaCargaS"){
             let receiver = segue.destination as! ListasDeCargaViewController
             receiver.reporte = self.reporteEnvio!

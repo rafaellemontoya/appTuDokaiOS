@@ -10,7 +10,7 @@ import UIKit
 
 class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
     
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var  reporte: ReporteEnvio?
     
     var emails: [String] = []
@@ -21,6 +21,9 @@ class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email3TF: UITextField!
     
+    @IBAction func salir(_ sender: Any) {
+        self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+    }
     
     @IBAction func finalizarBTN(_ sender: Any) {
         
@@ -38,13 +41,7 @@ class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
             //regreso a la pantalla anterior
             UIApplication.shared.beginIgnoringInteractionEvents()
             //Guardar info
-            self.activityIndicator.center = self.view.center
-            self.activityIndicator.hidesWhenStopped = true
-            
-            self.activityIndicator.color=UIColor.black
-            self.activityIndicator.backgroundColor = UIColor.red
-            self.view.addSubview(self.activityIndicator)
-            self.activityIndicator.startAnimating()
+            CustomLoader.instance.showLoaderView()
             
             //Enviar correos
             self.emails = []
@@ -66,6 +63,7 @@ class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegarTF()
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     
@@ -161,7 +159,8 @@ class EnviarCorreoEnvioViewController: UIViewController, UITextFieldDelegate {
     }
     func emailsEnviados(){
         UIApplication.shared.endIgnoringInteractionEvents()
-        self.activityIndicator.stopAnimating()
+        
+        CustomLoader.instance.hideLoaderView()
         
         let alert = UIAlertController(title: "Reporte enviado con éxito", message: "¿Quieres enviar a más personas?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Salir", comment: "Default action"), style: .default, handler: { _ in

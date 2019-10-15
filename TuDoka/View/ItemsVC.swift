@@ -32,6 +32,7 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
     
     @IBOutlet weak var unidadesItemTF: UITextField!
     
+    
     @IBAction func nombreItemEdit(_ sender: Any) {
         codigoPiezaTV.isHidden = true;
         nombrePiezaTV.isHidden = false;
@@ -55,11 +56,7 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
         nombrePiezaTV.isHidden = true;
     }
     @IBAction func nuevaFoto(_ sender: Any) {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            selectImageFrom(.photoLibrary)
-            return
-        }
-        selectImageFrom(.camera)
+        imageSource()
     }
     
     func selectImageFrom(_ source: ImageSource){
@@ -76,8 +73,15 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
     }
     @IBAction func btnContinuar(_ sender: Any) {
         
-        if (unidadesItemTF.text == ""){
+        if (unidadesItemTF.text == ""||fotoSeleccionada.image == nil){
             print("error")
+            let alert = UIAlertController(title: "Da click en 'Nueva foto para continuar'", message: "", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                       NSLog("The \"OK\" alert occured.")
+                       //regreso a la pantalla anterior
+                   }))
+                   
+                   self.present(alert, animated: true, completion: nil)
         }else{
             itemSeleccionado!.setUnidades(unidades: Int (unidadesItemTF.text!)! )
             itemSeleccionado!.addPhoto(foto: fotoSeleccionada.image!)
@@ -86,7 +90,26 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
         }
     }
     
-    
+    func imageSource(){
+        let alert = UIAlertController(title: "¿Quiéres tomar una nueva foto o seleccionar de tu galería?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Tomar foto", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.camera)
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Seleccionar", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            //regreso a la pantalla anterior
+            self.selectImageFrom(.photoLibrary)
+            
+            
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsArray.count
@@ -159,6 +182,9 @@ class ItemsVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UINav
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         if (segue.identifier == "resumenItemsEnvio"){
             let receiverVC = segue.destination as! ResumenItemsVC
             receiverVC.reporteEnvio = self.reporteEnvio!

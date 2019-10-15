@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ReporteCapacitacionVC:  UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -183,7 +184,7 @@ class ReporteCapacitacionVC:  UIViewController,UITableViewDataSource, UITableVie
         delegarTF()
         self.reporte = ReporteCapacitacion()
         reporte?.setPais(pais: "MX")
-        reporte?.setIdUsuario(idUsuario: "Idusuario")
+        reporte?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam: "", keyCliente: "")
         
@@ -227,7 +228,9 @@ class ReporteCapacitacionVC:  UIViewController,UITableViewDataSource, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "Atrás"
+//        navigationItem.backBarButtonItem = backItem
         
         if( self.reporte?.getCliente().key != ""){
             if(segue.identifier == "confirmacionProyectoCapacitacionSegue"){

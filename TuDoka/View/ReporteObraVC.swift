@@ -21,6 +21,11 @@ class ReporteObraVC: UIViewController {
     }
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
+    }
     /*
     // MARK: - Navigation
 

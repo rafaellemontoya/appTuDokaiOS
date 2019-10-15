@@ -38,6 +38,9 @@ class ConfirmacionDatosCapacitacionVC: UIViewController {
         numeroProyectoLB.text = reporte?.getProyecto().numero
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Atrás"
+        navigationItem.backBarButtonItem = backItem
         //cCreo una variable para inicializar
         if(segue.identifier == "itemsCapacitacionSegue"){
             let receiverVC = segue.destination as! ItemsCapacitacionVC
