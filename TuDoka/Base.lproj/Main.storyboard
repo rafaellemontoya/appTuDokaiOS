@@ -1716,6 +1716,48 @@
                                                     <action selector="continuarBtn:" destination="W3c-3x-gnO" eventType="touchUpInside" id="mWI-uk-0n3"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esq-kV-krs" userLabel="EditLicenciaButton">
+                                                <rect key="frame" x="10" y="101" width="202" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editLicenciaImage" id="GHV-6M-wXE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUl-HY-DMZ" userLabel="EditPlacaDelanteraButton">
+                                                <rect key="frame" x="10" y="299" width="202" height="130"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editPlacaDelanteraImage" id="RIK-uj-ZSh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7l-TZ-eaZ" userLabel="EditPlacaTraseraButton">
+                                                <rect key="frame" x="8" y="497" width="204" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editPlacaTraseraImage" id="Vpd-zu-ghb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF1-Fq-Dsa" userLabel="EditTractoTraseroButton">
+                                                <rect key="frame" x="10" y="695" width="202" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" id="QS0-d1-cOy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHf-qH-ydH" userLabel="EditTractoLateral1Button">
+                                                <rect key="frame" x="10" y="891" width="202" height="130"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" id="5Ym-eb-LAz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIF-hg-pxa" userLabel="EditTractoLateral2Button">
+                                                <rect key="frame" x="8" y="1091" width="204" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" id="ZcV-5h-dBr"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -2389,6 +2431,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1T-hP-Rc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3742" y="474"/>
+        </scene>
+        <!--Editar-->
+        <scene sceneID="pfc-aj-G0n">
+            <objects>
+                <viewController title="Editar" id="nLl-OK-jjU" customClass="EditImage" customModule="TuDoka" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zpd-Dr-SGn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6b5-Co-dBG" userLabel="BackgroundIV">
+                                <rect key="frame" x="0.0" y="83" width="414" height="727"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9wX-Fs-Ffc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editar" id="ZmG-bI-fET">
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="2Cn-ux-qSL">
+                            <connections>
+                                <action selector="save:" destination="nLl-OK-jjU" id="MKJ-8X-gH0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BackgroundIV" destination="6b5-Co-dBG" id="Fvd-Es-8pG"/>
+                        <outlet property="SaveButton" destination="2Cn-ux-qSL" id="zjh-H1-Jo7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPU-Fa-j4V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8227.536231884058" y="-250.44642857142856"/>
         </scene>
         <!--Resumen Items DevolucionVC-->
         <scene sceneID="JNF-nF-jUC">
@@ -6539,6 +6613,55 @@
                                                     <action selector="documentoDevolucionBtn:" destination="xx9-o2-yRM" eventType="touchUpInside" id="hJI-jf-jSV"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOf-v9-hgY" userLabel="EditLicenciaButton">
+                                                <rect key="frame" x="10" y="99" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editLicenciaImage" id="kPs-Ub-fhP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aza-nv-XQ2" userLabel="EditPlacaDelanteraButton">
+                                                <rect key="frame" x="8" y="297" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editPlacaDelanteraImage" id="zJz-In-C4K"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psD-ef-95D" userLabel="EditPlacaTraseraButton">
+                                                <rect key="frame" x="8" y="497" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editPlacaTraseraImage" id="brN-dv-O5l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-ZT-l1i" userLabel="EditTractoTraseroButton">
+                                                <rect key="frame" x="11" y="693" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editTractoTraseroImage" id="Btz-sh-zji"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-Dm-Ozl" userLabel="EditTractoLateral1Button">
+                                                <rect key="frame" x="11" y="891" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editTractoLateral1Image" id="7xJ-Te-PPa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSc-DL-QjF" userLabel="EditTractoLateral2Button">
+                                                <rect key="frame" x="9" y="1089" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editTractoLateral2Image" id="OoA-IN-fiN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d2-a4-jIz" userLabel="EditDocumentButton">
+                                                <rect key="frame" x="11" y="1287" width="202" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="nLl-OK-jjU" kind="show" identifier="editDocumentoDevolucionImage" id="bNY-GC-X2M"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -7529,11 +7652,13 @@
         <image name="vacio" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oeQ-vZ-LJe"/>
+        <segue reference="U89-YM-0yh"/>
+        <segue reference="gSK-Bs-oHR"/>
         <segue reference="Asb-u8-V11"/>
         <segue reference="txb-G3-OgG"/>
         <segue reference="i5s-H1-USu"/>
         <segue reference="Ccr-t4-o4m"/>
+        <segue reference="Vpd-zu-ghb"/>
         <segue reference="EbO-5q-tBy"/>
         <segue reference="aeY-FV-13I"/>
     </inferredMetricsTieBreakers>

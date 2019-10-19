@@ -8,19 +8,18 @@
 
 import UIKit
 
-class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelegate  {
+class DatosTransporteDevolucionVC: UIViewController, UINavigationControllerDelegate, PassBackImageDelegate {
     
     var reporte: ReporteDevolucion?
     var imagePicker: UIImagePickerController!
     var btnSeleccionado: String?
+    var editedImage: UIImage!
     
     
     enum ImageSource {
         case photoLibrary
         case camera
     }
-    
-    
     
     /* Image View*/
     @IBOutlet weak var licenciaIV: UIImageView!
@@ -115,8 +114,6 @@ class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelega
         }
     }
     
-    
-    
     func selectImageFrom(_ source: ImageSource){
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
@@ -155,20 +152,92 @@ class DatosTransporteDevolucionVC: UIViewController,UINavigationControllerDelega
         let backItem = UIBarButtonItem()
         backItem.title = "Atrás"
         navigationItem.backBarButtonItem = backItem
-        if (segue.identifier == "agregarItemDevolucionSegue"){
+        switch (segue.identifier) {
+        case "agregarItemDevolucionSegue":
             let receiver = segue.destination as! ItemsDevolucionVC
             receiver.reporte = self.reporte!
+            break
+        case "editLicenciaImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = licenciaIV.image
+            receiver.delegate = self
+            receiver.dest = "licencia"
+            break
+        case "editPlacaDelanteraImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = placaDelanteraIV.image
+            receiver.delegate = self
+            receiver.dest = "placaDelantera"
+            break
+        case "editPlacaTraseraImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = placaTraseraIV.image
+            receiver.delegate = self
+            receiver.dest = "placaTrasera"
+            break
+        case "editTractoTraseroImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoTraseroIV.image
+            receiver.delegate = self
+            receiver.dest = "tractoTrasero"
+            break
+        case "editTractoLateral1Image":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoLateral1IV.image
+            receiver.delegate = self
+            receiver.dest = "tractoLateral1"
+            break
+        case "editTractoLateral2Image":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoLateral2IV.image
+            receiver.delegate = self
+            receiver.dest = "tractoLateral2"
+            break
+        case "editDocumentoDevolucionImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = documentoDevolucionIV.image
+            receiver.delegate = self
+            receiver.dest = "documentoDevolucion"
+            break
+        default:
+            break
         }
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-    
 
-
+    func setEditedImage(newImage: UIImage, destination: String) {
+        switch (destination) {
+        case "licencia":
+            licenciaIV.image = newImage
+            break
+        case "placaDelantera":
+            placaDelanteraIV.image = newImage
+            break
+        case "placaTrasera":
+            placaTraseraIV.image = newImage
+            break
+        case "tractoTrasero":
+            tractoTraseroIV.image = newImage
+            break
+        case "tractoLateral1":
+            tractoLateral1IV.image = newImage
+            break
+        case "tractoLateral2":
+            tractoLateral2IV.image = newImage
+            break
+        case "documentoDevolucion":
+            documentoDevolucionIV.image = newImage
+            break
+        default:
+            break
+        }
+    }
 }
 
 extension DatosTransporteDevolucionVC: UIImagePickerControllerDelegate{

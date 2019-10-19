@@ -10,6 +10,6 @@ target 'TuDoka' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
 	pod 'Firebase/Firestore'
-
+	pod 'SwiftyDraw'
 
 end

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
+class FotosTransporteVC: UIViewController,UINavigationControllerDelegate, PassBackImageDelegate {
     
     var reporte: ReporteEnvio?
     var imagePicker: UIImagePickerController!
     var btnSeleccionado: String?
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    var editedImage: UIImage!
     
     enum ImageSource {
         case photoLibrary
@@ -134,11 +135,51 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
         let backItem = UIBarButtonItem()
         backItem.title = "Atrás"
         navigationItem.backBarButtonItem = backItem
-        if (segue.identifier == "agregarRemisionSegue"){
+        switch (segue.identifier) {
+        case "agregarRemisionSegue":
             let receiver = segue.destination as! AgregarRemisionVC
             receiver.reporte = self.reporte!
-        }else if (segue.identifier == "menuPrincipalSegue"){
-            
+            break
+        case "menuPrincipalSegue":
+            break
+        case "editLicenciaImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = licenciaIV.image
+            receiver.delegate = self
+            receiver.dest = "licencia"
+            break
+        case "editPlacaDelanteraImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = placaDelanteraIV.image
+            receiver.delegate = self
+            receiver.dest = "placaDelantera"
+            break
+        case "editPlacaTraseraImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = placaTraseraIV.image
+            receiver.delegate = self
+            receiver.dest = "placaTrasera"
+            break
+        case "editTractoTraseroImage":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoTraseroIV.image
+            receiver.delegate = self
+            receiver.dest = "tractoTrasero"
+            break
+        case "editTractoLateral1Image":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoLateral1IV.image
+            receiver.delegate = self
+            receiver.dest = "tractoLateral1"
+            break
+        case "editTractoLateral2Image":
+            let receiver = segue.destination as! EditImage
+            receiver.backgroundImage = tractoLateral2IV.image
+            receiver.delegate = self
+            receiver.dest = "tractoLateral2"
+            break
+        default:
+            break
         }
         
     }
@@ -150,7 +191,30 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate {
         
     }
     
-    
+    func setEditedImage(newImage: UIImage, destination: String) {
+        switch (destination) {
+        case "licencia":
+            licenciaIV.image = newImage
+            break
+        case "placaDelantera":
+            placaDelanteraIV.image = newImage
+            break
+        case "placaTrasera":
+            placaTraseraIV.image = newImage
+            break
+        case "tractoTrasero":
+            tractoTraseroIV.image = newImage
+            break
+        case "tractoLateral1":
+            tractoLateral1IV.image = newImage
+            break
+        case "tractoLateral2":
+            tractoLateral2IV.image = newImage
+            break
+        default:
+            break
+        }
+    }
 
 }
 
