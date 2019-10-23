@@ -194,21 +194,27 @@ class FotosTransporteVC: UIViewController,UINavigationControllerDelegate, PassBa
     func setEditedImage(newImage: UIImage, destination: String) {
         switch (destination) {
         case "licencia":
+            reporte!.fotoLicencia = newImage
             licenciaIV.image = newImage
             break
         case "placaDelantera":
+            reporte!.fotoPlacaDelantera = newImage
             placaDelanteraIV.image = newImage
             break
         case "placaTrasera":
+            reporte!.fotoPlacaTrasera = newImage
             placaTraseraIV.image = newImage
             break
         case "tractoTrasero":
+            reporte!.fotoTractoTrasera = newImage
             tractoTraseroIV.image = newImage
             break
         case "tractoLateral1":
+            reporte!.fotoTractoLateral1 = newImage
             tractoLateral1IV.image = newImage
             break
         case "tractoLateral2":
+            reporte!.fotoTractoLateral2 = newImage
             tractoLateral2IV.image = newImage
             break
         default:
