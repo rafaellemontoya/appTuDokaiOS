@@ -117,7 +117,7 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
                       nombreUsuario: self.reporte!.nombreUsuario,
                       emailUsuario: self.reporte!.emailUsuario,
                       nombreProyecto: reporte!.getProyecto().nombre,
-                      numeroProyecto: reporte!.getProyecto().nombre,
+                      numeroProyecto: reporte!.getProyecto().numero,
                       nombreCliente: reporte!.getCliente().nombre,
                       numeroCliente: reporte!.getCliente().numero,
                       usuario: reporte!.getIdUsuario()

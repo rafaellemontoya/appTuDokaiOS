@@ -39,16 +39,10 @@ class InicioVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let firebaseAuth = Auth.auth()
         
+         DispatchQueue.main.asyncAfter(deadline:.now() + 3.0, execute: {
+            self.performSegue(withIdentifier: "session", sender: self)
+         })
          
-         if (Auth.auth().currentUser != nil){
-             DispatchQueue.main.asyncAfter(deadline:.now() + 3.0, execute: {
-                self.performSegue(withIdentifier: "session", sender: self)
-             })
-         }else{
-             DispatchQueue.main.asyncAfter(deadline:.now() + 3.0, execute: {
-                self.performSegue(withIdentifier: "noSesion", sender: self)
-             })
-         }
     }
     //TODO CHECAR SESION
     
