@@ -2449,11 +2449,23 @@
                         <viewLayoutGuide key="safeArea" id="9wX-Fs-Ffc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Editar" id="ZmG-bI-fET">
-                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="2Cn-ux-qSL">
-                            <connections>
-                                <action selector="save:" destination="nLl-OK-jjU" id="MKJ-8X-gH0"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Guardar" image="checkmark.circle" catalog="system" id="2Cn-ux-qSL">
+                                <connections>
+                                    <action selector="save:" destination="nLl-OK-jjU" id="MKJ-8X-gH0"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Rehacer" image="arrow.uturn.right.circle" catalog="system" id="alk-8F-3bp" userLabel="Redo Button">
+                                <connections>
+                                    <action selector="redo:" destination="nLl-OK-jjU" id="Adv-zf-mad"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Deshacer" image="arrow.uturn.left.circle" catalog="system" id="mrS-9S-zDk" userLabel="Undo Button">
+                                <connections>
+                                    <action selector="undo:" destination="nLl-OK-jjU" id="KJS-RJ-U4t"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="BackgroundIV" destination="6b5-Co-dBG" id="Fvd-Es-8pG"/>
@@ -7647,9 +7659,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.uturn.left.circle" catalog="system" width="64" height="60"/>
+        <image name="arrow.uturn.right.circle" catalog="system" width="64" height="60"/>
         <image name="building-768815_640" width="640" height="426"/>
         <image name="building-768815_6402" width="640" height="426"/>
         <image name="building-768815_6403" width="640" height="426"/>
+        <image name="checkmark.circle" catalog="system" width="64" height="60"/>
         <image name="vacio" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>

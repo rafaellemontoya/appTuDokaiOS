@@ -73,4 +73,20 @@ class EditImage: UIViewController, SwiftyDrawViewDelegate {
     func swiftyDraw(didCancelDrawingIn drawingView: SwiftyDrawView, using touch: UITouch) {
         
     }
+    
+    @IBAction func undo(_ sender: Any) {
+        if (!drawView.canUndo){
+            return
+        }
+        
+        drawView.undo()
+    }
+    
+    @IBAction func redo(_ sender: Any) {
+        if (!drawView.canRedo) {
+            return
+        }
+        
+        drawView.redo()
+    }
 }
