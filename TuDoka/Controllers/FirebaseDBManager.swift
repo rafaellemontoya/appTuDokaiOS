@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import Firebase
 
 class FirebaseDBManager{
     var db: Firestore!
@@ -23,6 +24,33 @@ class FirebaseDBManager{
         
         // [END setup]
         db = Firestore.firestore()
+    }
+    
+    
+    
+    func obtenerInfoUser ( completion: @escaping (Bool, String?)-> Void ){
+        let uid = Auth.auth().currentUser?.uid
+        let clientsRef = db.collection("users").document(uid!)
+        var nombreUser = "";
+        
+        clientsRef.getDocument{(querySnapshot, err) in
+            if let err = err{
+                print("Error obteniendo documentos \(err)")
+                completion(false, nil)
+            }else{
+                if let nombreCliente = querySnapshot!.data()!["nombre"]as? String{
+                    nombreUser = nombreCliente
+                    completion(true, nombreUser)
+                }else{
+                    completion(false, nombreUser)
+                }
+                
+                
+                
+            }
+            
+        }
+
     }
     
     func obtenerClientes (busquedaParam: String, completion: @escaping (Bool, [Cliente]?)-> Void ){

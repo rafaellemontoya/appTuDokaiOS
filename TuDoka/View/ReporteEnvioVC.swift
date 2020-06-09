@@ -193,7 +193,7 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam: "", keyCliente: "")
         
-        
+        getInfoUser();
         
     }
     func delegarTF(){
@@ -262,6 +262,21 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
         
         
+        
+    }
+    func getInfoUser(){
+        
+        FirebaseDBManager.dbInstance.obtenerInfoUser(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.reporteEnvio?.nombreUsuario = clientesArray!
+                
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
         
     }
 

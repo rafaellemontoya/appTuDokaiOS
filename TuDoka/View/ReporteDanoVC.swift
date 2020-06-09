@@ -178,7 +178,7 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
         self.reporteDano!.setPais(pais: "MX")
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"", keyCliente: "")
-        
+        getInfoUser()
         
         
     }
@@ -256,6 +256,21 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
         numeroProyectoTF.resignFirstResponder()
         self.view.endEditing(true)
         return true
+    }
+    func getInfoUser(){
+        
+        FirebaseDBManager.dbInstance.obtenerInfoUser(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.reporteDano?.nombreUsuario = clientesArray!
+                
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
+        
     }
     
 }

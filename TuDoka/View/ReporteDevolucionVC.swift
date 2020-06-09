@@ -205,7 +205,7 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
         self.reporteDevolucion?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"", keyCliente: "")
-        
+        getInfoUser()
         
         
     }
@@ -280,6 +280,21 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
         numeroClienteTF.resignFirstResponder()
         self.view.endEditing(true)
         return true
+    }
+    func getInfoUser(){
+        
+        FirebaseDBManager.dbInstance.obtenerInfoUser(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.reporteDevolucion?.nombreUsuario = clientesArray!
+                
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
+        
     }
 
 }

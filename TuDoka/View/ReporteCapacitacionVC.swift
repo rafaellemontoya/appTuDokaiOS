@@ -187,7 +187,7 @@ class ReporteCapacitacionVC:  UIViewController,UITableViewDataSource, UITableVie
         reporte?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam: "", keyCliente: "")
-        
+        getInfoUser()
         
         
     }
@@ -267,5 +267,19 @@ class ReporteCapacitacionVC:  UIViewController,UITableViewDataSource, UITableVie
         return true
     }
     
-    
+    func getInfoUser(){
+        
+        FirebaseDBManager.dbInstance.obtenerInfoUser(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.reporte?.nombreUsuario = clientesArray!
+                
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
+        
+    }
 }

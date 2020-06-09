@@ -14,6 +14,7 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
     private var clientesArray: [Cliente] = []
     private var proyectosArray: [Proyecto] = []
     private var reporte: ReporteSeguimiento?
+    private var nombreUsuario=""
     
     @IBOutlet weak var nombreCursoTF: UITextField!
     
@@ -181,9 +182,11 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         delegarTF()
         self.reporte = ReporteSeguimiento()
         reporte?.setIdUsuario(idUsuario: Auth.auth().currentUser!.uid )
+        reporte?.nombreUsuario = self.nombreUsuario
         reporte?.setPais(pais: "MX")
         getInfoClientes(busquedaParam: "")
         getInfoProyectos(busquedaParam:"",keyCliente: "")
+        getInfoUser()
         
         
         
@@ -265,5 +268,19 @@ class ReporteSeguimientoVC: UIViewController,UITableViewDataSource, UITableViewD
         self.view.endEditing(true)
         return true
     }
-    
+    func getInfoUser(){
+        
+        FirebaseDBManager.dbInstance.obtenerInfoUser(){
+            (respuesta, clientesArray) in
+            if(respuesta){
+                self.reporte?.nombreUsuario = clientesArray!
+                
+            }else{
+                print("Error obteniendo documentos ")
+            }
+            
+            
+        }
+        
+    }
 }

@@ -17,6 +17,7 @@
 		050C2E052333FC3700F9B8C0 /* DocumentoClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */; };
 		050C2E07233402AB00F9B8C0 /* NumerosDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */; };
 		050C2E0923342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */; };
+		0510CA0124772FC500C30B9F /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0510CA0024772FC500C30B9F /* demo.gif */; };
 		0517AEF522DD1F8D00422D70 /* ReporteEnvio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */; };
 		0517AEF722DD2CC700422D70 /* Proyecto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF622DD2CC700422D70 /* Proyecto.swift */; };
 		0517AEF922DD413A00422D70 /* ConfirmacionProyectoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */; };
@@ -71,7 +72,6 @@
 		9786E015234C0351004A6E24 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9786E014234C0351004A6E24 /* Gif+Image.swift */; };
 		9786E017234C038B004A6E24 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9786E016234C038B004A6E24 /* CustomLoader.swift */; };
 		9786E019234C08CC004A6E24 /* demo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9786E018234C08CC004A6E24 /* demo2.gif */; };
-		979B7C54234E92A10009E043 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979B7C53234E92A00009E043 /* demo.gif */; };
 		A79FB1F6235A760700D6B2C3 /* EditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79FB1F5235A760700D6B2C3 /* EditImage.swift */; };
 		D37B9BD2EA26D39CD9C6C54E /* Pods_TuDoka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +87,7 @@
 		050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentoClienteViewController.swift; sourceTree = "<group>"; };
 		050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerosDevolucionViewController.swift; sourceTree = "<group>"; };
 		050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarReporteDevolucionViewController.swift; sourceTree = "<group>"; };
+		0510CA0024772FC500C30B9F /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		0517AEF422DD1F8D00422D70 /* ReporteEnvio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteEnvio.swift; sourceTree = "<group>"; };
 		0517AEF622DD2CC700422D70 /* Proyecto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto.swift; sourceTree = "<group>"; };
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
@@ -144,7 +145,6 @@
 		9786E014234C0351004A6E24 /* Gif+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
 		9786E016234C038B004A6E24 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		9786E018234C08CC004A6E24 /* demo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo2.gif; sourceTree = "<group>"; };
-		979B7C53234E92A00009E043 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = demo.gif; path = ../../../../Downloads/demo.gif; sourceTree = "<group>"; };
 		97F8F085EE329E6E2798FA0A /* Pods_TuDoka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDoka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79FB1F5235A760700D6B2C3 /* EditImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImage.swift; sourceTree = "<group>"; };
 		B72034197965470630B3D5B6 /* Pods-TuDoka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDoka.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuDoka/Pods-TuDoka.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,8 +325,8 @@
 				05E93BBB22C4405C0018FF2A /* OptionTableViewCell.swift */,
 				05D055E022E11F5500B504F8 /* FotosResumenTableViewCell.swift */,
 				05D055E222E1409E00B504F8 /* HeaderResumenItemsTableViewCell.swift */,
-				979B7C53234E92A00009E043 /* demo.gif */,
 				0500A7BD22F0A2C500440332 /* OptionDevolucionTableViewCell.swift */,
+				0510CA0024772FC500C30B9F /* demo.gif */,
 				05D29C46232C53A5003D1837 /* RemisionTableViewCell.swift */,
 				9786E014234C0351004A6E24 /* Gif+Image.swift */,
 				9786E018234C08CC004A6E24 /* demo2.gif */,
@@ -414,7 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A113D122C4117100D0A16E /* HelveticaNeueLTW1G-Light.otf in Resources */,
-				979B7C54234E92A10009E043 /* demo.gif in Resources */,
+				0510CA0124772FC500C30B9F /* demo.gif in Resources */,
 				9786E019234C08CC004A6E24 /* demo2.gif in Resources */,
 				05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */,
 				05897CE922C3FD85008AF884 /* LaunchScreen.storyboard in Resources */,
@@ -675,14 +675,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -697,14 +697,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
