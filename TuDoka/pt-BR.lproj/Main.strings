@@ -1,0 +1,915 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0KI-2H-dGa"; */
+"0KI-2H-dGa.text" = "Label";
+
+/* Class = "UILabel"; text = "Descripción de actividad"; ObjectID = "0Sr-d9-9GW"; */
+"0Sr-d9-9GW.text" = "Descrição da atividade";
+
+/* Class = "UILabel"; text = "Por favor ingresa los siguiente datos:"; ObjectID = "10k-xF-RsO"; */
+"10k-xF-RsO.text" = "Favor informar  os seguintes dados";
+
+/* Class = "UIButton"; normalTitle = "Finalizar"; ObjectID = "1A2-cn-F4U"; */
+"1A2-cn-F4U.normalTitle" = "Finalizar";
+
+/* Class = "UILabel"; text = "Email 1"; ObjectID = "1FN-T8-cxU"; */
+"1FN-T8-cxU.text" = "Email 1";
+
+/* Class = "UILabel"; text = "Nombre del proyecto:"; ObjectID = "1cy-3U-VSg"; */
+"1cy-3U-VSg.text" = "Nome do Projeto";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "1do-M8-siU"; */
+"1do-M8-siU.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Cliente:"; ObjectID = "1wU-6k-B8f"; */
+"1wU-6k-B8f.text" = "Cliente:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "29p-aB-Y5O"; */
+"29p-aB-Y5O.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Guardar"; ObjectID = "2Cn-ux-qSL"; */
+"2Cn-ux-qSL.title" = "Salve";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "2Nw-K7-L7r"; */
+"2Nw-K7-L7r.normalTitle" = "Eliminar";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "2O9-UT-Jkb"; */
+"2O9-UT-Jkb.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2VZ-Fc-6gA"; */
+"2VZ-Fc-6gA.text" = "Label";
+
+/* Class = "UILabel"; text = "Reporte de Seguimiento"; ObjectID = "2ds-bh-3hi"; */
+"2ds-bh-3hi.text" = "Relatório de acompanhamento";
+
+/* Class = "UILabel"; text = "Tracto trasero"; ObjectID = "2st-gd-0jk"; */
+"2st-gd-0jk.text" = "Foto veiculo traseira";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "2zx-jm-7mX"; */
+"2zx-jm-7mX.normalTitle" = "Sair";
+
+/* Class = "UILabel"; text = "Escribe el número de remisión y da click en \"Agregar\""; ObjectID = "2zz-jB-NNN"; */
+"2zz-jB-NNN.text" = "Digite o numero da remissão e clique em adicionar";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "30c-Qc-GOJ"; */
+"30c-Qc-GOJ.text" = "Tecnológico de Monterrey";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "34J-6k-DTA"; */
+"34J-6k-DTA.text" = "Label";
+
+/* Class = "UILabel"; text = "Número cliente:"; ObjectID = "34s-bz-pDy"; */
+"34s-bz-pDy.text" = "Numero do cliente";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "3A3-5B-6ks"; */
+"3A3-5B-6ks.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Agregar item dañado"; ObjectID = "3Nd-EC-6f0"; */
+"3Nd-EC-6f0.text" = "Adicionar item";
+
+/* Class = "UILabel"; text = "Unidades"; ObjectID = "3R5-sl-UfR"; */
+"3R5-sl-UfR.text" = "Quantidade de peças";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "42c-Yb-tJK"; */
+"42c-Yb-tJK.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "4F2-46-Atl"; */
+"4F2-46-Atl.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Nombre del proyecto"; ObjectID = "4RR-FT-CMO"; */
+"4RR-FT-CMO.text" = "Nome do Projeto";
+
+/* Class = "UILabel"; text = "Bienvenido a"; ObjectID = "4U9-4h-hP7"; */
+"4U9-4h-hP7.text" = "Bem-vindo a";
+
+/* Class = "UILabel"; text = "Agregar actividad de seguimiento"; ObjectID = "4Wp-kx-xmf"; */
+"4Wp-kx-xmf.text" = "Adicionar atividade para acompanhamento";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "5DF-vg-2In"; */
+"5DF-vg-2In.normalTitle" = "Sair";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "5GW-Rq-iLf"; */
+"5GW-Rq-iLf.title" = "Atrás";
+
+/* Class = "UIButton"; normalTitle = "Eliminar item"; ObjectID = "5N8-Zi-VdU"; */
+"5N8-Zi-VdU.normalTitle" = "Eliminar item";
+
+/* Class = "UIButton"; normalTitle = "Finalizar"; ObjectID = "60r-qS-KxI"; */
+"60r-qS-KxI.normalTitle" = "Finalizar";
+
+/* Class = "UILabel"; text = "Documento devolución"; ObjectID = "66j-T0-ODe"; */
+"66j-T0-ODe.text" = "N.º devolução";
+
+/* Class = "UILabel"; text = "Listas de carga"; ObjectID = "6Kk-ST-ZQu"; */
+"6Kk-ST-ZQu.text" = "Lista de carga";
+
+/* Class = "UILabel"; text = "Escribe el número de remisión y da click en \"Agregar\""; ObjectID = "6Oa-5Z-Dsg"; */
+"6Oa-5Z-Dsg.text" = "Digite o numero da remissão e clique em adicionar";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "6PT-wQ-RBu"; */
+"6PT-wQ-RBu.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Email 2"; ObjectID = "6XX-uY-Aba"; */
+"6XX-uY-Aba.text" = "Email 2";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "6kP-H5-fuR"; */
+"6kP-H5-fuR.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Nombre del proyecto"; ObjectID = "6mu-Nm-qQZ"; */
+"6mu-Nm-qQZ.text" = "Nome do Projeto";
+
+/* Class = "UILabel"; text = "Nombre curso:"; ObjectID = "761-kP-2HT"; */
+"761-kP-2HT.text" = "Nome do curso";
+
+/* Class = "UINavigationItem"; title = "Tú Doka"; ObjectID = "7FF-i4-Lxw"; */
+"7FF-i4-Lxw.title" = "Tú Doka";
+
+/* Class = "UILabel"; text = "Licencia"; ObjectID = "7Js-Kh-RpD"; */
+"7Js-Kh-RpD.text" = "CNH";
+
+/* Class = "UILabel"; text = "Documentos cliente"; ObjectID = "7Uo-Ku-usI"; */
+"7Uo-Ku-usI.text" = "Documentos cliente";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "7a9-cZ-0cZ"; */
+"7a9-cZ-0cZ.title" = "Atrás";
+
+/* Class = "UIButton"; normalTitle = "Nueva foto"; ObjectID = "7v9-DT-CFF"; */
+"7v9-DT-CFF.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8IG-P5-7RS"; */
+"8IG-P5-7RS.text" = "Label";
+
+/* Class = "UILabel"; text = "Número del cliente"; ObjectID = "8Y5-p1-gsu"; */
+"8Y5-p1-gsu.text" = "Numero do cliente";
+//Numero do cliente
+
+
+/* Class = "UILabel"; text = "Bienvenido a"; ObjectID = "8pZ-tl-KLx"; */
+"8pZ-tl-KLx.text" = "Bem-vindo a";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8vw-zX-lIf"; */
+"8vw-zX-lIf.text" = "Label";
+
+/* Class = "UILabel"; text = "Código de pieza"; ObjectID = "9Xe-ZB-agM"; */
+"9Xe-ZB-agM.text" = "Código da peça";
+//Código da peça
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "A3C-T4-C1v"; */
+"A3C-T4-C1v.text" = "Label";
+
+/* Class = "UILabel"; text = "Por favor ingresa los siguiente datos:"; ObjectID = "AFY-rO-jyD"; */
+"AFY-rO-jyD.text" = "Favor informar os seguintes dados";
+
+/* Class = "UILabel"; text = "Tipo de daño"; ObjectID = "AFo-Fc-XZJ"; */
+"AFo-Fc-XZJ.text" = "Tipo de dano";
+
+/* Class = "UILabel"; text = "Número del proyecto"; ObjectID = "AYD-gt-Ioy"; */
+"AYD-gt-Ioy.text" = "Numero do Projeto";
+
+
+/* Class = "UILabel"; text = "167"; ObjectID = "Aan-MI-CO3"; */
+"Aan-MI-CO3.text" = "167";
+
+/* Class = "UILabel"; text = "Nombre del cliente"; ObjectID = "AfM-rS-mAr"; */
+"AfM-rS-mAr.text" = "Nome do cliente";
+
+
+/* Class = "UILabel"; text = "Email 1"; ObjectID = "BOE-gs-tU4"; */
+"BOE-gs-tU4.text" = "Email 1";
+
+/* Class = "UILabel"; text = "Email 2"; ObjectID = "BYA-q9-wvU"; */
+"BYA-q9-wvU.text" = "Email 2";
+
+/* Class = "UILabel"; text = "Envío de reporte"; ObjectID = "BYW-if-UeC"; */
+"BYW-if-UeC.text" = "Envio de relatorio";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "CUR-7E-3or"; */
+"CUR-7E-3or.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cjz-CE-96N"; */
+"Cjz-CE-96N.text" = "Label";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "CsT-9A-Smo"; */
+"CsT-9A-Smo.text" = "Tecnológico de Monterrey";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cuy-ob-AvY"; */
+"Cuy-ob-AvY.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "D6H-I0-WMt"; */
+"D6H-I0-WMt.text" = "Label";
+
+/* Class = "UILabel"; text = "Tracto lateral 1"; ObjectID = "DbX-0i-Fdm"; */
+"DbX-0i-Fdm.text" = "Foto veiculo lateral 1";
+
+/* Class = "UILabel"; text = "Cliente:"; ObjectID = "Dgr-Jq-AAM"; */
+"Dgr-Jq-AAM.text" = "Cliente";
+
+/* Class = "UILabel"; text = "Número del proyecto"; ObjectID = "Dh6-Lj-xZh"; */
+"Dh6-Lj-xZh.text" = "Numero do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "DtS-n5-YGq"; */
+"DtS-n5-YGq.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Confirmación de datos"; ObjectID = "E1Q-kf-6Ef"; */
+"E1Q-kf-6Ef.text" = "Confirmação de dados";
+
+/* Class = "UILabel"; text = "Por favor ingresa los siguiente datos:"; ObjectID = "EFO-rG-ZbX"; */
+"EFO-rG-ZbX.text" = "Favor informar  os seguintes dados";
+
+/* Class = "UIButton"; normalTitle = "Eliminar item"; ObjectID = "EWz-nf-cK6"; */
+"EWz-nf-cK6.normalTitle" = "Eliminar item";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "Epd-ff-D8x"; */
+"Epd-ff-D8x.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Número del cliente"; ObjectID = "FCS-36-FvC"; */
+"FCS-36-FvC.text" = "Numero do cliente";
+
+/* Class = "UILabel"; text = "Número cliente:"; ObjectID = "FJn-HG-pgb"; */
+"FJn-HG-pgb.text" = "Numero do cliente";
+
+/* Class = "UILabel"; text = "Número de devolución"; ObjectID = "FKK-eE-wSC"; */
+"FKK-eE-wSC.text" = "Numero da devolução";
+//Numero da devolução
+//Descrição da peça
+
+
+
+/* Class = "UILabel"; text = "Nombre de pieza"; ObjectID = "FNf-M4-Quu"; */
+"FNf-M4-Quu.text" = "Descrição da peça";
+
+/* Class = "UILabel"; text = "Reporte de Capacitación"; ObjectID = "FXl-sz-I5j"; */
+"FXl-sz-I5j.text" = "Relatório de treinamento";
+//Relatório de treinamento
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "FpF-2S-WLx"; */
+"FpF-2S-WLx.title" = "Atrás";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "Fr2-D7-4uh"; */
+"Fr2-D7-4uh.normalTitle" = "Eliminar";
+
+/* Class = "UILabel"; text = "Agregar actividad de capacitación"; ObjectID = "Fur-2z-Zy4"; */
+"Fur-2z-Zy4.text" = "Incluir atividade de treinamento";
+
+/* Class = "UILabel"; text = "Reporte de Obra"; ObjectID = "Fx2-hn-T6p"; */
+"Fx2-hn-T6p.text" = "Relatório de obra";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "Fxy-Ja-7i1"; */
+"Fxy-Ja-7i1.normalTitle" = "Sair";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "FzG-25-LnW"; */
+"FzG-25-LnW.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Placa trasera"; ObjectID = "FzT-B1-7cq"; */
+"FzT-B1-7cq.text" = "Foto Placa traseira";
+
+/* Class = "UILabel"; text = "Nombre del proyecto"; ObjectID = "GM9-UW-IbA"; */
+"GM9-UW-IbA.text" = "Nome do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "GUF-gb-MNb"; */
+"GUF-gb-MNb.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Nueva foto"; ObjectID = "GUk-wJ-PXi"; */
+"GUk-wJ-PXi.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Resumen de Items"; ObjectID = "GfS-yX-4Xg"; */
+"GfS-yX-4Xg.text" = "Resumo de items";
+
+/* Class = "UILabel"; text = "Número de proyecto:"; ObjectID = "Gms-uS-CU9"; */
+"Gms-uS-CU9.text" = "Numero do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Enviar"; ObjectID = "GrG-fi-f1t"; */
+"GrG-fi-f1t.normalTitle" = "Enviar";
+
+/* Class = "UILabel"; text = "Agregar item"; ObjectID = "GyU-aJ-BBj"; */
+"GyU-aJ-BBj.text" = "Adicionar item";
+
+/* Class = "UILabel"; text = "Reporte de devolución"; ObjectID = "HC1-fY-vwz"; */
+"HC1-fY-vwz.text" = "Relatório de devolução";
+
+/* Class = "UILabel"; text = "Tracto lateral 2"; ObjectID = "HSR-xh-KlR"; */
+"HSR-xh-KlR.text" = "Foto veiculo lateral 2";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "HZH-ec-yPo"; */
+"HZH-ec-yPo.normalTitle" = "Sair";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hck-qt-jI5"; */
+"Hck-qt-jI5.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Finalizar reporte"; ObjectID = "Hw7-UN-DFp"; */
+"Hw7-UN-DFp.normalTitle" = "Finalizar";
+
+/* Class = "UILabel"; text = "Número de proyecto:"; ObjectID = "I0n-bl-D2o"; */
+"I0n-bl-D2o.text" = "Numero do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Reporte de envío"; ObjectID = "IAF-sA-IXn"; */
+"IAF-sA-IXn.normalTitle" = "Relatório de envio";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "IPu-DG-lbb"; */
+"IPu-DG-lbb.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "IRr-lU-19n"; */
+"IRr-lU-19n.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Número del proyecto"; ObjectID = "Ia6-2H-hA9"; */
+"Ia6-2H-hA9.text" = "Numero do Projeto";
+
+/* Class = "UILabel"; text = "Placa delantera"; ObjectID = "J42-av-mKn"; */
+"J42-av-mKn.text" = "Foto Placa dianteira";
+
+/* Class = "UILabel"; text = "Email 3"; ObjectID = "JGI-ez-1ql"; */
+"JGI-ez-1ql.text" = "Email 3";
+
+/* Class = "UIButton"; normalTitle = "Nueva foto"; ObjectID = "JGN-fL-OzR"; */
+"JGN-fL-OzR.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "JKF-aE-9Qo"; */
+"JKF-aE-9Qo.normalTitle" = "Eliminar";
+
+/* Class = "UILabel"; text = "Envío de reporte"; ObjectID = "JP3-oC-4PU"; */
+"JP3-oC-4PU.text" = "Envio de relatorio";
+
+/* Class = "UILabel"; text = "Código de pieza"; ObjectID = "JaI-uh-cxk"; */
+"JaI-uh-cxk.text" = "Código da peça";
+
+/* Class = "UIButton"; normalTitle = "Reporte de obra"; ObjectID = "Je8-kU-c6L"; */
+"Je8-kU-c6L.normalTitle" = "Relatório de obra";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "Jwh-kh-Vzm"; */
+"Jwh-kh-Vzm.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Email 1"; ObjectID = "KAF-zu-mhL"; */
+"KAF-zu-mhL.text" = "Email 1";
+
+/* Class = "UILabel"; text = "Nombre del proyecto:"; ObjectID = "KNH-Az-HdD"; */
+"KNH-Az-HdD.text" = "Nome do Projeto";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "L3K-ec-9cc"; */
+"L3K-ec-9cc.text" = "Label";
+
+/* Class = "UILabel"; text = "Envío de reporte"; ObjectID = "L4x-is-qQY"; */
+"L4x-is-qQY.text" = "Envio de relatorio";
+
+/* Class = "UILabel"; text = "5398"; ObjectID = "LMI-Sw-r49"; */
+"LMI-Sw-r49.text" = "5398";
+
+/* Class = "UILabel"; text = "Número cliente:"; ObjectID = "LOJ-nY-Rjb"; */
+"LOJ-nY-Rjb.text" = "Número cliente:";
+
+/* Class = "UILabel"; text = "Número de proyecto:"; ObjectID = "LaS-C8-i5o"; */
+"LaS-C8-i5o.text" = "Numero do Projeto";
+
+/* Class = "UILabel"; text = "Unidades"; ObjectID = "Lgu-BV-SgM"; */
+"Lgu-BV-SgM.text" = "Unidades";
+
+/* Class = "UILabel"; text = "Nombre del proyecto:"; ObjectID = "MbE-lp-3e4"; */
+"MbE-lp-3e4.text" = "Nome do Projeto";
+
+/* Class = "UILabel"; text = "5398"; ObjectID = "MhX-c3-asO"; */
+"MhX-c3-asO.text" = "5398";
+
+/* Class = "UILabel"; text = "167"; ObjectID = "NvE-14-lCO"; */
+"NvE-14-lCO.text" = "167";
+
+/* Class = "UIButton"; normalTitle = "Finalizar"; ObjectID = "NyE-Xx-aam"; */
+"NyE-Xx-aam.normalTitle" = "Finalizar";
+
+/* Class = "UILabel"; text = "Número del proyecto"; ObjectID = "O27-vJ-hOy"; */
+"O27-vJ-hOy.text" = "Numero do Projeto";
+
+/* Class = "UILabel"; text = "5398"; ObjectID = "OXc-KE-Pcb"; */
+"OXc-KE-Pcb.text" = "5398";
+
+/* Class = "UILabel"; text = "167"; ObjectID = "Of8-Ma-8Bs"; */
+"Of8-Ma-8Bs.text" = "167";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Og4-LW-Fpf"; */
+"Og4-LW-Fpf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "P2B-hG-ik8"; */
+"P2B-hG-ik8.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Envío de reporte"; ObjectID = "P7g-eH-TYd"; */
+"P7g-eH-TYd.text" = "Envio de relatorio";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "PLr-gP-YlU"; */
+"PLr-gP-YlU.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Resumen de Actividades"; ObjectID = "PZ8-JW-r8s"; */
+"PZ8-JW-r8s.text" = "Resumo das atividades";
+
+/* Class = "UILabel"; text = "Soluciones industriales"; ObjectID = "Pi2-H0-Co0"; */
+"Pi2-H0-Co0.text" = "Soluciones industriales";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "QNf-cZ-WPU"; */
+"QNf-cZ-WPU.normalTitle" = "Sair";
+
+/* Class = "UILabel"; text = "Número de remisión"; ObjectID = "Qw8-hu-dYy"; */
+"Qw8-hu-dYy.text" = "Número de remisión";
+
+/* Class = "UILabel"; text = "Tracto lateral 2"; ObjectID = "QwP-lh-bsp"; */
+"QwP-lh-bsp.text" = "Foto veiculo lateral 2";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "R4t-YJ-nYY"; */
+"R4t-YJ-nYY.title" = "Atrás";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "RAn-fx-NS3"; */
+"RAn-fx-NS3.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "Rai-RR-462"; */
+"Rai-RR-462.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Agregar"; ObjectID = "RkM-jT-Elx"; */
+"RkM-jT-Elx.normalTitle" = "Adicionar";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "RxS-Pa-abP"; */
+"RxS-Pa-abP.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "SNH-Hg-D4J"; */
+"SNH-Hg-D4J.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "T0T-GJ-xX4"; */
+"T0T-GJ-xX4.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TEs-ZG-EWA"; */
+"TEs-ZG-EWA.text" = "Label";
+
+/* Class = "UILabel"; text = "Nombre del proyecto:"; ObjectID = "TNj-CF-MWq"; */
+"TNj-CF-MWq.text" = "Nome do Projeto";
+
+/* Class = "UILabel"; text = "Reporte de envío"; ObjectID = "TXu-xz-mBt"; */
+"TXu-xz-mBt.text" = "Relatório de envio";
+
+/* Class = "UIButton"; normalTitle = "Enviar"; ObjectID = "Ti1-wO-OMQ"; */
+"Ti1-wO-OMQ.normalTitle" = "Enviar";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "Tpd-JI-6vd"; */
+"Tpd-JI-6vd.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Cancelar"; ObjectID = "TrM-e8-n7o"; */
+"TrM-e8-n7o.normalTitle" = "Cancelar";
+
+/* Class = "UILabel"; text = "Escribe los correos a los que quieres enviar el reporte"; ObjectID = "Ujm-Sb-1bZ"; */
+"Ujm-Sb-1bZ.text" = "Escreva os e-mails para os quais deseja enviar o relatório";
+
+/* Class = "UIButton"; normalTitle = "Nueva foto"; ObjectID = "UuN-H7-DEs"; */
+"UuN-H7-DEs.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VB6-oJ-0X8"; */
+"VB6-oJ-0X8.text" = "Label";
+
+/* Class = "UILabel"; text = "Proyecto "; ObjectID = "VGM-Hc-onM"; */
+"VGM-Hc-onM.text" = "Proyecto ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VKO-0r-K4E"; */
+"VKO-0r-K4E.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "VLh-wa-Hwc"; */
+"VLh-wa-Hwc.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Reporte de devolución"; ObjectID = "VPT-7A-RAw"; */
+"VPT-7A-RAw.normalTitle" = "Relatório de devolução";
+
+/* Class = "UILabel"; text = "Confirmación de datos"; ObjectID = "VhP-dm-J9h"; */
+"VhP-dm-J9h.text" = "Confirmação de dados";
+
+/* Class = "UILabel"; text = "¿Qué reporte deseas generar?"; ObjectID = "Vmh-ny-xpk"; */
+"Vmh-ny-xpk.text" = "Qual relatório deseja realizar?";
+
+/* Class = "UILabel"; text = "Envío de reporte"; ObjectID = "WFe-IH-3b4"; */
+"WFe-IH-3b4.text" = "Envio de relatorio";
+
+/* Class = "UILabel"; text = "167"; ObjectID = "WVC-UX-Kmy"; */
+"WVC-UX-Kmy.text" = "167";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "WcP-2l-15j"; */
+"WcP-2l-15j.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Wh0-Vw-nH9"; */
+"Wh0-Vw-nH9.text" = "Label";
+
+/* Class = "UILabel"; text = "Confirmación de datos"; ObjectID = "WmD-8O-uI5"; */
+"WmD-8O-uI5.text" = "Confirmação de dados";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Wqz-0F-0OS"; */
+"Wqz-0F-0OS.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "XCG-5E-VhJ"; */
+"XCG-5E-VhJ.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Nombre de pieza"; ObjectID = "XhW-UL-01L"; */
+"XhW-UL-01L.text" = "Descrição da peça";
+
+/* Class = "UILabel"; text = "Email 2"; ObjectID = "Xk2-xG-Pn7"; */
+"Xk2-xG-Pn7.text" = "Email 2";
+
+/* Class = "UILabel"; text = "Nombre del proyecto:"; ObjectID = "XmY-OX-UgH"; */
+"XmY-OX-UgH.text" = "Nome do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Enviar"; ObjectID = "Xxy-Vj-hoO"; */
+"Xxy-Vj-hoO.normalTitle" = "Enviar";
+
+/* Class = "UILabel"; text = "Tracto trasero"; ObjectID = "Y6B-0b-v0g"; */
+"Y6B-0b-v0g.text" = "Foto veiculo traseira";
+
+/* Class = "UILabel"; text = "l"; ObjectID = "YeB-LB-m99"; */
+"YeB-LB-m99.text" = "l";
+
+/* Class = "UILabel"; text = "Contraseña:"; ObjectID = "Ygs-QX-Dqs"; */
+"Ygs-QX-Dqs.text" = "Senha";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "ZYb-ma-mTP"; */
+"ZYb-ma-mTP.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Zcf-eN-dbU"; */
+"Zcf-eN-dbU.text" = "Label";
+
+/* Class = "UILabel"; text = "5398"; ObjectID = "ZmA-Ak-7fo"; */
+"ZmA-Ak-7fo.text" = "5398";
+
+/* Class = "UINavigationItem"; title = "Editar"; ObjectID = "ZmG-bI-fET"; */
+"ZmG-bI-fET.title" = "Editar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ZxV-Q1-Oej"; */
+"ZxV-Q1-Oej.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "a0h-zN-a0z"; */
+"a0h-zN-a0z.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Escribe los correos a los que quieres enviar el reporte"; ObjectID = "a7o-Wc-px9"; */
+"a7o-Wc-px9.text" = "Escreva os e-mails para os quais deseja enviar o relatório";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "aLC-7N-Jwn"; */
+"aLC-7N-Jwn.normalTitle" = "Eliminar";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "aQG-aZ-EwZ"; */
+"aQG-aZ-EwZ.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "l"; ObjectID = "aQd-za-luU"; */
+"aQd-za-luU.text" = "l";
+
+/* Class = "UILabel"; text = "Cliente:"; ObjectID = "aR6-tm-IEJ"; */
+"aR6-tm-IEJ.text" = "Cliente:";
+
+/* Class = "UILabel"; text = "Por favor ingresa los siguiente datos:"; ObjectID = "aRG-YE-e7A"; */
+"aRG-YE-e7A.text" = "Favor informar  os seguintes dados";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aYn-Ka-Utv"; */
+"aYn-Ka-Utv.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Rehacer"; ObjectID = "alk-8F-3bp"; */
+"alk-8F-3bp.title" = "Rehacer";
+
+/* Class = "UILabel"; text = "Número del cliente"; ObjectID = "avK-k6-0DU"; */
+"avK-k6-0DU.text" = "Numero do cliente";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "b71-Al-CkS"; */
+"b71-Al-CkS.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Información de transporte"; ObjectID = "bA7-yz-4S8"; */
+"bA7-yz-4S8.text" = "Informação do veiculo de transporte";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "bLp-Ka-ye6"; */
+"bLp-Ka-ye6.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Cliente:"; ObjectID = "c7H-lT-Ydz"; */
+"c7H-lT-Ydz.text" = "Cliente:";
+
+/* Class = "UILabel"; text = "Tú Doka"; ObjectID = "ccO-6i-rxB"; */
+"ccO-6i-rxB.text" = "Tú Doka";
+
+/* Class = "UIButton"; normalTitle = "Agregar"; ObjectID = "cgK-IJ-CvW"; */
+"cgK-IJ-CvW.normalTitle" = "Adicionar";
+
+/* Class = "UILabel"; text = "Email 3"; ObjectID = "chP-Zd-J1Q"; */
+"chP-Zd-J1Q.text" = "Email 3";
+
+/* Class = "UILabel"; text = "Confirmación de datos"; ObjectID = "d85-RB-Ohu"; */
+"d85-RB-Ohu.text" = "Confirmação de dados";
+
+/* Class = "UILabel"; text = "167"; ObjectID = "dB3-5e-gIe"; */
+"dB3-5e-gIe.text" = "167";
+
+/* Class = "UILabel"; text = "Proyecto "; ObjectID = "dFV-iX-5dj"; */
+"dFV-iX-5dj.text" = "Proyecto ";
+
+/* Class = "UIButton"; normalTitle = "Nuevo item"; ObjectID = "dky-kx-3tT"; */
+"dky-kx-3tT.normalTitle" = "Novo item";
+
+/* Class = "UILabel"; text = "Nombre del cliente"; ObjectID = "dn2-pM-nr9"; */
+"dn2-pM-nr9.text" = "Nome do cliente";
+
+/* Class = "UILabel"; text = "Código de pieza"; ObjectID = "dnQ-e8-UfD"; */
+"dnQ-e8-UfD.text" = "Código da peça";
+
+/* Class = "UIButton"; normalTitle = "Finalizar"; ObjectID = "duV-Iu-4MX"; */
+"duV-Iu-4MX.normalTitle" = "Finalizar";
+
+/* Class = "UILabel"; text = "Email 3"; ObjectID = "e2A-tN-Hrs"; */
+"e2A-tN-Hrs.text" = "Email 3";
+
+/* Class = "UILabel"; text = "Soluciones en infraestructura"; ObjectID = "eYr-Ex-zmR"; */
+"eYr-Ex-zmR.text" = "Soluciones en infraestructura";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "eZO-LB-BCt"; */
+"eZO-LB-BCt.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Nombre del cliente"; ObjectID = "eZV-Gn-TtE"; */
+"eZV-Gn-TtE.text" = "Nome do cliente";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "enx-8S-Uu3"; */
+"enx-8S-Uu3.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Email 2"; ObjectID = "f8Z-hm-seY"; */
+"f8Z-hm-seY.text" = "Email 2";
+
+/* Class = "UILabel"; text = "Nombre del cliente"; ObjectID = "fOG-yz-BUb"; */
+"fOG-yz-BUb.text" = "Nome do cliente";
+
+/* Class = "UILabel"; text = "Descripción de actividad"; ObjectID = "fcb-jn-XWe"; */
+"fcb-jn-XWe.text" = "Descrição da atividade";
+
+/* Class = "UILabel"; text = "Placa trasera"; ObjectID = "fsG-jA-Ggf"; */
+"fsG-jA-Ggf.text" = "Foto Placa traseira";
+
+/* Class = "UILabel"; text = "Tracto lateral 1"; ObjectID = "fym-OG-BEm"; */
+"fym-OG-BEm.text" = "Foto veiculo lateral 1";
+
+/* Class = "UILabel"; text = "TúDoka"; ObjectID = "g8W-UF-CRH"; */
+"g8W-UF-CRH.text" = "TúDoka";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "gN4-Ml-3bd"; */
+"gN4-Ml-3bd.normalTitle" = "Eliminar";
+
+/* Class = "UILabel"; text = "Número de proyecto:"; ObjectID = "gON-RF-BmI"; */
+"gON-RF-BmI.text" = "Numero do Projeto";
+
+/* Class = "UILabel"; text = "Número de proyecto:"; ObjectID = "gVY-EA-XdC"; */
+"gVY-EA-XdC.text" = "Numero do Projeto";
+
+/* Class = "UILabel"; text = "Escribe los correos a los que quieres enviar el reporte"; ObjectID = "gZb-rY-GAP"; */
+"gZb-rY-GAP.text" = "Escreva os e-mails para os quais deseja enviar o relatório";
+
+/* Class = "UILabel"; text = "Usuario:"; ObjectID = "gau-t7-680"; */
+"gau-t7-680.text" = "E-mail:";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "glP-yi-80v"; */
+"glP-yi-80v.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Proyecto "; ObjectID = "h31-I6-h5q"; */
+"h31-I6-h5q.text" = "Proyecto ";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "h33-bH-mjI"; */
+"h33-bH-mjI.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hJO-fl-GHm"; */
+"hJO-fl-GHm.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hg2-6M-R2g"; */
+"hg2-6M-R2g.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hmA-45-2VA"; */
+"hmA-45-2VA.text" = "Label";
+
+/* Class = "UILabel"; text = "Email 1"; ObjectID = "hr1-8r-of9"; */
+"hr1-8r-of9.text" = "Email 1";
+
+/* Class = "UILabel"; text = "Reporte de Equipo Dañado"; ObjectID = "htE-FF-CPr"; */
+"htE-FF-CPr.text" = "Relatório de material danificado";
+
+/* Class = "UILabel"; text = "Email 1"; ObjectID = "iTc-eM-rt4"; */
+"iTc-eM-rt4.text" = "Email 1";
+
+/* Class = "UILabel"; text = "Proyecto "; ObjectID = "ib1-1j-Cjf"; */
+"ib1-1j-Cjf.text" = "Proyecto ";
+
+/* Class = "UILabel"; text = "Nombre de pieza"; ObjectID = "igr-Ke-ubF"; */
+"igr-Ke-ubF.text" = "Descrição da peça";
+
+/* Class = "UIButton"; normalTitle = "Nueva lista de carga"; ObjectID = "inW-GK-TBX"; */
+"inW-GK-TBX.normalTitle" = "Nova lista de carga";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "ivM-88-tRy"; */
+"ivM-88-tRy.text" = "Tecnológico de Monterrey";
+
+/* Class = "UILabel"; text = "Cliente:"; ObjectID = "j5k-zb-4xc"; */
+"j5k-zb-4xc.text" = "Cliente:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jXI-bI-hpB"; */
+"jXI-bI-hpB.text" = "Label";
+
+/* Class = "UILabel"; text = "Nombre del Curso"; ObjectID = "jqW-0Z-bJc"; */
+"jqW-0Z-bJc.text" = "Nome do curso";
+
+/* Class = "UILabel"; text = "Agregar item"; ObjectID = "klr-Z9-ex1"; */
+"klr-Z9-ex1.text" = "Adicionar item";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "lCl-eV-wh9"; */
+"lCl-eV-wh9.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "lFe-Bk-Pva"; */
+"lFe-Bk-Pva.normalTitle" = "Continuar";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "lKu-Ly-qPp"; */
+"lKu-Ly-qPp.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Por favor inicia sesión para continuar"; ObjectID = "lcA-vK-InR"; */
+"lcA-vK-InR.text" = "Por favor faça o login para continuar";
+
+/* Class = "UILabel"; text = "Email 2"; ObjectID = "lyf-Vr-wPm"; */
+"lyf-Vr-wPm.text" = "Email 2";
+
+/* Class = "UILabel"; text = "Email 3"; ObjectID = "mEA-ZW-VHw"; */
+"mEA-ZW-VHw.text" = "Email 3";
+
+/* Class = "UILabel"; text = "Nombre del proyecto"; ObjectID = "mZI-cW-y1U"; */
+"mZI-cW-y1U.text" = "Nome do Projeto";
+
+/* Class = "UIBarButtonItem"; title = "Deshacer"; ObjectID = "mrS-9S-zDk"; */
+"mrS-9S-zDk.title" = "Deshacer";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "n6J-sm-oXZ"; */
+"n6J-sm-oXZ.title" = "Atrás";
+
+/* Class = "UIViewController"; title = "Editar"; ObjectID = "nLl-OK-jjU"; */
+"nLl-OK-jjU.title" = "Editar";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "nM8-Sv-KEh"; */
+"nM8-Sv-KEh.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Unidades"; ObjectID = "nNh-OX-eKk"; */
+"nNh-OX-eKk.text" = "Unidades";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "nQT-b5-bZe"; */
+"nQT-b5-bZe.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "nVN-tq-b2X"; */
+"nVN-tq-b2X.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nWt-D5-3H8"; */
+"nWt-D5-3H8.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Eliminar"; ObjectID = "nde-5a-3nF"; */
+"nde-5a-3nF.normalTitle" = "Eliminar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ngu-kn-f6x"; */
+"ngu-kn-f6x.text" = "Label";
+
+/* Class = "UILabel"; text = "Escribe los correos a los que quieres enviar el reporte"; ObjectID = "noN-Of-OSE"; */
+"noN-Of-OSE.text" = "Escreva os e-mails para os quais deseja enviar o relatório";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nyM-9Q-V7B"; */
+"nyM-9Q-V7B.text" = "Label";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "odn-9V-GmN"; */
+"odn-9V-GmN.text" = "Tecnológico de Monterrey";
+
+/* Class = "UILabel"; text = "Escribe los correos a los que quieres enviar el reporte"; ObjectID = "onH-DX-R5n"; */
+"onH-DX-R5n.text" = "Escreva os e-mails para os quais deseja enviar o relatório";
+
+/* Class = "UILabel"; text = "Por favor ingresa los siguiente datos:"; ObjectID = "pTe-he-pyt"; */
+"pTe-he-pyt.text" = "Favor informar  os seguintes dados";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "pXY-U0-eXv"; */
+"pXY-U0-eXv.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Número cliente:"; ObjectID = "pcp-hO-Hk2"; */
+"pcp-hO-Hk2.text" = "Número cliente:";
+
+/* Class = "UILabel"; text = "Número del cliente"; ObjectID = "q7j-iA-5TL"; */
+"q7j-iA-5TL.text" = "Numero do cliente";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qIk-bv-KAA"; */
+"qIk-bv-KAA.text" = "Label";
+
+/* Class = "UILabel"; text = "Confirmación de datos"; ObjectID = "qXZ-e1-Fac"; */
+"qXZ-e1-Fac.text" = "Confirmação de dados";
+
+/* Class = "UILabel"; text = "Placa delantera"; ObjectID = "r2x-E3-2le"; */
+"r2x-E3-2le.text" = "Foto Placa dianteira";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rEh-pY-yGh"; */
+"rEh-pY-yGh.text" = "Label";
+
+/* Class = "UILabel"; text = "Soluciones en edificación"; ObjectID = "reM-Rb-Fh3"; */
+"reM-Rb-Fh3.text" = "Soluciones en edificación";
+
+/* Class = "UILabel"; text = "Número cliente:"; ObjectID = "riW-3A-Jmr"; */
+"riW-3A-Jmr.text" = "Número cliente:";
+
+/* Class = "UIButton"; normalTitle = "Enviar"; ObjectID = "rie-UQ-sdz"; */
+"rie-UQ-sdz.normalTitle" = "Enviar";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "rob-ht-D0d"; */
+"rob-ht-D0d.text" = "Tecnológico de Monterrey";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "rtf-26-Zwa"; */
+"rtf-26-Zwa.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Información de transporte"; ObjectID = "ry1-XC-Alo"; */
+"ry1-XC-Alo.text" = "Informação do veiculo de transporte";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "s7Q-z2-hwh"; */
+"s7Q-z2-hwh.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "s9I-FF-fJf"; */
+"s9I-FF-fJf.title" = "Atrás";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "sjo-Gc-3HS"; */
+"sjo-Gc-3HS.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Enviar"; ObjectID = "smt-Ie-aPE"; */
+"smt-Ie-aPE.normalTitle" = "Enviar";
+
+/* Class = "UIBarButtonItem"; title = "Atrás"; ObjectID = "spE-Yc-UyT"; */
+"spE-Yc-UyT.title" = "Atrás";
+
+/* Class = "UILabel"; text = "Nombre del cliente"; ObjectID = "ssW-ec-1b9"; */
+"ssW-ec-1b9.text" = "Nome do cliente";
+
+/* Class = "UILabel"; text = "Proyecto "; ObjectID = "sy0-nB-REz"; */
+"sy0-nB-REz.text" = "Proyecto ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tNh-kF-zXH"; */
+"tNh-kF-zXH.text" = "Label";
+
+/* Class = "UILabel"; text = "Resumen de items dañados"; ObjectID = "tNl-XS-E2I"; */
+"tNl-XS-E2I.text" = "Resumo de items";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tOh-dx-x5x"; */
+"tOh-dx-x5x.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tSd-IM-MWi"; */
+"tSd-IM-MWi.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Nueva foto"; ObjectID = "tcU-e4-jbB"; */
+"tcU-e4-jbB.normalTitle" = "Tirar foto";
+
+/* Class = "UILabel"; text = "Número del proyecto"; ObjectID = "uCR-rb-wXO"; */
+"uCR-rb-wXO.text" = "Numero do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Reporte de Seguimiento"; ObjectID = "upZ-73-FtU"; */
+"upZ-73-FtU.normalTitle" = "Relatório de acompanhamento";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "utI-NL-0Zf"; */
+"utI-NL-0Zf.text" = "Label";
+
+/* Class = "UILabel"; text = "Número del cliente"; ObjectID = "vGL-6b-PwP"; */
+"vGL-6b-PwP.text" = "Numero do cliente";
+
+/* Class = "UILabel"; text = "¡Nos da gusto que estés aquí!"; ObjectID = "vIU-rV-6tY"; */
+"vIU-rV-6tY.text" = "Um prazer que esteja aqui";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "vTm-Ez-rLo"; */
+"vTm-Ez-rLo.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; text = "Email 3"; ObjectID = "wEt-gJ-0WX"; */
+"wEt-gJ-0WX.text" = "Email 3";
+
+/* Class = "UILabel"; text = "5398"; ObjectID = "wTv-JP-LoJ"; */
+"wTv-JP-LoJ.text" = "5398";
+
+/* Class = "UILabel"; text = "Licencia"; ObjectID = "xBn-HF-FCu"; */
+"xBn-HF-FCu.text" = "CNH";
+
+/* Class = "UIButton"; normalTitle = "Iniciar Sesión"; ObjectID = "xMs-5f-02m"; */
+"xMs-5f-02m.normalTitle" = "Iniciar sessão";
+
+/* Class = "UILabel"; text = "Tecnológico de Monterrey"; ObjectID = "xbz-b3-IFW"; */
+"xbz-b3-IFW.text" = "Tecnológico de Monterrey";
+
+/* Class = "UILabel"; text = "Nombre del proyecto"; ObjectID = "xju-rM-YT6"; */
+"xju-rM-YT6.text" = "Nome do Projeto";
+
+/* Class = "UIButton"; normalTitle = "Reporte de equipo dañado"; ObjectID = "y9k-TY-iFy"; */
+"y9k-TY-iFy.normalTitle" = "Relatório de material danificado";
+
+/* Class = "UIButton"; normalTitle = "Reporte de Capacitación"; ObjectID = "yMe-Hm-C6x"; */
+"yMe-Hm-C6x.normalTitle" = "Relatório de treinamento";
+
+/* Class = "UIButton"; normalTitle = "Contacto"; ObjectID = "yYW-Eq-2X8"; */
+"yYW-Eq-2X8.normalTitle" = "Contacto";
+
+/* Class = "UILabel"; text = "¿Qué reporte deseas hacer?"; ObjectID = "yc4-XM-b5M"; */
+"yc4-XM-b5M.text" = "Qual relatório deseja realizar?";
+
+/* Class = "UIButton"; normalTitle = "Continuar"; ObjectID = "yeG-tr-6mq"; */
+"yeG-tr-6mq.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Tomar nueva foto"; ObjectID = "z6v-cI-2hH"; */
+"z6v-cI-2hH.normalTitle" = "Tirar foto";
+
+/* Class = "UIButton"; normalTitle = "Eliminar item"; ObjectID = "zDo-y0-S9W"; */
+"zDo-y0-S9W.normalTitle" = "Eliminar item";
+
+/* Class = "UILabel"; text = "Resumen de Items"; ObjectID = "zKI-cJ-vGe"; */
+"zKI-cJ-vGe.text" = "Resumo de items";
+//Resumo de items
+
+/* Class = "UIButton"; normalTitle = "Nuevo documento cliente"; ObjectID = "zfc-gp-cGd"; */
+"zfc-gp-cGd.normalTitle" = "Novo documento cliente";
+//Novo documento cliente
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zsX-Jc-xGA"; */
+"zsX-Jc-xGA.text" = "Label";
+
+/* Class = "UILabel"; text = "Resumen de Actividades"; ObjectID = "zuk-f8-6oE"; */
+"zuk-f8-6oE.text" = "Resumo das atividades";

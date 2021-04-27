@@ -14,6 +14,7 @@
 		0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C422F0C64200440332 /* ReporteDano.swift */; };
 		0500A7C722F0CDC200440332 /* ConfirmacionDatosDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */; };
 		0500A7C922F0CF9C00440332 /* ItemsDanoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */; };
+		0504480C24EEE74200B354A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0504480B24EEE74200B354A2 /* Localizable.strings */; };
 		050C2E052333FC3700F9B8C0 /* DocumentoClienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */; };
 		050C2E07233402AB00F9B8C0 /* NumerosDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */; };
 		050C2E0923342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */; };
@@ -43,6 +44,7 @@
 		0583B5AC22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */; };
 		0583B5B122F39E6A00E1B5C4 /* FirebaseDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */; };
 		0583B5B322F3C4FF00E1B5C4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */; };
+		05872A9624F987FE009943B1 /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05872A9524F987FE009943B1 /* LocalizationSystem.swift */; };
 		05897CDF22C3FD83008AF884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CDE22C3FD83008AF884 /* AppDelegate.swift */; };
 		05897CE122C3FD83008AF884 /* InicioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05897CE022C3FD83008AF884 /* InicioVC.swift */; };
 		05897CE422C3FD83008AF884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05897CE222C3FD83008AF884 /* Main.storyboard */; };
@@ -84,6 +86,7 @@
 		0500A7C422F0C64200440332 /* ReporteDano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDano.swift; sourceTree = "<group>"; };
 		0500A7C622F0CDC200440332 /* ConfirmacionDatosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDanoVC.swift; sourceTree = "<group>"; };
 		0500A7C822F0CF9C00440332 /* ItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDanoVC.swift; sourceTree = "<group>"; };
+		0504480B24EEE74200B354A2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		050C2E042333FC3700F9B8C0 /* DocumentoClienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentoClienteViewController.swift; sourceTree = "<group>"; };
 		050C2E06233402AB00F9B8C0 /* NumerosDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerosDevolucionViewController.swift; sourceTree = "<group>"; };
 		050C2E0823342A1700F9B8C0 /* EnviarReporteDevolucionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarReporteDevolucionViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 		0517AEF822DD413A00422D70 /* ConfirmacionProyectoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionProyectoVC.swift; sourceTree = "<group>"; };
 		052A369822F0F47200B68DB5 /* ResumenItemsDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumenItemsDanoVC.swift; sourceTree = "<group>"; };
 		052A369A22F0F8FB00B68DB5 /* EnviarCorreosDanoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosDanoVC.swift; sourceTree = "<group>"; };
+		053000FF249043A80073EEA0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		05300100249043A90073EEA0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		053D482622EF3EF500752F15 /* ReporteDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucionVC.swift; sourceTree = "<group>"; };
 		053D482822EF3F1F00752F15 /* ReporteDevolucion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporteDevolucion.swift; sourceTree = "<group>"; };
 		053D482A22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionDatosDevolucionVC.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		0583B5AB22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreosSeguimientoVC.swift; sourceTree = "<group>"; };
 		0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDBManager.swift; sourceTree = "<group>"; };
 		0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		05872A9524F987FE009943B1 /* LocalizationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
 		05897CDB22C3FD83008AF884 /* TuDoka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuDoka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05897CDE22C3FD83008AF884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05897CE022C3FD83008AF884 /* InicioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioVC.swift; sourceTree = "<group>"; };
@@ -234,6 +240,7 @@
 			children = (
 				0583B5B022F39E6A00E1B5C4 /* FirebaseDBManager.swift */,
 				0583B5B222F3C4FF00E1B5C4 /* StorageManager.swift */,
+				05872A9524F987FE009943B1 /* LocalizationSystem.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +279,7 @@
 				05897CE722C3FD85008AF884 /* LaunchScreen.storyboard */,
 				05897CEA22C3FD85008AF884 /* Info.plist */,
 				05A113D322C412D600D0A16E /* Constants.swift */,
+				0504480B24EEE74200B354A2 /* Localizable.strings */,
 			);
 			path = TuDoka;
 			sourceTree = "<group>";
@@ -397,6 +405,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 05897CD222C3FD83008AF884;
 			productRefGroup = 05897CDC22C3FD83008AF884 /* Products */;
@@ -417,6 +426,7 @@
 				0510CA0124772FC500C30B9F /* demo.gif in Resources */,
 				9786E019234C08CC004A6E24 /* demo2.gif in Resources */,
 				05A113D222C4117100D0A16E /* HelveticaNeueLTW1G-BOLD.otf in Resources */,
+				0504480C24EEE74200B354A2 /* Localizable.strings in Resources */,
 				05897CE922C3FD85008AF884 /* LaunchScreen.storyboard in Resources */,
 				05897CF122C40242008AF884 /* GoogleService-Info.plist in Resources */,
 				05897CE622C3FD85008AF884 /* Assets.xcassets in Resources */,
@@ -475,6 +485,7 @@
 				0583B5AC22F35BC000E1B5C4 /* EnviarCorreosSeguimientoVC.swift in Sources */,
 				05D055DD22E0FD5200B504F8 /* ResumenItemsVC.swift in Sources */,
 				053D482B22EF592600752F15 /* ConfirmacionDatosDevolucionVC.swift in Sources */,
+				05872A9624F987FE009943B1 /* LocalizationSystem.swift in Sources */,
 				0500A7C522F0C64200440332 /* ReporteDano.swift in Sources */,
 				05D29C45232C3E65003D1837 /* ListasDeCargaViewController.swift in Sources */,
 				0583B5B322F3C4FF00E1B5C4 /* StorageManager.swift in Sources */,
@@ -537,6 +548,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				05897CE322C3FD83008AF884 /* Base */,
+				053000FF249043A80073EEA0 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -545,6 +557,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				05897CE822C3FD85008AF884 /* Base */,
+				05300100249043A90073EEA0 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -556,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -617,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -675,14 +690,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -697,14 +712,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuDoka/TuDoka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 2T4G6TP27J;
 				INFOPLIST_FILE = TuDoka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dokamexico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

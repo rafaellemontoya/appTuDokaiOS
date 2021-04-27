@@ -104,6 +104,7 @@ class EnviarCorreosDanoVC: UIViewController, UITextFieldDelegate {
             let nombreCliente: String
             let numeroCliente: String
             let usuario: String
+            let numeroDevolucion: String
             
         }
         
@@ -118,7 +119,8 @@ class EnviarCorreosDanoVC: UIViewController, UITextFieldDelegate {
             numeroProyecto: reporte!.getProyecto().numero,
             nombreCliente: reporte!.getCliente().nombre,
             numeroCliente: reporte!.getCliente().numero,
-            usuario: reporte!.getIdUsuario()
+            usuario: reporte!.getIdUsuario(),
+            numeroDevolucion: reporte!.numeroDevolucion
         )
         guard let uploadData = try? JSONEncoder().encode(pdf) else {
             return

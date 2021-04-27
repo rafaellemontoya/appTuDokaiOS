@@ -18,6 +18,7 @@ class ReporteDano{
     private var pais: String
     var nombreUsuario: String
     var emailUsuario: String
+    var numeroDevolucion: String;
 
     init(){
         idReporte = ""
@@ -27,6 +28,7 @@ class ReporteDano{
         proyecto = Proyecto()
         idUsuario = ""
         pais = ""
+        numeroDevolucion = ""
         
     }
     func setProyecto(proyecto: Proyecto){

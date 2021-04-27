@@ -106,7 +106,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D6873F88-57FA-4081-9724-73A66ECFFCDA - 42a2190e5c6203ae"
+                  uuid = "D6873F88-57FA-4081-9724-73A66ECFFCDA - 17e6c9bcc212037e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -121,7 +121,7 @@
                   offsetFromSymbolStart = "5880">
                </Location>
                <Location
-                  uuid = "D6873F88-57FA-4081-9724-73A66ECFFCDA - 752fa5a627453f53"
+                  uuid = "D6873F88-57FA-4081-9724-73A66ECFFCDA - 206b7514b9353fcd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -154,7 +154,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "EE66107F-6D93-43F9-AF1E-7941EA6F5E83 - ef9487972310b643"
+                  uuid = "EE66107F-6D93-43F9-AF1E-7941EA6F5E83 - a92f1cd9962e8564"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -169,7 +169,7 @@
                   offsetFromSymbolStart = "308">
                </Location>
                <Location
-                  uuid = "EE66107F-6D93-43F9-AF1E-7941EA6F5E83 - 4bb99fa0028fcd78"
+                  uuid = "EE66107F-6D93-43F9-AF1E-7941EA6F5E83 - d0204eeb7b1fe1d"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -260,8 +260,8 @@
             filePath = "TuDoka/View/MainMenu.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,7 +282,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "381094E2-DBFD-410B-896B-7A2069E69DEF - 687898bae133bc63"
+                  uuid = "381094E2-DBFD-410B-896B-7A2069E69DEF - 2ec303f4540d920f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -297,7 +297,7 @@
                   offsetFromSymbolStart = "1116">
                </Location>
                <Location
-                  uuid = "381094E2-DBFD-410B-896B-7A2069E69DEF - 116e4d711bd42dfb"
+                  uuid = "381094E2-DBFD-410B-896B-7A2069E69DEF - 57d5d63faeea0259"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"

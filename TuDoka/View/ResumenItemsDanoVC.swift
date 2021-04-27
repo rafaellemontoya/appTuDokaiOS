@@ -15,12 +15,29 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var fotosTV: UITableView!
     
     
+    @IBOutlet weak var numeroDevolucionET: UITextField!
+    
+    
     @IBAction func nuevoItemBtn(_ sender: Any) {
         performSegue(withIdentifier: "nuevoItemSegue", sender: self)
     }
     
     
     @IBAction func finalizarBTN(_ sender: Any) {
+        
+        if(numeroDevolucionET.text == ""){
+            let alert = UIAlertController(title: "Por favor escribe un número de devolución", message: "", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: NSLocalizedString("Aceptar", comment: "Default action"), style: .default, handler: { _ in
+                  NSLog("The \"OK\" alert occured.")
+                  //regreso a la pantalla anterior
+                  
+                  
+                  
+              }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            reporte?.numeroDevolucion = numeroDevolucionET.text!
+        
         
         let alert = UIAlertController(title: "¿Estás seguro de querer terminar el reporte?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .default, handler: { _ in
@@ -50,7 +67,7 @@ class ResumenItemsDanoVC: UIViewController, UITableViewDataSource, UITableViewDe
         }))
         self.present(alert, animated: true, completion: nil)
         
-        
+        }
         
     }
     
