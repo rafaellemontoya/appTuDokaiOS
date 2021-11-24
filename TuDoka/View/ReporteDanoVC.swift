@@ -99,7 +99,20 @@ class ReporteDanoVC: UIViewController,UITableViewDataSource, UITableViewDelegate
     }
     
     @IBAction func continuarBTN(_ sender: Any) {
-        performSegue(withIdentifier: "confirmacionProyectoDanoSegue", sender: self)
+        if(self.reporteDano?.getCliente().nombre == "" || self.reporteDano?.getProyecto().nombre == "" ){
+            let alert = UIAlertController(title: "Selecciona un cliente y un proyecto para continuar", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                //regreso a la pantalla anterior
+                
+                
+    //            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            performSegue(withIdentifier: "confirmacionProyectoDanoSegue", sender: self)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

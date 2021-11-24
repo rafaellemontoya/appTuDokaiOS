@@ -12,6 +12,24 @@ import Firebase
 class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
     
+    @IBAction func continuarBTN(_ sender: Any) {
+        
+        if(self.reporteEnvio?.getCliente().nombre == "" || self.reporteEnvio?.getProyecto().nombre == "" ){
+            let alert = UIAlertController(title: "Selecciona un cliente y un proyecto para continuar", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                //regreso a la pantalla anterior
+                
+                
+    //            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "confenvioSG", sender: self)
+        }
+        
+        
+    }
     
     
     @IBOutlet weak var tableNombreCliente: UITableView!
@@ -256,7 +274,8 @@ class ReporteEnvioVC: UIViewController,UITableViewDataSource, UITableViewDelegat
         backItem.title = "Atrás"
         navigationItem.backBarButtonItem = backItem
         //cCreo una variable para inicializar
-        if(segue.identifier == "confirmacionProyecto"){
+        if(segue.identifier == "confenvioSG"){
+            
             let receiverVC = segue.destination as! ConfirmacionProyectoVC
             receiverVC.reporteEnvio = self.reporteEnvio!
         }

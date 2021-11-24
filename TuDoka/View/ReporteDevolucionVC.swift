@@ -12,6 +12,24 @@ import Firebase
 class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     //Nombre Cliente
     var db: Firestore!
+    
+    @IBAction func continuarBTN(_ sender: Any) {
+        if(self.reporteDevolucion?.getCliente().nombre == "" || self.reporteDevolucion?.getProyecto().nombre == "" ){
+            let alert = UIAlertController(title: "Selecciona un cliente y un proyecto para continuar", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                //regreso a la pantalla anterior
+                
+                
+    //            self.performSegue(withIdentifier: "menuPrincipalDanoSegue", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "confdevSG", sender: self)
+        }
+    }
+    
+    
     @IBOutlet weak var nombreClienteTV: UITableView!
     
     
@@ -250,7 +268,7 @@ class ReporteDevolucionVC: UIViewController,UITableViewDataSource, UITableViewDe
         navigationItem.backBarButtonItem = backItem
        
         if( self.reporteDevolucion?.getCliente().key != ""){
-            if(segue.identifier == "confirmacionProyectoDevolucion"){
+            if(segue.identifier == "confdevSG"){
                 let receiverVC = segue.destination as! ConfirmacionDatosDevolucionVC
                 receiverVC.reporteDevolucion = self.reporteDevolucion
             }

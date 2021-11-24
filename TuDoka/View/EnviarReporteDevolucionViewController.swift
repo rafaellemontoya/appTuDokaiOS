@@ -25,6 +25,11 @@ class EnviarReporteDevolucionViewController:  UIViewController, UITextFieldDeleg
         self.performSegue(withIdentifier: "menuPrincipalSegue", sender: self)
     }
     
+    @IBAction func verReporte(_ sender: Any) {
+        if let url = URL(string: "https://themyt.com/reportedoka/pdfs/"+reporte!.getIdReporte()+".pdf") {
+            UIApplication.shared.open(url)
+        }
+    }
     
     @IBAction func finalizarBTN(_ sender: Any) {
         
@@ -64,6 +69,8 @@ class EnviarReporteDevolucionViewController:  UIViewController, UITextFieldDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CustomLoader.instance.showLoaderView()
+        self.generarPDF()
         delegarTF()
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
@@ -83,7 +90,81 @@ class EnviarReporteDevolucionViewController:  UIViewController, UITextFieldDeleg
         }
     }
     
-    
+    func generarPDF(){
+        
+        let session = URLSession.shared
+        let url = URL(string: "https://www.themyt.com/reportedoka/reporte_devolucion.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
+        
+        struct PDF: Codable {
+            let reporteId: String
+            let items: [Item]
+            let emails: [String]
+            let nombreUsuario: String
+            let emailUsuario: String
+            let nombreProyecto : String
+            let numeroProyecto : String
+            let nombreCliente: String
+            let numeroCliente: String
+            let usuario: String
+            let urlListaCarga: [String]
+            let remisiones: [String]
+            
+            let urlFotoLicencia: String
+            let urlFotoPlacaDelantera: String
+            let urlFotoPlacaTrasera: String
+            let urlFotoTractoLateral1: String
+            let urlFotoTractoLateral2: String
+            let urlFotoTractoTrasera: String
+        }
+        
+        // ...
+        
+        let pdf = PDF(reporteId: reporte!.getIdReporte(),
+                      items: reporte!.getItems(),
+                      emails: self.emails,
+                      nombreUsuario: self.reporte!.nombreUsuario,
+                      emailUsuario: self.reporte!.emailUsuario,
+                      nombreProyecto: reporte!.getProyecto().nombre,
+                      numeroProyecto: reporte!.getProyecto().numero,
+                      nombreCliente: reporte!.getCliente().nombre,
+                      numeroCliente: reporte!.getCliente().numero,
+                      usuario: reporte!.getIdUsuario(),
+                      urlListaCarga: reporte!.urlListaCarga,
+                      remisiones: reporte!.listaRemision,
+                      urlFotoLicencia: reporte!.urlFotoLicencia,
+                      urlFotoPlacaDelantera: reporte!.urlFotoPlacaDelantera,
+                      urlFotoPlacaTrasera: reporte!.urlFotoPlacaTrasera,
+                      urlFotoTractoLateral1: reporte!.urlFotoTractoLateral1,
+                      urlFotoTractoLateral2: reporte!.urlFotoTractoLateral2,
+                      urlFotoTractoTrasera: reporte!.urlFotoTractoTrasera
+            
+            
+        )
+        guard let uploadData = try? JSONEncoder().encode(pdf) else {
+            return
+        }
+        print(pdf)
+        
+        let task = session.uploadTask(with: request, from: uploadData) { data, response, error in
+            // Do something...
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print(dataString)
+                DispatchQueue.main.async(execute: {
+                    /// code goes here
+                    CustomLoader.instance.hideLoaderView()
+                })
+                
+            }
+        }
+        
+        task.resume()
+        
+        
+    }
     func enviarEmail(){
         
         let session = URLSession.shared

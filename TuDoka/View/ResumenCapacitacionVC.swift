@@ -14,6 +14,9 @@ class ResumenCapacitacionVC: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var fotosTV: UITableView!
     
+    
+    
+    
     @IBAction func nuevoItemBtn(_ sender: Any) {
         
         performSegue(withIdentifier: "nuevoItemSegue", sender: self)

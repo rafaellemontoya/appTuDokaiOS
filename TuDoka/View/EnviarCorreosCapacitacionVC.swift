@@ -19,6 +19,12 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email2TF: UITextField!
     
     @IBOutlet weak var email3TF: UITextField!
+    @IBAction func verReporte(_ sender: Any) {
+        
+        if let url = URL(string: "https://themyt.com/reportedoka/reportecapacitacion/"+reporte!.getIdReporte()+".pdf") {
+            UIApplication.shared.open(url)
+        }
+    }
     
     @IBAction func salir(_ sender: Any) {
         self.performSegue(withIdentifier: "menuPrincipalCapacitacionSegue", sender: self)
@@ -61,7 +67,8 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        CustomLoader.instance.showLoaderView()
+        self.generarPDF()
         delegarTF()
         
         self.navigationItem.hidesBackButton = true
@@ -83,7 +90,66 @@ class EnviarCorreosCapacitacionVC: UIViewController, UITextFieldDelegate {
         }
         self.enviarEmails()
     }
-    
+    func generarPDF(){
+        
+        let session = URLSession.shared
+        let url = URL(string: "https://www.themyt.com/reportedoka/reporteCapacitacion.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
+        
+        struct PDF: Codable {
+            let reporteId: String
+            let items: [ActividadCapacitacion]
+            let emails: [String]
+            let nombreCurso: String
+            let nombreUsuario: String
+            let emailUsuario: String
+            let nombreProyecto : String
+            let numeroProyecto : String
+            let nombreCliente: String
+            let numeroCliente: String
+            let usuario: String
+            
+        }
+        
+        // ...
+        
+        let pdf = PDF(reporteId: reporte!.getIdReporte(),
+                      items: reporte!.getItems(),
+                      emails: self.emails,
+                      nombreCurso: self.reporte!.getNombreCurso(),
+                      nombreUsuario: self.reporte!.nombreUsuario,
+                      emailUsuario: self.reporte!.emailUsuario,
+                      nombreProyecto: reporte!.getProyecto().nombre,
+                      numeroProyecto: reporte!.getProyecto().numero,
+                      nombreCliente: reporte!.getCliente().nombre,
+                      numeroCliente: reporte!.getCliente().numero,
+                      usuario: reporte!.getIdUsuario()
+        )
+        guard let uploadData = try? JSONEncoder().encode(pdf) else {
+            return
+        }
+        
+        
+        let task = session.uploadTask(with: request, from: uploadData) { data, response, error in
+            // Do something...
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print(dataString)
+                DispatchQueue.main.async(execute: {
+                    /// code goes here
+                    
+                    
+                    CustomLoader.instance.hideLoaderView()
+                })
+            }
+        }
+        
+        task.resume()
+        
+        
+    }
     func enviarEmails(){
         
         let session = URLSession.shared
